@@ -1,0 +1,584 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{092CF03A-4BCE-4534-B500-4E3A4966A3B6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SILVER_E</RootNamespace>
+    <AssemblyName>SILVER_E</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v17.1" />
+    <Reference Include="DevExpress.Data.v17.1" />
+    <Reference Include="DevExpress.SpellChecker.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.1" />
+    <Reference Include="DevExpress.Sparkline.v17.1.Core" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v17.1" />
+    <Reference Include="DevExpress.Printing.v17.1.Core" />
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1.Extensions, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpellChecker.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraWizard.v17.1, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admininistrador\frm_accessories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_accessories.Designer.cs">
+      <DependentUpon>frm_accessories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_agents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_agents.Designer.cs">
+      <DependentUpon>frm_agents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_assign_acc_mat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_assign_acc_mat.Designer.cs">
+      <DependentUpon>frm_assign_acc_mat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_city.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_city.Designer.cs">
+      <DependentUpon>frm_city.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_clients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_clients.Designer.cs">
+      <DependentUpon>frm_clients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_company.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_company.Designer.cs">
+      <DependentUpon>frm_company.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_compras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_compras.Designer.cs">
+      <DependentUpon>frm_compras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_country.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_country.Designer.cs">
+      <DependentUpon>frm_country.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_folios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_folios.Designer.cs">
+      <DependentUpon>frm_folios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_material.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_material.Designer.cs">
+      <DependentUpon>frm_material.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_providers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_providers.Designer.cs">
+      <DependentUpon>frm_providers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_route.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_route.Designer.cs">
+      <DependentUpon>frm_route.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_state.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_state.Designer.cs">
+      <DependentUpon>frm_state.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_status_clients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_status_clients.Designer.cs">
+      <DependentUpon>frm_status_clients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_type_doctos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_type_doctos.Designer.cs">
+      <DependentUpon>frm_type_doctos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_users.Designer.cs">
+      <DependentUpon>frm_users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_user_type.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_user_type.Designer.cs">
+      <DependentUpon>frm_user_type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admininistrador\frm_warehouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_warehouse.Designer.cs">
+      <DependentUpon>frm_warehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_acceso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_acceso.Designer.cs">
+      <DependentUpon>frm_acceso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frn_main_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frn_main_form.Designer.cs">
+      <DependentUpon>frn_main_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Metodos.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SILVER_ERPDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SILVER_ERPDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TOOLS\frm_excel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TOOLS\frm_excel.Designer.cs">
+      <DependentUpon>frm_excel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TOOLS\frm_pdf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TOOLS\frm_pdf.Designer.cs">
+      <DependentUpon>frm_pdf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TOOLS\frm_word.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TOOLS\frm_word.Designer.cs">
+      <DependentUpon>frm_word.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admininistrador\frm_city.resx">
+      <DependentUpon>frm_city.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admininistrador\frm_clients.resx">
+      <DependentUpon>frm_clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admininistrador\frm_country.resx">
+      <DependentUpon>frm_country.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admininistrador\frm_state.resx">
+      <DependentUpon>frm_state.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admininistrador\frm_users.resx">
+      <DependentUpon>frm_users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admininistrador\frm_user_type.resx">
+      <DependentUpon>frm_user_type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_acceso.resx">
+      <DependentUpon>frm_acceso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frn_main_form.resx">
+      <DependentUpon>frn_main_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="App.config" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Service References\ServiceReference1\WebService11.wsdl" />
+    <None Include="SILVER_ERPDataSet.xsc">
+      <DependentUpon>SILVER_ERPDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SILVER_ERPDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SILVER_ERPDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SILVER_ERPDataSet.xss">
+      <DependentUpon>SILVER_ERPDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo-login.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\WebService11.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\country_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\country_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shapelabels_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shapelabels_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geopointmap_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geopointmap_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconsetstars3_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconsetstars3_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bosale_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bosale_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boproductgroup_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boproductgroup_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\female_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\female_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\currency2_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\currency2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editingunmergecells_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editingunmergecells_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exporttopdf_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exporttopdf_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inlinewithtext_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inlinewithtext_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usergroup_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usergroup_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bouser_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bouser_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconsetsymbolscircled3_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconsetsymbolscircled3_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bodetails_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bodetails_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customization_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customization_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\general_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\general_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\projectdirectory_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\projectdirectory_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bocustomer_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bocustomer_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boposition2_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boposition2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boorderitem_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boorderitem_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\renamedatasource_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\renamedatasource_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deletelist_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deletelist_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\richeditclearformatting_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\richeditclearformatting_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preview_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preview_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\listbullets_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\listbullets_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\legendnone_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\legendnone_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\masterfilter_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\masterfilter_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ignoremasterfilter_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ignoremasterfilter_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tableproperties_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\servermode_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\servermode_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bouser_32x321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bouser_16x161.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboardtitle_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboardtitle_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inlinesizelegend_32x322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inlinesizelegend_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\legendnone2_32x322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\legendnone2_16x162.png" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
