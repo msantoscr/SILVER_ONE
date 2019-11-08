@@ -20,6 +20,7 @@ namespace SILVER_E.Admininistrador
         frn_main_form frn_menu;
         //
         //
+        //cambio 3
         public void CLEAN_FIELDS() {
             TXT_ID.ResetText();
             TXT_NAME.ResetText();
