@@ -19,6 +19,7 @@ namespace SILVER_E.Admininistrador
         Metodos mtd = new Metodos();
         frn_main_form frn_menu;
         //
+        //
         public void CLEAN_FIELDS() {
             TXT_ID.ResetText();
             TXT_NAME.ResetText();
