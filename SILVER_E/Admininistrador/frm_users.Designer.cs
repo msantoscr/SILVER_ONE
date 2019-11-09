@@ -178,6 +178,7 @@
             this.BTN_DELETE.Id = 3;
             this.BTN_DELETE.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.deletelist_32x32;
             this.BTN_DELETE.Name = "BTN_DELETE";
+            this.BTN_DELETE.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_DELETE_ItemClick);
             // 
             // BTN_CLEAN
             // 
@@ -185,6 +186,7 @@
             this.BTN_CLEAN.Id = 4;
             this.BTN_CLEAN.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.richeditclearformatting_32x32;
             this.BTN_CLEAN.Name = "BTN_CLEAN";
+            this.BTN_CLEAN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_CLEAN_ItemClick);
             // 
             // BTN_SHOW
             // 
@@ -192,6 +194,7 @@
             this.BTN_SHOW.Id = 5;
             this.BTN_SHOW.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.show_32x32;
             this.BTN_SHOW.Name = "BTN_SHOW";
+            this.BTN_SHOW.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_SHOW_ItemClick);
             // 
             // barButtonItem1
             // 
@@ -257,6 +260,7 @@
             this.BTN_PRINT.Id = 13;
             this.BTN_PRINT.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.printer_32x32;
             this.BTN_PRINT.Name = "BTN_PRINT";
+            this.BTN_PRINT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_PRINT_ItemClick);
             // 
             // BTN_PREVIEW
             // 
@@ -264,6 +268,7 @@
             this.BTN_PREVIEW.Id = 14;
             this.BTN_PREVIEW.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.preview_32x32;
             this.BTN_PREVIEW.Name = "BTN_PREVIEW";
+            this.BTN_PREVIEW.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_PREVIEW_ItemClick);
             // 
             // SHOW_PANEL
             // 
@@ -271,6 +276,7 @@
             this.SHOW_PANEL.Id = 15;
             this.SHOW_PANEL.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.inlinesizelegend_32x32;
             this.SHOW_PANEL.Name = "SHOW_PANEL";
+            this.SHOW_PANEL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.SHOW_PANEL_ItemClick);
             // 
             // HIDE_PANEL
             // 
@@ -279,6 +285,7 @@
             this.HIDE_PANEL.Id = 16;
             this.HIDE_PANEL.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.legendnone_32x32;
             this.HIDE_PANEL.Name = "HIDE_PANEL";
+            this.HIDE_PANEL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.HIDE_PANEL_ItemClick);
             // 
             // SHOW_AUTOFILTER
             // 
@@ -286,6 +293,7 @@
             this.SHOW_AUTOFILTER.Id = 17;
             this.SHOW_AUTOFILTER.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.masterfilter_32x32;
             this.SHOW_AUTOFILTER.Name = "SHOW_AUTOFILTER";
+            this.SHOW_AUTOFILTER.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.SHOW_AUTOFILTER_ItemClick);
             // 
             // HIDE_AUTOFILTER
             // 
@@ -594,6 +602,7 @@
             this.TXT_ID.Properties.ReadOnly = true;
             this.TXT_ID.Size = new System.Drawing.Size(117, 22);
             this.TXT_ID.TabIndex = 46;
+            this.TXT_ID.TextChanged += new System.EventHandler(this.TXT_ID_TextChanged);
             // 
             // LabelControl2
             // 
@@ -629,6 +638,7 @@
             this.DGV_DATA.UseEmbeddedNavigator = true;
             this.DGV_DATA.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.G_DATA});
+            this.DGV_DATA.DoubleClick += new System.EventHandler(this.DGV_DATA_DoubleClick);
             // 
             // G_DATA
             // 
@@ -653,6 +663,7 @@
             this.G_DATA.OptionsBehavior.Editable = false;
             this.G_DATA.OptionsView.ColumnAutoWidth = false;
             this.G_DATA.OptionsView.ShowFooter = true;
+            this.G_DATA.DoubleClick += new System.EventHandler(this.G_DATA_DoubleClick);
             // 
             // colID
             // 
