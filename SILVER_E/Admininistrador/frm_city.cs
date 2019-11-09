@@ -191,7 +191,7 @@ namespace SILVER_E.Admininistrador
 
         private void frm_city_Load(object sender, EventArgs e)
         {
-         
+            FILL_DATA();
         }
 
         private void BTN_PRINT_ItemClick(object sender, ItemClickEventArgs e)
