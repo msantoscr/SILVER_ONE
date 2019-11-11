@@ -48,6 +48,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CURPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CURPLib.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.BonusSkins.v17.1" />
     <Reference Include="DevExpress.Data.v17.1" />
     <Reference Include="DevExpress.SpellChecker.v17.1.Core, Version=17.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -572,7 +576,6 @@
   <ItemGroup>
     <None Include="Resources\legendnone2_16x162.png" />
   </ItemGroup>
-
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
