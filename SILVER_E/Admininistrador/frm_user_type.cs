@@ -16,10 +16,11 @@ namespace SILVER_E.Admininistrador
     public partial class frm_user_type : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         Metodos mtd = new Metodos();
-
+        string usuario;
         frn_main_form frn_menu;
-        public frm_user_type()
+        public frm_user_type(string usu)
         {
+            usuario = usu;
             InitializeComponent();
         }
 
@@ -120,7 +121,7 @@ namespace SILVER_E.Admininistrador
                     //SE ENVIA EL VALOR DEL CHECK ESTE ACTIVO O INACTIVO POR ESO SU PROPIEDAD CheckState
                     mtd.comando.Parameters.Add("@US_T_ACTIVE_INACTIVE", SqlDbType.Int).Value = C_ACTIVE_INACTIVE.CheckState;
                     //SE ENVIA EL PARAMENTRO QUE CONTIENE EL VALOR DEL USUARIO CREADOR OBLIGATORIO EN ESTA APLICACION
-                    mtd.comando.Parameters.Add("@US_T_USER_CREATOR", SqlDbType.NVarChar, 100).Value = frn_menu.LB_USER.Caption;
+                    mtd.comando.Parameters.Add("@US_T_USER_CREATOR", SqlDbType.NVarChar, 100).Value = usuario;
 
 
 
@@ -223,7 +224,7 @@ namespace SILVER_E.Admininistrador
                         //SE ENVIA EL VALOR DEL CHECK ESTE ACTIVO O INACTIVO POR ESO SU PROPIEDAD CheckState
                         mtd.comando.Parameters.Add("@US_T_ACTIVE_INACTIVE", SqlDbType.Int).Value = C_ACTIVE_INACTIVE.CheckState;
                         //SE ENVIA EL PARAMENTRO QUE CONTIENE EL VALOR DEL USUARIO QUE MODIFICA OBLIGATORIO EN ESTA APLICACION
-                        mtd.comando.Parameters.Add("@US_T_USER_UPDATE", SqlDbType.NVarChar, 100).Value = frn_menu.LB_USER.Caption;
+                        mtd.comando.Parameters.Add("@US_T_USER_UPDATE", SqlDbType.NVarChar, 100).Value = usuario;
 
                         //DECLARAMOS UNA VARIABLE DE TIPO SQLPARAMETER CON EL NOMBRE DEL @MENSAJE DE TIPO NVARCHAR Y LONGITUD 200, MISMO QUE SE DECLARO EN EL CUERPO DEL PROCEDIMIENTO ALMACENADO SP_SILV_USER_TYPE_EDIT
                         SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);

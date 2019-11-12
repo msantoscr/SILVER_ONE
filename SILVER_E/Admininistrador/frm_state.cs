@@ -13,9 +13,10 @@ namespace SILVER_E.Admininistrador
         string usuario;
         Metodos mtd = new Metodos();
         frn_main_form frn_menu;
-        public frm_state()
+        public frm_state(string usu)
         {
             InitializeComponent();
+            usuario = usu;
         }
         //METODO PARA LIMPIAR LAS CAJAS DE TEXTO Y CONTROLES DEL FORMULARIO
         public void CLEAN_FIELDS()
@@ -232,7 +233,7 @@ namespace SILVER_E.Admininistrador
                     //SE ENVIA EL VALOR DEL CHECK ESTE ACTIVO O INACTIVO POR ESO SU PROPIEDAD CheckState
                     mtd.comando.Parameters.Add("@ES_ACTIVE_INACTIVE", SqlDbType.Int).Value = C_ACTIVE_INACTIVE.CheckState;
                     //SE ENVIA EL PARAMENTRO QUE CONTIENE EL VALOR DEL USUARIO CREADOR OBLIGATORIO EN ESTA APLICACION
-                    mtd.comando.Parameters.Add("@ES_USER_CREATOR", SqlDbType.NVarChar, 100).Value = frn_menu.LB_USER.Caption;
+                    mtd.comando.Parameters.Add("@ES_USER_CREATOR", SqlDbType.NVarChar, 100).Value = usuario;
 
 
 
@@ -425,7 +426,7 @@ namespace SILVER_E.Admininistrador
                     //SE ENVIA EL VALOR DEL CHECK ESTE ACTIVO O INACTIVO POR ESO SU PROPIEDAD CheckState
                     mtd.comando.Parameters.Add("@ES_ACTIVE_INACTIVE", SqlDbType.Int).Value = C_ACTIVE_INACTIVE.CheckState;
                     //SE ENVIA EL PARAMENTRO QUE CONTIENE EL VALOR DEL USUARIO QUE MODIFICA OBLIGATORIO EN ESTA APLICACION
-                    mtd.comando.Parameters.Add("@ES_USER_UPDATE", SqlDbType.NVarChar, 100).Value = frn_menu.LB_USER.Caption;
+                    mtd.comando.Parameters.Add("@ES_USER_UPDATE", SqlDbType.NVarChar, 100).Value = usuario;
 
 
                     //DECLARAMOS UNA VARIABLE DE TIPO SQLPARAMETER CON EL NOMBRE DEL @MENSAJE DE TIPO NVARCHAR Y LONGITUD 200, MISMO QUE SE DECLARO EN EL CUERPO DEL PROCEDIMIENTO ALMACENADO SP_SILV_ESTATES_EDIT

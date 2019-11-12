@@ -1248,7 +1248,6 @@
         internal System.Windows.Forms.TextBox TX_OBS;
         internal System.Windows.Forms.ComboBox CB_PREF;
         internal System.Windows.Forms.ComboBox CB_FOLIO;
-        internal System.Windows.Forms.ComboBox CB_ESTADO;
         internal DevExpress.XtraEditors.TextEdit TXT_ID;
         internal DevExpress.XtraEditors.LabelControl LabelControl19;
         internal DevExpress.XtraEditors.LabelControl LabelControl1;
@@ -1331,5 +1330,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        public System.Windows.Forms.ComboBox CB_ESTADO;
     }
 }

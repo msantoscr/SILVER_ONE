@@ -17,12 +17,13 @@ namespace SILVER_E.Admininistrador
     public partial class frm_country : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         Metodos mtd = new Metodos();
-
+        string usuario;
         frn_main_form frn_menu;
 
-        public frm_country()
+        public frm_country(string usu)
         {
             InitializeComponent();
+            usuario = usu;
         }
         //METODO QUE EJECUTA UN PROCEDIMIENTO ALMACENADO SP_SILV_COUNTRIES_VIEW PARA LLENAR EL CONTROL GRIDCONTROL Y MOSTRAR LOS REGISTROS DE LA TABLA CORRESPONDIENTE
         public void FILL_DATA() {
@@ -114,6 +115,7 @@ namespace SILVER_E.Admininistrador
                 {
                     mtd.ConectarBaseDatos();
                     mtd.comando = new SqlCommand("SP_SILV_COUNTRIES_INSERT", mtd.conexion);
+                    mtd.comando.CommandType = CommandType.StoredProcedure;
                     mtd.comando.Parameters.Add("@CO_NAME", SqlDbType.NVarChar, 100).Value = TXT_NAME.Text;
                     //SE VERIFICA SI EL USUARIO HA ESCRITO UN VALOR DENTRO DE LA CAJA  DE TEXTO OBSERVACIONES
                     //SI NO SE ENVIA NINGUN DATO ESTE SE PASA COMO UN VALOR NULO HACIA LA TABLA
@@ -129,7 +131,7 @@ namespace SILVER_E.Admininistrador
 
                     mtd.comando.Parameters.Add("@CO_ACTIVE_INACTIVE", SqlDbType.Int).Value = C_ACTIVE_INACTIVE.CheckState;
                     //SE ENVIA EL PARAMENTRO QUE CONTIENE EL VALOR DEL USUARIO CREADOR OBLIGATORIO EN ESTA APLICACION
-                    mtd.comando.Parameters.Add("@CO_USER_CREATOR", SqlDbType.NVarChar, 100).Value = frn_menu.LB_USER.Caption;
+                    mtd.comando.Parameters.Add("@CO_USER_CREATOR", SqlDbType.NVarChar, 100).Value = usuario;
 
                     SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
                     Message.Direction = ParameterDirection.Output;
@@ -213,7 +215,7 @@ namespace SILVER_E.Admininistrador
                         }
 
                         mtd.comando.Parameters.Add("@CO_ACTIVE_INACTIVE", SqlDbType.Int).Value = C_ACTIVE_INACTIVE.CheckState;
-                        mtd.comando.Parameters.Add("@CO_USER_UPDATE", SqlDbType.NVarChar, 100).Value = frn_menu.LB_USER.Caption;
+                        mtd.comando.Parameters.Add("@CO_USER_UPDATE", SqlDbType.NVarChar, 100).Value = usuario;
 
                         SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
                         Message.Direction = ParameterDirection.Output;

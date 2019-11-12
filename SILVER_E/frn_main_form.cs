@@ -40,7 +40,7 @@ namespace SILVER_E
         private void BTN_COUNTRY_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO PAISES
-            Admininistrador.frm_country FRMC = new Admininistrador.frm_country();
+            Admininistrador.frm_country FRMC = new Admininistrador.frm_country(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMC.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO
@@ -50,7 +50,7 @@ namespace SILVER_E
         private void BTN_STATES_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO ESTADOS
-            Admininistrador.frm_state FRMS = new Admininistrador.frm_state();
+            Admininistrador.frm_state FRMS = new Admininistrador.frm_state(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMS.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO
@@ -60,7 +60,7 @@ namespace SILVER_E
         private void BTN_CITY_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO CIUDADES
-            Admininistrador.frm_city FRMCITY = new Admininistrador.frm_city();
+            Admininistrador.frm_city FRMCITY = new Admininistrador.frm_city(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMCITY.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO
@@ -70,7 +70,7 @@ namespace SILVER_E
         private void BTN_USER_TYPE_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO TIPOS DE USUARIO
-            Admininistrador.frm_user_type FRMTU = new Admininistrador.frm_user_type();
+            Admininistrador.frm_user_type FRMTU = new Admininistrador.frm_user_type(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMTU.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO
@@ -80,7 +80,7 @@ namespace SILVER_E
         private void BTN_USERS_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO USUARIO
-            Admininistrador.frm_users FRMU = new Admininistrador.frm_users();
+            Admininistrador.frm_users FRMU = new Admininistrador.frm_users(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMU.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO
@@ -100,7 +100,7 @@ namespace SILVER_E
         private void BTN_CLIENTS_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO CLIENTES
-            Admininistrador.frm_clients FRMC = new Admininistrador.frm_clients();
+            Admininistrador.frm_clients FRMC = new Admininistrador.frm_clients(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMC.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO

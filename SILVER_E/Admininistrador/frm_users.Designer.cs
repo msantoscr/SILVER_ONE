@@ -71,7 +71,6 @@
             this.TXT_USERNAME = new DevExpress.XtraEditors.TextEdit();
             this.LabelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.LabelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.C_ACTIVE_INACTIVE = new DevExpress.XtraEditors.CheckEdit();
             this.LabelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.TXT_PASSWORD = new DevExpress.XtraEditors.TextEdit();
             this.CB_SERIE = new System.Windows.Forms.ComboBox();
@@ -98,12 +97,12 @@
             this.colUSUARIOMODIFICA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFECHAMODIFICACION = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFECHADEREGISTRO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.C_ACTIVE_INACTIVE = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.RibbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TXT_USERNAME.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.C_ACTIVE_INACTIVE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TXT_PASSWORD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TXT_OBSERVATIONS.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TXT_NAME.Properties)).BeginInit();
@@ -111,6 +110,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DATA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.G_DATA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.C_ACTIVE_INACTIVE.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // RibbonControl
@@ -449,12 +449,12 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.C_ACTIVE_INACTIVE);
             this.dockPanel1_Container.Controls.Add(this.LabelControl7);
             this.dockPanel1_Container.Controls.Add(this.CB_TYPE);
             this.dockPanel1_Container.Controls.Add(this.TXT_USERNAME);
             this.dockPanel1_Container.Controls.Add(this.LabelControl3);
             this.dockPanel1_Container.Controls.Add(this.LabelControl6);
-            this.dockPanel1_Container.Controls.Add(this.C_ACTIVE_INACTIVE);
             this.dockPanel1_Container.Controls.Add(this.LabelControl1);
             this.dockPanel1_Container.Controls.Add(this.TXT_PASSWORD);
             this.dockPanel1_Container.Controls.Add(this.CB_SERIE);
@@ -515,18 +515,6 @@
             this.LabelControl6.Size = new System.Drawing.Size(117, 16);
             this.LabelControl6.TabIndex = 58;
             this.LabelControl6.Text = "CLIENTE/VENDEDOR";
-            // 
-            // C_ACTIVE_INACTIVE
-            // 
-            this.C_ACTIVE_INACTIVE.Location = new System.Drawing.Point(7, 424);
-            this.C_ACTIVE_INACTIVE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.C_ACTIVE_INACTIVE.MenuManager = this.RibbonControl;
-            this.C_ACTIVE_INACTIVE.Name = "C_ACTIVE_INACTIVE";
-            this.C_ACTIVE_INACTIVE.Properties.Caption = "ACTIVO/INACTIVO";
-            this.C_ACTIVE_INACTIVE.Properties.ValueChecked = 1;
-            this.C_ACTIVE_INACTIVE.Properties.ValueUnchecked = 0;
-            this.C_ACTIVE_INACTIVE.Size = new System.Drawing.Size(169, 20);
-            this.C_ACTIVE_INACTIVE.TabIndex = 56;
             // 
             // LabelControl1
             // 
@@ -764,6 +752,19 @@
             this.colFECHADEREGISTRO.Visible = true;
             this.colFECHADEREGISTRO.VisibleIndex = 12;
             // 
+            // C_ACTIVE_INACTIVE
+            // 
+            this.C_ACTIVE_INACTIVE.EditValue = 1;
+            this.C_ACTIVE_INACTIVE.Location = new System.Drawing.Point(7, 441);
+            this.C_ACTIVE_INACTIVE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.C_ACTIVE_INACTIVE.MenuManager = this.RibbonControl;
+            this.C_ACTIVE_INACTIVE.Name = "C_ACTIVE_INACTIVE";
+            this.C_ACTIVE_INACTIVE.Properties.Caption = "ACTIVO/INACTIVO";
+            this.C_ACTIVE_INACTIVE.Properties.ValueChecked = 1;
+            this.C_ACTIVE_INACTIVE.Properties.ValueUnchecked = 0;
+            this.C_ACTIVE_INACTIVE.Size = new System.Drawing.Size(169, 20);
+            this.C_ACTIVE_INACTIVE.TabIndex = 41;
+            // 
             // frm_users
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -786,7 +787,6 @@
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TXT_USERNAME.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.C_ACTIVE_INACTIVE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TXT_PASSWORD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TXT_OBSERVATIONS.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TXT_NAME.Properties)).EndInit();
@@ -794,6 +794,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DATA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.G_DATA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.C_ACTIVE_INACTIVE.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -841,7 +842,6 @@
         internal DevExpress.XtraEditors.TextEdit TXT_USERNAME;
         internal DevExpress.XtraEditors.LabelControl LabelControl3;
         internal DevExpress.XtraEditors.LabelControl LabelControl6;
-        internal DevExpress.XtraEditors.CheckEdit C_ACTIVE_INACTIVE;
         internal DevExpress.XtraEditors.LabelControl LabelControl1;
         internal DevExpress.XtraEditors.TextEdit TXT_PASSWORD;
         internal System.Windows.Forms.ComboBox CB_SERIE;
@@ -869,5 +869,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
         public DevExpress.XtraGrid.Views.Grid.GridView G_DATA;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        public DevExpress.XtraEditors.CheckEdit C_ACTIVE_INACTIVE;
     }
 }

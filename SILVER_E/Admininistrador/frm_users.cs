@@ -18,6 +18,7 @@ namespace SILVER_E.Admininistrador
     {
         Metodos mtd = new Metodos();
         frn_main_form frn_menu;
+        string usuario;
         //
         //
         //cambio 3
@@ -213,7 +214,7 @@ namespace SILVER_E.Admininistrador
                 mtd.ConectarBaseDatos();
                 //SE EJECUTA UN NUEVO COMANDO SP_LIST_AGENTS E INDICAMOS MEDIANTE With {.CommandType = CommandType.StoredProcedure} QUE SE TRATA DE UN PROCEDIMIENTO ALMACENADO
                 mtd.comando = new SqlCommand("SP_LIST_AGENTS", mtd.conexion);
-
+                mtd.comando.CommandType = CommandType.StoredProcedure;
 
                 //DECLARAMOS UNA VARIABLE DE TIPO SQLPARAMETER CON EL NOMBRE DEL @MENSAJE DE TIPO NVARCHAR Y LONGITUD 200, MISMO QUE SE DECLARO EN EL CUERPO DEL PROCEDIMIENTO ALMACENADO SP_LIST_AGENTS
                 SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
@@ -271,7 +272,7 @@ namespace SILVER_E.Admininistrador
                 mtd.ConectarBaseDatos();
                 //SE EJECUTA UN NUEVO COMANDO SP_LIST_DISTINCT_FOLIOS_USER E INDICAMOS MEDIANTE With {.CommandType = CommandType.StoredProcedure} QUE SE TRATA DE UN PROCEDIMIENTO ALMACENADO
                 mtd.comando = new SqlCommand("SP_LIST_DISTINCT_FOLIOS_USER", mtd.conexion);
-
+                mtd.comando.CommandType = CommandType.StoredProcedure;
                 //DECLARAMOS UNA VARIABLE DE TIPO SQLPARAMETER CON EL NOMBRE DEL @MENSAJE DE TIPO NVARCHAR Y LONGITUD 200, MISMO QUE SE DECLARO EN EL CUERPO DEL PROCEDIMIENTO ALMACENADO SP_LIST_DISTINCT_FOLIOS_USER
                 SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
                 //INDICAMOS QUE SE TRATA DE UN PARAMETRO DE TIPO OUTPUT
@@ -323,9 +324,10 @@ namespace SILVER_E.Admininistrador
                 mtd.DesconectarBaseDatos();
             }
         }
-        public frm_users()
+        public frm_users(string usu)
         {
             InitializeComponent();
+            usuario = usu;
         }
 
         private void frm_users_Load(object sender, EventArgs e)
@@ -400,11 +402,11 @@ namespace SILVER_E.Admininistrador
                     {
                         mtd.comando.Parameters.Add("@US_OBSERVATIONS", SqlDbType.NVarChar, 200).Value = TXT_OBSERVATIONS.Text;
                     }
-
+                    
                     //SE ENVIA EL VALOR DEL CHECK ESTE ACTIVO O INACTIVO POR ESO SU PROPIEDAD CheckState
                     mtd.comando.Parameters.Add("@US_ACTIVE_INACTIVE", SqlDbType.Int).Value = C_ACTIVE_INACTIVE.CheckState;
                     //SE ENVIA EL PARAMENTRO QUE CONTIENE EL VALOR DEL USUARIO CREADOR OBLIGATORIO EN ESTA APLICACION
-                    mtd.comando.Parameters.Add("@US_USER_CREATOR", SqlDbType.NVarChar, 100).Value = frn_menu.LBL_USERNAME.Caption;
+                    mtd.comando.Parameters.Add("@US_USER_CREATOR", SqlDbType.NVarChar, 100).Value = usuario;
 
 
 
@@ -542,7 +544,7 @@ namespace SILVER_E.Admininistrador
                     //SE ENVIA EL VALOR DEL CHECK ESTE ACTIVO O INACTIVO POR ESO SU PROPIEDAD CheckState
                     mtd.comando.Parameters.Add("@US_ACTIVE_INACTIVE", SqlDbType.Int).Value = C_ACTIVE_INACTIVE.CheckState;
                     //SE ENVIA EL PARAMETRO QUE CONTIENE EL VALOR DEL USUARIO CREADOR OBLIGATORIO EN ESTA APLICACION
-                    mtd.comando.Parameters.Add("@US_USER_UPDATE", SqlDbType.NVarChar, 100).Value = frn_menu.LBL_USERNAME.Caption;
+                    mtd.comando.Parameters.Add("@US_USER_UPDATE", SqlDbType.NVarChar, 100).Value = usuario;
 
                     //DECLARAMOS UNA VARIABLE DE TIPO SQLPARAMETER CON EL NOMBRE DEL @MENSAJE DE TIPO NVARCHAR Y LONGITUD 200, MISMO QUE SE DECLARO EN EL CUERPO DEL PROCEDIMIENTO ALMACENADO SP_SILV_USERS_EDIT
                     SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);

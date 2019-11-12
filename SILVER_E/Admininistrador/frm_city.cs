@@ -19,8 +19,9 @@ namespace SILVER_E.Admininistrador
         string usuario;
         Metodos mtd = new Metodos();
         frn_main_form frn_menu;
-        public frm_city()
+        public frm_city(string usu)
         {
+            usuario = usu;
             InitializeComponent();
         }
         #region METODOS
@@ -278,7 +279,7 @@ namespace SILVER_E.Admininistrador
                     //SE ENVIA EL VALOR DEL CHECK ESTE ACTIVO O INACTIVO POR ESO SU PROPIEDAD CheckState
                     mtd.comando.Parameters.Add("@CI_ACTIVE_INACTIVE", SqlDbType.Int).Value = C_ACTIVE_INACTIVE.CheckState;
                     //SE ENVIA EL PARAMENTRO QUE CONTIENE EL VALOR DEL USUARIO CREADOR OBLIGATORIO EN ESTA APLICACION
-                    mtd.comando.Parameters.Add("@CI_USER_CREATOR", SqlDbType.NVarChar, 100).Value = frn_menu.LBL_USERNAME.Caption;
+                    mtd.comando.Parameters.Add("@CI_USER_CREATOR", SqlDbType.NVarChar, 100).Value = usuario;
 
                     //DECLARAMOS UNA VARIABLE DE TIPO SQLPARAMETER CON EL NOMBRE DEL @MENSAJE DE TIPO NVARCHAR Y LONGITUD 200, MISMO QUE SE DECLARO EN EL CUERPO DEL PROCEDIMIENTO ALMACENADO SP_SILV_ESTATES_INSERT
                     SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
@@ -357,9 +358,9 @@ namespace SILVER_E.Admininistrador
                         mtd.comando = new SqlCommand("SP_SILV_CITIES_EDIT", mtd.conexion);
                         mtd.comando.CommandType = CommandType.StoredProcedure;
                         //PARAMETROS
-                        mtd.comando.Parameters.Add("@ID_CITY", SqlDbType.Int).Value = TXT_ID.Text;
+                        mtd.comando.Parameters.Add("@ID_CITY", SqlDbType.Int).Value =TXT_ID.Text;
                         mtd.comando.Parameters.Add("@ID_ESTATES", SqlDbType.Int).Value = CB_PAIS.SelectedValue;
-                        mtd.comando.Parameters.Add("@CI_NAME", SqlDbType.Int).Value = TXT_NAME.Text;
+                        mtd.comando.Parameters.Add("@CI_NAME", SqlDbType.NVarChar,100).Value = TXT_NAME.Text;
                         if (TXT_OBSERVATIONS.Text == "")
                         {
                             mtd.comando.Parameters.AddWithValue("@CI_OBSERVATIONS", DBNull.Value);
@@ -369,7 +370,7 @@ namespace SILVER_E.Admininistrador
                             mtd.comando.Parameters.Add("@CI_OBSERVATIONS", SqlDbType.NVarChar, 200).Value = TXT_OBSERVATIONS.Text;
                         }
                         mtd.comando.Parameters.Add("@CI_ACTIVE_INACTIVE", SqlDbType.Int).Value = C_ACTIVE_INACTIVE.CheckState;
-                        mtd.comando.Parameters.Add("@CI_USER_UPDATE", SqlDbType.NVarChar, 100).Value = frn_menu.LBL_USERNAME.Caption;
+                        mtd.comando.Parameters.Add("@CI_USER_UPDATE", SqlDbType.NVarChar, 100).Value = usuario;
                         //DECLARAMOS UNA VARIABLE DE TIPO SQLPARAMETER CON EL NOMBRE DEL @MENSAJE DE TIPO NVARCHAR Y LONGITUD 200, MISMO QUE SE DECLARO EN EL CUERPO DEL PROCEDIMIENTO ALMACENADO SP_SILV_ESTATES_EDIT
                         SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
                         //INDICAMOS QUE SE TRATA DE UN PARAMETRO DE TIPO OUTPUT
@@ -428,7 +429,7 @@ namespace SILVER_E.Admininistrador
                     {
                         mtd.ConectarBaseDatos();
                         mtd.comando = new SqlCommand("SP_SILV_CITIES_DELETE", mtd.conexion);
-
+                        mtd.comando.CommandType = CommandType.StoredProcedure;
                         //PARAMETROS
                         mtd.comando.Parameters.Add("@ID_CITY",SqlDbType.Int).Value =TXT_ID.Text;
                         //DECLARAMOS UNA VARIABLE DE TIPO SQLPARAMETER CON EL NOMBRE DEL @MENSAJE DE TIPO NVARCHAR Y LONGITUD 200, MISMO QUE SE DECLARO EN EL CUERPO DEL PROCEDIMIENTO ALMACENADO SP_SILV_ESTATES_INSERT

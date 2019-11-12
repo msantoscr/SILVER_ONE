@@ -14,14 +14,62 @@ using System.IO;
 
 namespace SILVER_E.Admininistrador
 {
+
     public partial class frm_clients : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         string[,] array_nombres;
         Metodos mtd = new Metodos();
         frn_main_form frn_menu;
-        public frm_clients()
+        string usuario;
+        public frm_clients(string usu)
         {
             InitializeComponent();
+            usuario = usu;
+        }
+
+
+        private static string[,] llenarArreglo()
+        {
+
+            string[,] array_nombres = {
+                {"", ""},
+                {"AGUASCALIENTES", "AS"},
+                {"BAJA CALIFORNIA", "BC"},
+                {"BAJA CALIFORNIA SUR", "BS"},
+                {"CAMPECHE", "CC"},
+                {"CHIAPAS", "CS"},
+                {"CHIHUAHUA", "CH"},
+                {"COAHUILA", "CL"},
+                {"COLIMA", "CM"},
+                {"DISTRITO FEDERAL", "DF"},
+                {"DURANGO", "DG"},
+                {"GUANAJUATO", "GT"},
+                {"GUERRERO", "GR"},
+                {"HIDALGO", "HG"},
+                {"JALISCO", "JC"},
+                {"MEXICO", "MC"},
+                {"MICHOACAN", "MN"},
+                {"MORELOS", "MS"},
+                {"NAYARIT", "NT"},
+                {"NUEVO LEON", "NL"},
+                {"OAXACA", "OC"},
+                {"PUEBLA", "PL"},
+                {"QUERETARO", "QT"},
+                {"QUINTANA ROO", "QR"},
+                {"SAN LUIS POTOSI", "SP"},
+                {"SINALOA", "SL"},
+                {"SONORA", "SR"},
+                {"TABASCO", "TC"},
+                {"TAMAULIPAS", "TS"},
+                {"TLAXCALA", "TL"},
+                {"VERACRUZ", "VZ"},
+                {"YUCATÁN", "YN"},
+                {"ZACATECAS", "ZS"},
+                {"NACIDO EXTRANJERO", "NE"}
+
+
+            };
+            return array_nombres;
         }
         public void LIST_FOLIO()
         {
@@ -32,7 +80,7 @@ namespace SILVER_E.Admininistrador
                 mtd.comando.CommandType = CommandType.StoredProcedure;
 
                 //SE ENVIA COMO PARAMETRO EL NOMBRE DEL USUARIO ACTUAL PARA PODER OBTENER EL FOLIO CORRESPONDIENTE
-                mtd.comando.Parameters.Add("@US_USERNAME", SqlDbType.NVarChar, 100).Value = frn_menu.LBL_USERNAME.Caption;
+                mtd.comando.Parameters.Add("@US_USERNAME", SqlDbType.NVarChar, 100).Value = usuario;
                 //DECLARAMOS UNA VARIABLE DE TIPO SQLPARAMETER CON EL NOMBRE DEL @MENSAJE DE TIPO NVARCHAR Y LONGITUD 200, MISMO QUE SE DECLARO EN EL CUERPO DEL PROCEDIMIENTO ALMACENADO SP_LIST_CODE_CLIENT
                 SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
                 //INDICAMOS QUE SE TRATA DE UN PARAMETRO DE TIPO OUTPUT
@@ -332,16 +380,16 @@ namespace SILVER_E.Admininistrador
         //metodo que convierte de imagen a binario
         public static byte[] imagen_bytes(Image img)
         {
-            if (img != null)
-            {
-                MemoryStream bin = new MemoryStream();
-                img.Save(bin, System.Drawing.Imaging.ImageFormat.Jpeg);
-                return bin.GetBuffer();
-            }
-            else
-            {
-                return null;
-            }
+            string sTemp = Path.GetTempFileName();
+            FileStream fs = new FileStream(sTemp, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            img.Save(fs, System.Drawing.Imaging.ImageFormat.Png);
+            fs.Position = 0;
+
+            int imgLength = Convert.ToInt32(fs.Length);
+            byte[] bytes = new byte[imgLength];
+            fs.Read(bytes, 0, imgLength);
+            fs.Close();
+            return bytes;
         }
 
         //metdo queconvierte de binario a imagen
@@ -349,16 +397,17 @@ namespace SILVER_E.Admininistrador
         {
             if (Imagen == null) return null;
 
+            MemoryStream ms = new MemoryStream(Imagen);
+            Bitmap bm = null;
             try
             {
-                MemoryStream bin = new MemoryStream(Imagen);
-                Image resultado = Image.FromStream(bin);
-                return resultado;
+                bm = new Bitmap(ms);
             }
             catch (Exception ex)
             {
-                return null;
+                System.Diagnostics.Debug.WriteLine(ex.Message);
             }
+            return bm;
         }
 
         public void search_img()
@@ -369,6 +418,7 @@ namespace SILVER_E.Admininistrador
                 mtd.ConectarBaseDatos();
                 //SE EJECUTA UN NUEVO COMANDO SP_OBTAIN_IMAGE_CLIENT E INDICAMOS MEDIANTE With {.CommandType = CommandType.StoredProcedure} QUE SE TRATA DE UN PROCEDIMIENTO ALMACENADO
                 mtd.comando = new SqlCommand("SP_OBTAIN_IMAGE_CLIENT", mtd.conexion);
+                mtd.comando.CommandType = CommandType.StoredProcedure;
                 //INDICAMOS QUE ESTE COMANDO TENDRA PARAMETROS ADICIONALES PARA PODER EJECUTARSE Y DE SER POSIBLE RETORNAR UN VALOR
 
                 //SE ENVIA COMO PARAMETRO EL ID DEL CLIENTE PARA BUSCAR EL LA IMAGEN QUE CORRESPONDE AL REGISTRO
@@ -401,12 +451,13 @@ namespace SILVER_E.Admininistrador
                 //A LA VARIABLE LECTOR SE LE ASIGNA LA EJECUCION DEL COMANDO SP_OBTAIN_IMAGE_CLIENT
                 lectores = mtd.comando.ExecuteReader();
                 //REPETIR LA ACCION DE LEE HASTA QUE EL LECTOR LEA UN REGISTRO CON LA INFORMACION QUE SE NECESITA
-                do
+
+                while (lectores.Read())
                 {
-                    byte[] b = null;
-                    b = (byte[])lectores.GetValue(0);
-                    pc_img.EditValue = bytes_imagen(b);
-                } while (lectores.Read());
+                    byte[] result =(byte[])lectores.GetValue(0);
+                    pc_img.Image = bytes_imagen(result);
+                }
+
 
             }
             catch (Exception ex)
@@ -420,7 +471,6 @@ namespace SILVER_E.Admininistrador
                 mtd.DesconectarBaseDatos();
             }
         }
-
         public void clean_fields()
         {
             TXT_ID.ResetText();
@@ -446,58 +496,26 @@ namespace SILVER_E.Admininistrador
         {
 
             //llena en automatico las listas cada que el formulario es mostrado por primera vez
+            FILL_DATA();
             LIST_FOLIO(); //LISTAR LOS FOLIOS
             LIST_CITY(); //LISTAR LAS CIUDADES
             LIST_ESTATUS(); //LISTAR LOS ESTATUS
 
             //SE UTILIZA EL ARREGLO BIDIMENSIONAL Y SE LE ASIGNAN LOS VALORES DE LOS ESTADOS
+            var array_nombres = llenarArreglo();
 
-            string[,] array_nombres = {{"", ""},
-           {"AGUASCALIENTES", "AS"},
-           {"BAJA CALIFORNIA", "BC"},
-           {"BAJA CALIFORNIA SUR", "BS"},
-            {"CAMPECHE", "CC"},
-               {"CHIAPAS", "CS"},
-               {"CHIHUAHUA", "CH"},
-               {"COAHUILA", "CL"},
-               {"COLIMA", "CM"},
-               {"DISTRITO FEDERAL", "DF"},
-               {"DURANGO", "DG"},
-               {"GUANAJUATO", "GT"},
-               {"GUERRERO", "GR"},
-               {"HIDALGO", "HG"},
-               {"JALISCO", "JC"},
-               {"MEXICO", "MC"},
-               {"MICHOACAN", "MN"},
-               {"MORELOS", "MS"},
-               {"NAYARIT", "NT"},
-               {"NUEVO LEON", "NL"},
-               {"OAXACA", "OC"},
-               {"PUEBLA", "PL"},
-               {"QUERETARO", "QT"},
-               {"QUINTANA ROO", "QR"},
-               {"SAN LUIS POTOSI", "SP"},
-               {"SINALOA", "SL"},
-               {"SONORA", "SR"},
-               {"TABASCO", "TC"},
-               {"TAMAULIPAS", "TS"},
-               {"TLAXCALA", "TL"},
-               {"VERACRUZ", "VZ"},
-               {"YUCATÁN", "YN"},
-               {"ZACATECAS", "ZS"},
-               {"NACIDO EXTRANJERO", "NE"}};
 
             int contador = 0;
             CB_ESTADO.Items.Add("Selecciona");
             CB_ESTADO.SelectedIndex = 0;
             CB_ESTADO.DropDownStyle = ComboBoxStyle.DropDownList;
-            while (contador <= array_nombres.Length - 2)
+            while (contador != array_nombres.Length / 2)
             {
                 CB_ESTADO.Items.Add(array_nombres[contador, 0]);
-                contador++;
+                contador += 1;
             }
             CB_ESTADO.Items.Remove("");
-            FILL_DATA();
+
         }
 
         private void BTN_SAVE_ItemClick(object sender, ItemClickEventArgs e)
@@ -638,12 +656,12 @@ namespace SILVER_E.Admininistrador
                     }
 
                     mtd.comando.Parameters.Add("@CL_ACTIVE_INACTIVE", SqlDbType.Int).Value = C_ACTIVE_INACTIVE.CheckState;
-                    mtd.comando.Parameters.Add("@CL_USER_CREATOR", SqlDbType.NVarChar, 100).Value = frn_menu.LBL_USERNAME.Caption;
+                    mtd.comando.Parameters.Add("@CL_USER_CREATOR", SqlDbType.NVarChar, 100).Value = usuario;
                     mtd.comando.Parameters.Add("@CL_KEY", SqlDbType.NVarChar, 50).Value = CB_FOLIO.Text;
 
-                    img = Convert.ToByte(imagen_bytes(pc_img.Image));
+                    Image imagen = pc_img.Image;
+                    mtd.comando.Parameters.AddWithValue("@CL_FOTO", imagen_bytes(imagen));
 
-                    mtd.comando.Parameters.AddWithValue("@CL_FOTO", img);
 
                     SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
                     Message.Direction = ParameterDirection.Output;
@@ -815,12 +833,12 @@ namespace SILVER_E.Admininistrador
                         }
 
                         mtd.comando.Parameters.Add("@CL_ACTIVE_INACTIVE", SqlDbType.Int).Value = C_ACTIVE_INACTIVE.CheckState;
-                        mtd.comando.Parameters.Add("@CL_USER_UPDATE", SqlDbType.NVarChar, 100).Value = frn_menu.LBL_USERNAME.Caption;
+                        mtd.comando.Parameters.Add("@CL_USER_UPDATE", SqlDbType.NVarChar, 100).Value = usuario;
                         mtd.comando.Parameters.Add("@CL_KEY", SqlDbType.NVarChar, 50).Value = CB_FOLIO.Text;
 
 
-                        img = Convert.ToByte(imagen_bytes(this.pc_img.Image));
-                        mtd.comando.Parameters.AddWithValue("@CL_FOTO", img);
+                        Image imagen = pc_img.Image;
+                        mtd.comando.Parameters.AddWithValue("@CL_FOTO", imagen_bytes(imagen));
 
 
                         SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
@@ -1080,9 +1098,13 @@ namespace SILVER_E.Admininistrador
             try
             {
                 CURPLib.CURPLib CALC = new CURPLib.CURPLib();
-                TX_CURP.Text = CALC.CURPCompleta(TX_PAT.Text, TX_MAT.Text, TX_NAME.Text, DT_FECHA_NAC.Text, Convert.ToString(R_SEX.EditValue), array_nombres[CB_ESTADO.SelectedIndex, 1]);
+                var array_nombres = llenarArreglo();
+                var estado = array_nombres[CB_ESTADO.SelectedIndex, 1];
+
+                TX_CURP.Text = CALC.CURPCompleta(TX_PAT.Text, TX_MAT.Text, TX_NAME.Text, DT_FECHA_NAC.Text, Convert.ToString(R_SEX.EditValue), estado);
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
