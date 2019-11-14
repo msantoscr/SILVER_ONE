@@ -90,7 +90,7 @@ namespace SILVER_E
         private void BTN_STATUS_C_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO STATUS CLIENTES
-            Admininistrador.frm_status_clients FRMSC = new Admininistrador.frm_status_clients();
+            Admininistrador.frm_status_clients FRMSC = new Admininistrador.frm_status_clients(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMSC.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO
@@ -110,7 +110,7 @@ namespace SILVER_E
         private void BTN_TYPE_DOCTO_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO TIPOS DOCUMENTOS
-            Admininistrador.frm_type_doctos FRMTDC = new Admininistrador.frm_type_doctos();
+            Admininistrador.frm_type_doctos FRMTDC = new Admininistrador.frm_type_doctos(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMTDC.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO
@@ -120,7 +120,7 @@ namespace SILVER_E
         private void BTN_FOLIOS_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO FOLIOS
-            Admininistrador.frm_folios FRMF = new Admininistrador.frm_folios();
+            Admininistrador.frm_folios FRMF = new Admininistrador.frm_folios(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMF.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO

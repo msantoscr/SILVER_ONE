@@ -244,8 +244,17 @@
     <EmbeddedResource Include="Admininistrador\frm_country.resx">
       <DependentUpon>frm_country.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admininistrador\frm_folios.resx">
+      <DependentUpon>frm_folios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admininistrador\frm_state.resx">
       <DependentUpon>frm_state.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admininistrador\frm_status_clients.resx">
+      <DependentUpon>frm_status_clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admininistrador\frm_type_doctos.resx">
+      <DependentUpon>frm_type_doctos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admininistrador\frm_users.resx">
       <DependentUpon>frm_users.cs</DependentUpon>
