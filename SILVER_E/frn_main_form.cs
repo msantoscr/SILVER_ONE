@@ -130,7 +130,7 @@ namespace SILVER_E
         private void BTN_ROUTE_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO RUTAS
-            Admininistrador.frm_route FRMR = new Admininistrador.frm_route();
+            Admininistrador.frm_route FRMR = new Admininistrador.frm_route(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMR.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO
