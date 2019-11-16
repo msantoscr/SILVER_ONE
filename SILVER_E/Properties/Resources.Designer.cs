@@ -423,6 +423,26 @@ namespace SILVER_E.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap editdatasource_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("editdatasource_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editdatasource_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("editdatasource_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap editingunmergecells_16x16 {
             get {
                 object obj = ResourceManager.GetObject("editingunmergecells_16x16", resourceCulture);
@@ -576,6 +596,16 @@ namespace SILVER_E.Properties {
         internal static System.Drawing.Bitmap ignoremasterfilter_32x32 {
             get {
                 object obj = ResourceManager.GetObject("ignoremasterfilter_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap importimage_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("importimage_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

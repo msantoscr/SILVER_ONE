@@ -244,6 +244,9 @@
     <EmbeddedResource Include="Admininistrador\frm_clients.resx">
       <DependentUpon>frm_clients.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admininistrador\frm_company.resx">
+      <DependentUpon>frm_company.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admininistrador\frm_country.resx">
       <DependentUpon>frm_country.cs</DependentUpon>
     </EmbeddedResource>
@@ -590,6 +593,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\legendnone2_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editdatasource_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editdatasource_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\importimage_32x32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -17,12 +17,34 @@ namespace SILVER_E
         frm_acceso acceso = new frm_acceso();
         Metodos mtd = new Metodos();
         string usuario = "";
+
+        string server = "";
+        string dbase = "";
+        string userdb = "";
+        string passw = "";
         public frn_main_form(string  usu)
         {
             InitializeComponent();
             usuario = usu;
         }
 
+        public void datosServer(string servidor, string db, string user, string pass)
+        {
+
+            if (servidor != null && db != null && user != null && pass != null)
+
+            {
+                server = servidor.ToString();
+                dbase = db.ToString();
+                userdb = user.ToString();
+                passw = pass.ToString();
+
+                this.LBL_SERVER.Caption = server;
+                this.LBL_DATABASE.Caption = dbase;
+                LBL_USER_DB.Caption = userdb;
+                this.LB_PASSWORD.Caption = passw;
+            }
+        }
         private void BTN_EXIT_ItemClick(object sender, ItemClickEventArgs e)
         {
             //SE VERIFICA SI REALMENTE DESEA SALIR O NO
@@ -140,7 +162,7 @@ namespace SILVER_E
         private void BTN_AGENTS_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO AGENTES
-            Admininistrador.frm_agents FRMA = new Admininistrador.frm_agents();
+            Admininistrador.frm_agents FRMA = new Admininistrador.frm_agents(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMA.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO
@@ -150,7 +172,7 @@ namespace SILVER_E
         private void BTN_COMPANY_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO COMPANY
-            Admininistrador.frm_company FRMCOMPANY = new Admininistrador.frm_company();
+            Admininistrador.frm_company FRMCOMPANY = new Admininistrador.frm_company(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMCOMPANY.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO
