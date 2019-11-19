@@ -28,6 +28,7 @@ namespace SILVER_E
             usuario = usu;
         }
 
+
         public void datosServer(string servidor, string db, string user, string pass)
         {
 
