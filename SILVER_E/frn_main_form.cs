@@ -183,7 +183,7 @@ namespace SILVER_E
         private void BTN_WAREHOUSE_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO ALMACENES
-            Admininistrador.frm_warehouse FRMCOMPANY = new Admininistrador.frm_warehouse();
+            Admininistrador.frm_warehouse FRMCOMPANY = new Admininistrador.frm_warehouse(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMCOMPANY.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO

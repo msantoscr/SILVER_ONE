@@ -271,6 +271,9 @@
     <EmbeddedResource Include="Admininistrador\frm_user_type.resx">
       <DependentUpon>frm_user_type.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admininistrador\frm_warehouse.resx">
+      <DependentUpon>frm_warehouse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_acceso.resx">
       <DependentUpon>frm_acceso.cs</DependentUpon>
     </EmbeddedResource>
