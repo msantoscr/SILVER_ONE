@@ -235,8 +235,14 @@
     <Compile Include="TOOLS\frm_word.Designer.cs">
       <DependentUpon>frm_word.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admininistrador\frm_accessories.resx">
+      <DependentUpon>frm_accessories.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admininistrador\frm_agents.resx">
       <DependentUpon>frm_agents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admininistrador\frm_assign_acc_mat.resx">
+      <DependentUpon>frm_assign_acc_mat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admininistrador\frm_city.resx">
       <DependentUpon>frm_city.cs</DependentUpon>
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admininistrador\frm_folios.resx">
       <DependentUpon>frm_folios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admininistrador\frm_material.resx">
+      <DependentUpon>frm_material.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admininistrador\frm_route.resx">
       <DependentUpon>frm_route.cs</DependentUpon>

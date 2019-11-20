@@ -193,7 +193,7 @@ namespace SILVER_E
         private void BTN_MATERIALES_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO MATERIAL
-            Admininistrador.frm_material FRMMAT = new Admininistrador.frm_material();
+            Admininistrador.frm_material FRMMAT = new Admininistrador.frm_material(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMMAT.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO
@@ -203,7 +203,7 @@ namespace SILVER_E
         private void BTN_ACCESORIOS_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO ACCESORIOS
-            Admininistrador.frm_accessories FRMacc = new Admininistrador.frm_accessories();
+            Admininistrador.frm_accessories FRMacc = new Admininistrador.frm_accessories(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMacc.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO
@@ -213,7 +213,7 @@ namespace SILVER_E
         private void BTN_ARTICLES_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO articulos
-            Admininistrador.frm_assign_acc_mat FRMART = new Admininistrador.frm_assign_acc_mat();
+            Admininistrador.frm_assign_acc_mat FRMART = new Admininistrador.frm_assign_acc_mat(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMART.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO
