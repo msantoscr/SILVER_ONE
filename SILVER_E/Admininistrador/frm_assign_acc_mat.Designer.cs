@@ -30,42 +30,42 @@
         {
             this.components = new System.ComponentModel.Container();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.BTN_SAVE = new DevExpress.XtraBars.BarButtonItem();
             this.BTN_EDIT = new DevExpress.XtraBars.BarButtonItem();
             this.BTN_DELETE = new DevExpress.XtraBars.BarButtonItem();
             this.BTN_CLEAN = new DevExpress.XtraBars.BarButtonItem();
             this.BTN_SHOW = new DevExpress.XtraBars.BarButtonItem();
+            this.BTN_PRINT = new DevExpress.XtraBars.BarButtonItem();
+            this.BTN_PREVIEW = new DevExpress.XtraBars.BarButtonItem();
+            this.SHOW_PANEL = new DevExpress.XtraBars.BarButtonItem();
+            this.HIDE_PANEL = new DevExpress.XtraBars.BarButtonItem();
+            this.VIEW_AUTOFILTER = new DevExpress.XtraBars.BarButtonItem();
+            this.HIDE_AUTOFILTER = new DevExpress.XtraBars.BarButtonItem();
+            this.LBL_RESULT = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageCategory2 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.BTN_PRINT = new DevExpress.XtraBars.BarButtonItem();
-            this.BTN_PREVIEW = new DevExpress.XtraBars.BarButtonItem();
-            this.SHOW_PANEL = new DevExpress.XtraBars.BarButtonItem();
-            this.HIDE_PANEL = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.VIEW_AUTOFILTER = new DevExpress.XtraBars.BarButtonItem();
-            this.HIDE_AUTOFILTER = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.TXT_LINE = new DevExpress.XtraEditors.TextEdit();
-            this.LabelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.TXT_DESC_MAT = new DevExpress.XtraEditors.TextEdit();
-            this.TXT_DESC_ACC = new DevExpress.XtraEditors.TextEdit();
-            this.LabelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.LabelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.TXT_MAT = new DevExpress.XtraEditors.TextEdit();
-            this.LabelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.TXT_ACC = new DevExpress.XtraEditors.TextEdit();
-            this.LabelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.LabelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.TXT_ID = new DevExpress.XtraEditors.TextEdit();
-            this.LBL_RESULT = new DevExpress.XtraBars.BarStaticItem();
+            this.TXT_DESC_MAT = new DevExpress.XtraEditors.TextEdit();
+            this.LabelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.TXT_DESC_ACC = new DevExpress.XtraEditors.TextEdit();
+            this.LabelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.LabelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.TXT_MAT = new DevExpress.XtraEditors.TextEdit();
+            this.LabelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.DGV_DATA = new DevExpress.XtraGrid.GridControl();
             this.G_DATA = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -81,11 +81,11 @@
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TXT_LINE.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TXT_ACC.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TXT_ID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TXT_DESC_MAT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TXT_DESC_ACC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TXT_MAT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TXT_ACC.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TXT_ID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DATA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.G_DATA)).BeginInit();
             this.SuspendLayout();
@@ -121,37 +121,13 @@
             this.ribbon.Size = new System.Drawing.Size(1018, 179);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
-            // ribbonPage1
-            // 
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "OPCIONES BASICAS";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.BTN_SAVE);
-            this.ribbonPageGroup1.ItemLinks.Add(this.BTN_EDIT);
-            this.ribbonPageGroup1.ItemLinks.Add(this.BTN_DELETE);
-            this.ribbonPageGroup1.ItemLinks.Add(this.BTN_CLEAN);
-            this.ribbonPageGroup1.ItemLinks.Add(this.BTN_SHOW);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "OPCIONES";
-            // 
-            // ribbonStatusBar
-            // 
-            this.ribbonStatusBar.ItemLinks.Add(this.LBL_RESULT);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 767);
-            this.ribbonStatusBar.Name = "ribbonStatusBar";
-            this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1018, 40);
-            // 
             // BTN_SAVE
             // 
             this.BTN_SAVE.Caption = "GUARDAR REGISTRO";
             this.BTN_SAVE.Id = 1;
             this.BTN_SAVE.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.save_32x32;
             this.BTN_SAVE.Name = "BTN_SAVE";
+            this.BTN_SAVE.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_SAVE_ItemClick);
             // 
             // BTN_EDIT
             // 
@@ -160,6 +136,7 @@
             this.BTN_EDIT.Id = 2;
             this.BTN_EDIT.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.renamedatasource_32x32;
             this.BTN_EDIT.Name = "BTN_EDIT";
+            this.BTN_EDIT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_EDIT_ItemClick);
             // 
             // BTN_DELETE
             // 
@@ -168,6 +145,7 @@
             this.BTN_DELETE.Id = 3;
             this.BTN_DELETE.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.deletelist_32x32;
             this.BTN_DELETE.Name = "BTN_DELETE";
+            this.BTN_DELETE.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_DELETE_ItemClick);
             // 
             // BTN_CLEAN
             // 
@@ -175,6 +153,7 @@
             this.BTN_CLEAN.Id = 4;
             this.BTN_CLEAN.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.richeditclearformatting_32x32;
             this.BTN_CLEAN.Name = "BTN_CLEAN";
+            this.BTN_CLEAN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_CLEAN_ItemClick);
             // 
             // BTN_SHOW
             // 
@@ -182,6 +161,64 @@
             this.BTN_SHOW.Id = 5;
             this.BTN_SHOW.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.show_32x32;
             this.BTN_SHOW.Name = "BTN_SHOW";
+            this.BTN_SHOW.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_SHOW_ItemClick);
+            // 
+            // BTN_PRINT
+            // 
+            this.BTN_PRINT.Caption = "IMPRESION RAPIDA";
+            this.BTN_PRINT.Id = 6;
+            this.BTN_PRINT.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.printer_32x32;
+            this.BTN_PRINT.Name = "BTN_PRINT";
+            this.BTN_PRINT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_PRINT_ItemClick);
+            // 
+            // BTN_PREVIEW
+            // 
+            this.BTN_PREVIEW.Caption = "VISTA PREVIA";
+            this.BTN_PREVIEW.Id = 7;
+            this.BTN_PREVIEW.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.preview_32x32;
+            this.BTN_PREVIEW.Name = "BTN_PREVIEW";
+            this.BTN_PREVIEW.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_PREVIEW_ItemClick);
+            // 
+            // SHOW_PANEL
+            // 
+            this.SHOW_PANEL.Caption = "MOSTRAR PANEL DE BUSQUEDA";
+            this.SHOW_PANEL.Id = 8;
+            this.SHOW_PANEL.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.inlinesizelegend_32x32;
+            this.SHOW_PANEL.Name = "SHOW_PANEL";
+            this.SHOW_PANEL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.SHOW_PANEL_ItemClick);
+            // 
+            // HIDE_PANEL
+            // 
+            this.HIDE_PANEL.Caption = "OCULTAR PANEL DE BUSQUEDA";
+            this.HIDE_PANEL.Enabled = false;
+            this.HIDE_PANEL.Id = 9;
+            this.HIDE_PANEL.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.legendnone_32x32;
+            this.HIDE_PANEL.Name = "HIDE_PANEL";
+            this.HIDE_PANEL.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.HIDE_PANEL_ItemClick);
+            // 
+            // VIEW_AUTOFILTER
+            // 
+            this.VIEW_AUTOFILTER.Caption = "VER AUTOFILTROS";
+            this.VIEW_AUTOFILTER.Id = 10;
+            this.VIEW_AUTOFILTER.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.masterfilter_32x32;
+            this.VIEW_AUTOFILTER.Name = "VIEW_AUTOFILTER";
+            this.VIEW_AUTOFILTER.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.VIEW_AUTOFILTER_ItemClick);
+            // 
+            // HIDE_AUTOFILTER
+            // 
+            this.HIDE_AUTOFILTER.Caption = "OCULTAR AUTOFILTROS";
+            this.HIDE_AUTOFILTER.Enabled = false;
+            this.HIDE_AUTOFILTER.Id = 11;
+            this.HIDE_AUTOFILTER.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.ignoremasterfilter_32x32;
+            this.HIDE_AUTOFILTER.Name = "HIDE_AUTOFILTER";
+            this.HIDE_AUTOFILTER.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.HIDE_AUTOFILTER_ItemClick);
+            // 
+            // LBL_RESULT
+            // 
+            this.LBL_RESULT.Caption = "...";
+            this.LBL_RESULT.Id = 12;
+            this.LBL_RESULT.ImageOptions.Image = global::SILVER_E.Properties.Resources.tableproperties_32x32;
+            this.LBL_RESULT.Name = "LBL_RESULT";
             // 
             // ribbonPageCategory1
             // 
@@ -226,35 +263,6 @@
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "BUSQUEDAS AVANZADAS";
             // 
-            // BTN_PRINT
-            // 
-            this.BTN_PRINT.Caption = "IMPRESION RAPIDA";
-            this.BTN_PRINT.Id = 6;
-            this.BTN_PRINT.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.printer_32x32;
-            this.BTN_PRINT.Name = "BTN_PRINT";
-            // 
-            // BTN_PREVIEW
-            // 
-            this.BTN_PREVIEW.Caption = "VISTA PREVIA";
-            this.BTN_PREVIEW.Id = 7;
-            this.BTN_PREVIEW.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.preview_32x32;
-            this.BTN_PREVIEW.Name = "BTN_PREVIEW";
-            // 
-            // SHOW_PANEL
-            // 
-            this.SHOW_PANEL.Caption = "MOSTRAR PANEL DE BUSQUEDA";
-            this.SHOW_PANEL.Id = 8;
-            this.SHOW_PANEL.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.inlinesizelegend_32x32;
-            this.SHOW_PANEL.Name = "SHOW_PANEL";
-            // 
-            // HIDE_PANEL
-            // 
-            this.HIDE_PANEL.Caption = "OCULTAR PANEL DE BUSQUEDA";
-            this.HIDE_PANEL.Enabled = false;
-            this.HIDE_PANEL.Id = 9;
-            this.HIDE_PANEL.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.legendnone_32x32;
-            this.HIDE_PANEL.Name = "HIDE_PANEL";
-            // 
             // ribbonPageGroup4
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.VIEW_AUTOFILTER);
@@ -262,20 +270,30 @@
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "ribbonPageGroup4";
             // 
-            // VIEW_AUTOFILTER
+            // ribbonPage1
             // 
-            this.VIEW_AUTOFILTER.Caption = "VER AUTOFILTROS";
-            this.VIEW_AUTOFILTER.Id = 10;
-            this.VIEW_AUTOFILTER.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.masterfilter_32x32;
-            this.VIEW_AUTOFILTER.Name = "VIEW_AUTOFILTER";
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup1});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "OPCIONES BASICAS";
             // 
-            // HIDE_AUTOFILTER
+            // ribbonPageGroup1
             // 
-            this.HIDE_AUTOFILTER.Caption = "OCULTAR AUTOFILTROS";
-            this.HIDE_AUTOFILTER.Enabled = false;
-            this.HIDE_AUTOFILTER.Id = 11;
-            this.HIDE_AUTOFILTER.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.ignoremasterfilter_32x32;
-            this.HIDE_AUTOFILTER.Name = "HIDE_AUTOFILTER";
+            this.ribbonPageGroup1.ItemLinks.Add(this.BTN_SAVE);
+            this.ribbonPageGroup1.ItemLinks.Add(this.BTN_EDIT);
+            this.ribbonPageGroup1.ItemLinks.Add(this.BTN_DELETE);
+            this.ribbonPageGroup1.ItemLinks.Add(this.BTN_CLEAN);
+            this.ribbonPageGroup1.ItemLinks.Add(this.BTN_SHOW);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "OPCIONES";
+            // 
+            // ribbonStatusBar
+            // 
+            this.ribbonStatusBar.ItemLinks.Add(this.LBL_RESULT);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 767);
+            this.ribbonStatusBar.Name = "ribbonStatusBar";
+            this.ribbonStatusBar.Ribbon = this.ribbon;
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1018, 40);
             // 
             // dockManager1
             // 
@@ -334,6 +352,14 @@
             this.TXT_LINE.Size = new System.Drawing.Size(146, 22);
             this.TXT_LINE.TabIndex = 26;
             // 
+            // TXT_ACC
+            // 
+            this.TXT_ACC.Location = new System.Drawing.Point(7, 119);
+            this.TXT_ACC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TXT_ACC.Name = "TXT_ACC";
+            this.TXT_ACC.Size = new System.Drawing.Size(146, 22);
+            this.TXT_ACC.TabIndex = 18;
+            // 
             // LabelControl5
             // 
             this.LabelControl5.Location = new System.Drawing.Point(7, 220);
@@ -343,6 +369,16 @@
             this.LabelControl5.TabIndex = 25;
             this.LabelControl5.Text = "LINEA";
             // 
+            // TXT_ID
+            // 
+            this.TXT_ID.Location = new System.Drawing.Point(7, 28);
+            this.TXT_ID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TXT_ID.Name = "TXT_ID";
+            this.TXT_ID.Properties.ReadOnly = true;
+            this.TXT_ID.Size = new System.Drawing.Size(117, 22);
+            this.TXT_ID.TabIndex = 16;
+            this.TXT_ID.TextChanged += new System.EventHandler(this.TXT_ID_TextChanged);
+            // 
             // TXT_DESC_MAT
             // 
             this.TXT_DESC_MAT.Location = new System.Drawing.Point(185, 176);
@@ -350,57 +386,6 @@
             this.TXT_DESC_MAT.Name = "TXT_DESC_MAT";
             this.TXT_DESC_MAT.Size = new System.Drawing.Size(189, 22);
             this.TXT_DESC_MAT.TabIndex = 24;
-            // 
-            // TXT_DESC_ACC
-            // 
-            this.TXT_DESC_ACC.Location = new System.Drawing.Point(185, 119);
-            this.TXT_DESC_ACC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TXT_DESC_ACC.Name = "TXT_DESC_ACC";
-            this.TXT_DESC_ACC.Size = new System.Drawing.Size(189, 22);
-            this.TXT_DESC_ACC.TabIndex = 20;
-            // 
-            // LabelControl3
-            // 
-            this.LabelControl3.Location = new System.Drawing.Point(185, 152);
-            this.LabelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.LabelControl3.Name = "LabelControl3";
-            this.LabelControl3.Size = new System.Drawing.Size(79, 16);
-            this.LabelControl3.TabIndex = 23;
-            this.LabelControl3.Text = "DESCRIPCION";
-            // 
-            // LabelControl2
-            // 
-            this.LabelControl2.Location = new System.Drawing.Point(185, 96);
-            this.LabelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.LabelControl2.Name = "LabelControl2";
-            this.LabelControl2.Size = new System.Drawing.Size(79, 16);
-            this.LabelControl2.TabIndex = 19;
-            this.LabelControl2.Text = "DESCRIPCION";
-            // 
-            // TXT_MAT
-            // 
-            this.TXT_MAT.Location = new System.Drawing.Point(7, 176);
-            this.TXT_MAT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TXT_MAT.Name = "TXT_MAT";
-            this.TXT_MAT.Size = new System.Drawing.Size(146, 22);
-            this.TXT_MAT.TabIndex = 22;
-            // 
-            // LabelControl4
-            // 
-            this.LabelControl4.Location = new System.Drawing.Point(7, 152);
-            this.LabelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.LabelControl4.Name = "LabelControl4";
-            this.LabelControl4.Size = new System.Drawing.Size(59, 16);
-            this.LabelControl4.TabIndex = 21;
-            this.LabelControl4.Text = "MATERIAL";
-            // 
-            // TXT_ACC
-            // 
-            this.TXT_ACC.Location = new System.Drawing.Point(7, 119);
-            this.TXT_ACC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TXT_ACC.Name = "TXT_ACC";
-            this.TXT_ACC.Size = new System.Drawing.Size(146, 22);
-            this.TXT_ACC.TabIndex = 18;
             // 
             // LabelControl1
             // 
@@ -411,21 +396,48 @@
             this.LabelControl1.TabIndex = 17;
             this.LabelControl1.Text = "ACCESORIO";
             // 
-            // TXT_ID
+            // TXT_DESC_ACC
             // 
-            this.TXT_ID.Location = new System.Drawing.Point(7, 28);
-            this.TXT_ID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TXT_ID.Name = "TXT_ID";
-            this.TXT_ID.Properties.ReadOnly = true;
-            this.TXT_ID.Size = new System.Drawing.Size(117, 22);
-            this.TXT_ID.TabIndex = 16;
+            this.TXT_DESC_ACC.Location = new System.Drawing.Point(185, 119);
+            this.TXT_DESC_ACC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TXT_DESC_ACC.Name = "TXT_DESC_ACC";
+            this.TXT_DESC_ACC.Size = new System.Drawing.Size(189, 22);
+            this.TXT_DESC_ACC.TabIndex = 20;
             // 
-            // LBL_RESULT
+            // LabelControl4
             // 
-            this.LBL_RESULT.Caption = "...";
-            this.LBL_RESULT.Id = 12;
-            this.LBL_RESULT.ImageOptions.Image = global::SILVER_E.Properties.Resources.tableproperties_32x32;
-            this.LBL_RESULT.Name = "LBL_RESULT";
+            this.LabelControl4.Location = new System.Drawing.Point(7, 152);
+            this.LabelControl4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LabelControl4.Name = "LabelControl4";
+            this.LabelControl4.Size = new System.Drawing.Size(59, 16);
+            this.LabelControl4.TabIndex = 21;
+            this.LabelControl4.Text = "MATERIAL";
+            // 
+            // LabelControl3
+            // 
+            this.LabelControl3.Location = new System.Drawing.Point(185, 152);
+            this.LabelControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LabelControl3.Name = "LabelControl3";
+            this.LabelControl3.Size = new System.Drawing.Size(79, 16);
+            this.LabelControl3.TabIndex = 23;
+            this.LabelControl3.Text = "DESCRIPCION";
+            // 
+            // TXT_MAT
+            // 
+            this.TXT_MAT.Location = new System.Drawing.Point(7, 176);
+            this.TXT_MAT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TXT_MAT.Name = "TXT_MAT";
+            this.TXT_MAT.Size = new System.Drawing.Size(146, 22);
+            this.TXT_MAT.TabIndex = 22;
+            // 
+            // LabelControl2
+            // 
+            this.LabelControl2.Location = new System.Drawing.Point(185, 96);
+            this.LabelControl2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LabelControl2.Name = "LabelControl2";
+            this.LabelControl2.Size = new System.Drawing.Size(79, 16);
+            this.LabelControl2.TabIndex = 19;
+            this.LabelControl2.Text = "DESCRIPCION";
             // 
             // DGV_DATA
             // 
@@ -459,6 +471,7 @@
             this.G_DATA.OptionsBehavior.Editable = false;
             this.G_DATA.OptionsView.ColumnAutoWidth = false;
             this.G_DATA.OptionsView.ShowFooter = true;
+            this.G_DATA.DoubleClick += new System.EventHandler(this.G_DATA_DoubleClick);
             // 
             // colID
             // 
@@ -538,11 +551,11 @@
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TXT_LINE.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TXT_ACC.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TXT_ID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TXT_DESC_MAT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TXT_DESC_ACC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TXT_MAT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TXT_ACC.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TXT_ID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DATA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.G_DATA)).EndInit();
             this.ResumeLayout(false);
