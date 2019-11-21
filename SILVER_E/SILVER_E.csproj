@@ -262,6 +262,9 @@
     <EmbeddedResource Include="Admininistrador\frm_material.resx">
       <DependentUpon>frm_material.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admininistrador\frm_providers.resx">
+      <DependentUpon>frm_providers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admininistrador\frm_route.resx">
       <DependentUpon>frm_route.cs</DependentUpon>
     </EmbeddedResource>

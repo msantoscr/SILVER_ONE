@@ -223,7 +223,7 @@ namespace SILVER_E
         private void BTN_PROVEEDORES_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO PROVEEDORES
-            Admininistrador.frm_providers FRMPROV = new Admininistrador.frm_providers();
+            Admininistrador.frm_providers FRMPROV = new Admininistrador.frm_providers(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMPROV.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO
