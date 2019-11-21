@@ -133,9 +133,9 @@ namespace SILVER_E.Admininistrador
                     mtd.comando.CommandType = CommandType.StoredProcedure;
 
                     mtd.comando.Parameters.Add("@PRD_ACC_NAME", SqlDbType.NVarChar, 50).Value = TXT_ACC.Text;
-                    mtd.comando.Parameters.Add("@PRD_MAT_NAME", SqlDbType.NVarChar, 50).Value = TXT_DESC_ACC.Text;
+                    mtd.comando.Parameters.Add("@PRD_MAT_NAME", SqlDbType.NVarChar, 50).Value = TXT_MAT.Text;
                     mtd.comando.Parameters.Add("@PRD_CONCAT_MAT", SqlDbType.NVarChar, 50).Value = TXT_LINE.Text;
-                    mtd.comando.Parameters.Add("@PRD_NAME_ACC_DESC", SqlDbType.NVarChar, 100).Value = TXT_MAT.Text;
+                    mtd.comando.Parameters.Add("@PRD_NAME_ACC_DESC", SqlDbType.NVarChar, 100).Value = TXT_DESC_ACC.Text;
                     mtd.comando.Parameters.Add("@PRD_NAME_MAT_DESC", SqlDbType.NVarChar, 100).Value = TXT_DESC_MAT.Text;
 
                     SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
@@ -164,12 +164,6 @@ namespace SILVER_E.Admininistrador
                     FILL_DATA();
                 }
             }
-        }
-
-        private void TXT_ID_TextChanged(object sender, EventArgs e)
-        {
-            TXT_LINE.Text = TXT_ACC.Text + TXT_MAT.Text;
-
         }
 
         private void BTN_SHOW_ItemClick(object sender, ItemClickEventArgs e)
@@ -303,9 +297,9 @@ namespace SILVER_E.Admininistrador
 
                         mtd.comando.Parameters.Add("@ID_PRODUCTS_DATA", SqlDbType.Int).Value = TXT_ID.Text;
                         mtd.comando.Parameters.Add("@PRD_ACC_NAME", SqlDbType.NVarChar, 50).Value = TXT_ACC.Text;
-                        mtd.comando.Parameters.Add("@PRD_MAT_NAME", SqlDbType.NVarChar, 50).Value = TXT_DESC_ACC.Text;
+                        mtd.comando.Parameters.Add("@PRD_MAT_NAME", SqlDbType.NVarChar, 50).Value = TXT_MAT.Text;
                         mtd.comando.Parameters.Add("@PRD_CONCAT_MAT", SqlDbType.NVarChar, 50).Value = TXT_LINE.Text;
-                        mtd.comando.Parameters.Add("@PRD_NAME_ACC_DESC", SqlDbType.NVarChar, 100).Value = TXT_MAT.Text;
+                        mtd.comando.Parameters.Add("@PRD_NAME_ACC_DESC", SqlDbType.NVarChar, 100).Value = TXT_DESC_ACC.Text;
                         mtd.comando.Parameters.Add("@PRD_NAME_MAT_DESC", SqlDbType.NVarChar, 100).Value = TXT_DESC_MAT.Text;
 
                         SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
@@ -379,6 +373,33 @@ namespace SILVER_E.Admininistrador
                     CLEAN_FIELDS();
                     FILL_DATA();
                 }
+            }
+        }
+
+        private void TXT_MAT_TextChanged(object sender, EventArgs e)
+        {
+            TXT_LINE.Text = TXT_ACC.Text + TXT_MAT.Text;
+        }
+
+        private void TXT_ACC_TextChanged(object sender, EventArgs e)
+        {
+            TXT_LINE.Text = TXT_ACC.Text + TXT_MAT.Text;
+        }
+
+        private void TXT_ID_TextChanged(object sender, EventArgs e)
+        {
+            if (TXT_ID.Text == "")
+            {
+                BTN_DELETE.Enabled = false;
+                BTN_EDIT.Enabled = false;
+                BTN_SAVE.Enabled = true;
+            }
+            else
+            {
+                BTN_EDIT.Enabled = true;
+                BTN_DELETE.Enabled = true;
+                BTN_SAVE.Enabled = false;
+
             }
         }
     }

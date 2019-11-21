@@ -359,6 +359,7 @@
             this.TXT_ACC.Name = "TXT_ACC";
             this.TXT_ACC.Size = new System.Drawing.Size(146, 22);
             this.TXT_ACC.TabIndex = 18;
+            this.TXT_ACC.TextChanged += new System.EventHandler(this.TXT_ACC_TextChanged);
             // 
             // LabelControl5
             // 
@@ -429,6 +430,7 @@
             this.TXT_MAT.Name = "TXT_MAT";
             this.TXT_MAT.Size = new System.Drawing.Size(146, 22);
             this.TXT_MAT.TabIndex = 22;
+            this.TXT_MAT.TextChanged += new System.EventHandler(this.TXT_MAT_TextChanged);
             // 
             // LabelControl2
             // 
