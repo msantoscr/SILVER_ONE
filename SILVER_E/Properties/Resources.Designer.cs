@@ -63,6 +63,16 @@ namespace SILVER_E.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("add_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bocustomer_16x16 {
             get {
                 object obj = ResourceManager.GetObject("bocustomer_16x16", resourceCulture);
@@ -136,6 +146,26 @@ namespace SILVER_E.Properties {
         internal static System.Drawing.Bitmap boposition2_32x32 {
             get {
                 object obj = ResourceManager.GetObject("boposition2_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap boproduct_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("boproduct_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap boproduct_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("boproduct_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -396,6 +426,26 @@ namespace SILVER_E.Properties {
         internal static System.Drawing.Bitmap deletelist_32x32 {
             get {
                 object obj = ResourceManager.GetObject("deletelist_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap deletetable_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("deletetable_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap deletetable_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("deletetable_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -743,6 +793,26 @@ namespace SILVER_E.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap none_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("none_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap none_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("none_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap preview_16x16 {
             get {
                 object obj = ResourceManager.GetObject("preview_16x16", resourceCulture);
@@ -796,6 +866,16 @@ namespace SILVER_E.Properties {
         internal static System.Drawing.Bitmap projectdirectory_32x32 {
             get {
                 object obj = ResourceManager.GetObject("projectdirectory_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reading_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("reading_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

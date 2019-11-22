@@ -233,7 +233,7 @@ namespace SILVER_E
         private void BTN_COMPRAS_ItemClick(object sender, ItemClickEventArgs e)
         {
             //INSTANCIAMOS AL FORMULARIO COMPRAS
-            Admininistrador.frm_compras FRMCOMP = new Admininistrador.frm_compras();
+            Admininistrador.frm_compras FRMCOMP = new Admininistrador.frm_compras(usuario);
             //ASIGNAMOS EL PADRE DEL FORMULARIO
             FRMCOMP.MdiParent = this;
             //MOSTRAMOS EL FORMULARIO

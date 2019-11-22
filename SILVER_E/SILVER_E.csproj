@@ -253,6 +253,9 @@
     <EmbeddedResource Include="Admininistrador\frm_company.resx">
       <DependentUpon>frm_company.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admininistrador\frm_compras.resx">
+      <DependentUpon>frm_compras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admininistrador\frm_country.resx">
       <DependentUpon>frm_country.cs</DependentUpon>
     </EmbeddedResource>
@@ -617,6 +620,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\importimage_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\none_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\none_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deletetable_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deletetable_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boproduct_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boproduct_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reading_32x32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

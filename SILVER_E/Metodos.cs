@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using DevExpress.XtraEditors;
-
+using System.Windows.Forms;
 
 namespace SILVER_E
 {
@@ -247,5 +247,50 @@ namespace SILVER_E
         }
 
         #endregion
+
+        public string Generadores(string Tabla) {
+            string result = "";
+           
+            int ult = 0;
+
+            //SIGUIENTE LINEA SE REEMPLAZA POR USO DE UN PARAMETRO ALMACENADO
+            SqlCommand cmd = new SqlCommand("SELECT GEN_ULTIMO FROM SILV_GENERADOR WHERE COM_PARAMETRO=" + Tabla + "", conexion);
+            try
+            {
+                ConectarBaseDatos();
+                SqlDataReader dr1;
+                dr1 = cmd.ExecuteReader();
+                while (dr1.Read()) { 
+                    ult = Convert.ToInt32(dr1["GEN_ULTIMO"]) + 1;
+                }
+                DesconectarBaseDatos();
+
+                int CEROS = 0; 
+                
+                CEROS = (5) - Convert.ToInt32(Convert.ToString(ult).Insert(0," ").Length);
+                switch (CEROS)
+                {
+                    case 3:                       
+                        result =Tabla.Substring(0, 3) + "000" + Convert.ToString(Convert.ToString(ult)).Trim();
+                        break;
+                    case 2:
+                        result = Tabla.Substring(0, 3) + "00" + Convert.ToString(Convert.ToString(ult)).Trim();
+                        break;
+                    case 1: 
+                        result = Tabla.Substring(0, 3) + "0" + Convert.ToString(Convert.ToString(ult)).Trim();
+                        break;
+                    case 0: 
+                        result = Tabla.Substring(0, 3) + "" + Convert.ToString(Convert.ToString(ult)).Trim();
+                        break;
+                }
+                return result;     
+            }
+            
+            catch (Exception ex) {
+                XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return result;
+        }
     }
 }
