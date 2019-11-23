@@ -58,6 +58,7 @@
             this.skinRibbonGalleryBarItem1 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.LBL_USERNAME = new DevExpress.XtraBars.BarStaticItem();
+            this.BTN_PUNTOVTA = new DevExpress.XtraBars.BarButtonItem();
             this.RPC_ARTICULOS = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.RP_ARTICULOS = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.RPG_MATERIALES = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -65,6 +66,9 @@
             this.RPC_COMPRAS = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.RP_COMPRAS = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.RPC_UTILERIAS = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.RP_HERRAMIENTAS = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.RPG_UTILERIAS = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -114,21 +118,23 @@
             this.LB_PASSWORD,
             this.skinRibbonGalleryBarItem1,
             this.barButtonItem1,
-            this.LBL_USERNAME});
+            this.LBL_USERNAME,
+            this.BTN_PUNTOVTA});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ribbon.MaxItemId = 33;
+            this.ribbon.MaxItemId = 34;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.RPC_ARTICULOS,
             this.RPC_COMPRAS,
+            this.ribbonPageCategory1,
             this.RPC_UTILERIAS});
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage2});
             this.ribbon.QuickToolbarItemLinks.Add(this.skinRibbonGalleryBarItem1);
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
-            this.ribbon.Size = new System.Drawing.Size(1297, 143);
+            this.ribbon.Size = new System.Drawing.Size(1513, 179);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // BTN_MATERIALES
@@ -384,6 +390,15 @@
             this.LBL_USERNAME.ImageOptions.Image = global::SILVER_E.Properties.Resources.bouser_16x161;
             this.LBL_USERNAME.Name = "LBL_USERNAME";
             // 
+            // BTN_PUNTOVTA
+            // 
+            this.BTN_PUNTOVTA.Caption = "PUNTO DE VENTA";
+            this.BTN_PUNTOVTA.Id = 33;
+            this.BTN_PUNTOVTA.ImageOptions.Image = global::SILVER_E.Properties.Resources.salessummary2_16x16;
+            this.BTN_PUNTOVTA.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.salessummary2_32x32;
+            this.BTN_PUNTOVTA.Name = "BTN_PUNTOVTA";
+            this.BTN_PUNTOVTA.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_PUNTOVTA_ItemClick);
+            // 
             // RPC_ARTICULOS
             // 
             this.RPC_ARTICULOS.Name = "RPC_ARTICULOS";
@@ -432,6 +447,26 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.BTN_COMPRAS);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "OPCIONES";
+            // 
+            // ribbonPageCategory1
+            // 
+            this.ribbonPageCategory1.Name = "ribbonPageCategory1";
+            this.ribbonPageCategory1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
+            this.ribbonPage1});
+            this.ribbonPageCategory1.Text = "VENTAS";
+            // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup8});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "OPCIONES VENTAS";
+            // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.ItemLinks.Add(this.BTN_PUNTOVTA);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.Text = "VENTAS";
             // 
             // RPC_UTILERIAS
             // 
@@ -530,18 +565,18 @@
             this.ribbonStatusBar.ItemLinks.Add(this.LBL_USER_DB);
             this.ribbonStatusBar.ItemLinks.Add(this.LB_PASSWORD);
             this.ribbonStatusBar.ItemLinks.Add(this.LBL_USERNAME);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 773);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 950);
             this.ribbonStatusBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1297, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1513, 40);
             // 
             // frn_main_form
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1297, 804);
+            this.ClientSize = new System.Drawing.Size(1513, 990);
             this.ControlBox = false;
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
@@ -612,5 +647,9 @@
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         public DevExpress.XtraBars.BarStaticItem LBL_USERNAME;
+        private DevExpress.XtraBars.BarButtonItem BTN_PUNTOVTA;
+        private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory1;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
     }
 }

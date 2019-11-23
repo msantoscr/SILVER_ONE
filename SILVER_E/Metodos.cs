@@ -246,6 +246,42 @@ namespace SILVER_E
             }
         }
 
+        public DataSet GetClientes()
+        {
+            ConectarBaseDatos();
+            try {
+                DataSet dCliente = new DataSet();
+                comando = new SqlCommand("SP_LIST_CLIENTES_ID_NOMBRE", conexion);
+                comando.CommandType = CommandType.StoredProcedure;
+                SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
+                //INDICAMOS QUE SE TRATA DE UN PARAMETRO DE TIPO OUTPUT
+                Message.Direction = ParameterDirection.Output;
+                //A NUESTRO COMANDO A EJCUTAR LE AÑADIMOS EL PARAMETRO NECESARIO PARA SU EJECUCION
+                comando.Parameters.Add(Message);
+                //LE ASIGNAMOS A LA VARIABLE    Public Rows As Integer LA EJECUCION DEL COMANDO ACTUAL  Command = New SqlCommand("SP_SILV_COUNTRIES_INSERT", connection)
+                Rows = comando.ExecuteNonQuery();
+                //SI LA EJECUCION DEL COMANDO RETORNA UN VALOR DE LOS POSIBLES DE NUESTRO PROCEDIMIENTO SP_SILV_COUNTRIES_INSERT SE MUESTRA UN VALOR EN UN MENSAJE DE TIPO  XtraMessageBox DE LA LIBRERIA DEXEXPRESS
+                if (Rows > 0)
+                {
+                    XtraMessageBox.Show(Convert.ToString(Message.Value), "SISTEMA", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    XtraMessageBox.Show(Convert.ToString(Message.Value), "SISTEMA", MessageBoxButtons.OK);
+                }
+                adaptador = new SqlDataAdapter(comando);
+                adaptador.Fill(dCliente);
+
+                DesconectarBaseDatos();
+                return dCliente;
+            }
+            catch (Exception ex) {
+                XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DesconectarBaseDatos();
+                return null;
+            }
+        }
+
         #endregion
 
         public string Generadores(string Tabla) {

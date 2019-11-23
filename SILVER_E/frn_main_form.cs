@@ -279,5 +279,15 @@ namespace SILVER_E
             //ASIGNAMOS A LA ETIQUETA EL NOMBRE DE LA BASE DE DATOS (DATABASE) A LA CUAL ESTAMOS CONECTADOS
             LBL_DATABASE.Caption = mtd.conexion.Database.ToString();
         }
+
+        private void BTN_PUNTOVTA_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //INSTANCIAMOS AL FORMULARIO PUNTO DE VENTA
+            Admininistrador.frm_ptovta FRMCOMP = new Admininistrador.frm_ptovta(usuario);
+            //ASIGNAMOS EL PADRE DEL FORMULARIO
+            FRMCOMP.MdiParent = this;
+            //MOSTRAMOS EL FORMULARIO
+            FRMCOMP.Show();
+        }
     }
 }
