@@ -18,8 +18,9 @@ namespace SILVER_E.Admininistrador
     {
         Metodos mtd = new Metodos();
         string usuario;
-        DataSet objConsultaClientes = new DataSet();
-        
+        DataSet objConsultaTV = new DataSet();
+        DataTable table = new DataTable("Table");
+
         public frm_ptovta(string usu)
         {
             usuario = usu;
@@ -82,18 +83,108 @@ namespace SILVER_E.Admininistrador
                 mtd.DesconectarBaseDatos();
             }
         }
+
+        public void FILL_DATA_ARTI() {
+            try {
+                mtd.ConectarBaseDatos();
+                mtd.comando = new SqlCommand("SP_SILV_PRODUCTS_DATA_VIEW", mtd.conexion);
+                mtd.comando.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
+                Message.Direction = ParameterDirection.Output;
+                mtd.comando.Parameters.Add(Message);
+                mtd.Rows = mtd.comando.ExecuteNonQuery();
+                if (mtd.Rows > 0)
+                {
+                    LBL_RESULT.Visibility = BarItemVisibility.Always;
+                    LBL_RESULT.Caption = Convert.ToString(Message.Value);
+
+                }
+                else
+                {
+                    LBL_RESULT.Visibility = BarItemVisibility.Always;
+                    LBL_RESULT.Caption = Convert.ToString(Message.Value);
+                }
+                mtd.adaptador = new SqlDataAdapter(mtd.comando);
+                DataTable DataT = new DataTable();
+                mtd.adaptador.Fill(DataT);
+                DGV_ARTI.DataSource = DataT;
+                GV_ARTI.BestFitColumns();
+            }
+            catch (Exception ex) {
+                XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally {
+                mtd.DesconectarBaseDatos();
+            }
+        }
+        public DataSet GetTipoVenta()
+        {
+            mtd.ConectarBaseDatos();
+            try
+            {
+                DataSet dtv = new DataSet();
+                mtd.comando = new SqlCommand("SP_LIST_TIPO_VENTA", mtd.conexion);
+                mtd.comando.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
+                Message.Direction = ParameterDirection.Output;
+                mtd.comando.Parameters.Add(Message);
+                mtd.Rows = mtd.comando.ExecuteNonQuery();
+                if (mtd.Rows > 0)
+                {
+                    LBL_RESULT_TIPO_VENTA.Visibility = BarItemVisibility.Always;
+                    LBL_RESULT_TIPO_VENTA.Caption = Convert.ToString(Message.Value);
+                }
+                else
+                {
+                    LBL_RESULT_TIPO_VENTA.Visibility = BarItemVisibility.Always;
+                    LBL_RESULT_TIPO_VENTA.Caption = Convert.ToString(Message.Value);
+                }
+
+                mtd.adaptador = new SqlDataAdapter(mtd.comando);
+                mtd.adaptador.Fill(dtv);
+
+                return dtv;
+
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            finally {
+                mtd.DesconectarBaseDatos();
+            }
+
+        }
         private void frm_ptovta_Load(object sender, EventArgs e)
         {
+            table.Columns.Add("CODIGO", Type.GetType("System.Int32"));
+            table.Columns.Add("LINEA", Type.GetType("System.String"));
+            table.Columns.Add("DESCRIPCION", Type.GetType("System.String"));
+            table.Columns.Add("PRECIO PUBLICO", Type.GetType("System.String"));
+            table.Columns.Add("CANTIDAD",Type.GetType("System.Int32"));
+            table.Columns.Add("DESCUENTO", Type.GetType("System.String"));
+            table.Columns.Add("IMPORTE", Type.GetType("System.String"));
+
+            dgv_data.DataSource = table;
+            //INICIALIZAR LA TABLA CLIENTES PARA BUSQUEDAS
             FILL_DATA();
             GV_DATA_CLIENT.OptionsFind.AlwaysVisible = true;
+            //INICIALIZAR LA TABLA ARTICULOS PARA BUSQUEDAS
+            FILL_DATA_ARTI();
+            GV_ARTI.OptionsFind.AlwaysVisible = true;
+
             string fechaActual = DateTime.Now.ToString("dd/MM/yyyy");
             TXT_FECHA_ACTUAL.Text = fechaActual.ToString();
+            objConsultaTV = GetTipoVenta();
+            foreach (DataRow row in objConsultaTV.Tables[0].Rows) {
+                CMB_TIPO_VENTA.Items.Add(row[0].ToString());
+            }
+            CMB_TIPO_VENTA.SelectedIndex = 0;
             
-        }
-
-        private void BTN_FIND_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void DGV_DATA_CLIENT_DoubleClick(object sender, EventArgs e)
@@ -128,6 +219,136 @@ namespace SILVER_E.Admininistrador
         private void frm_ptovta_Shown(object sender, EventArgs e)
         {
             TXT_CODIGO_ARTI.Focus();
+        }
+
+        private void dgv_data_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void DGV_ARTI_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                TXT_CODIGO_ARTI.Text = Convert.ToString(GV_ARTI.GetRowCellValue(GV_ARTI.FocusedRowHandle, "ID"));
+
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        public void CLEAR_FIELDS() {
+            TXT_CODIGO_ARTI.ResetText();
+        }
+
+        private void TXT_CODIGO_ARTI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+            {
+                if (TXT_CODIGO_ARTI.Text == "" || TXT_CODIGO_ARTI.Text == null)
+                {
+                    XtraMessageBox.Show("NO PUEDES DEJAR EL CAMPO CODIGO ARTICULO VACIO", "...ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    TXT_CODIGO_ARTI.Text = "";
+                }
+                try
+                {
+
+                    mtd.ConectarBaseDatos();
+                    mtd.comando = new SqlCommand("SP_DATOS_ARTICULOS", mtd.conexion);
+                    mtd.comando.CommandType = CommandType.StoredProcedure;
+                    mtd.comando.Parameters.Add("@CODIGO_ARTI", SqlDbType.NVarChar, 200).Value = TXT_CODIGO_ARTI.Text;
+                    SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
+                    Message.Direction = ParameterDirection.Output;
+                    mtd.comando.Parameters.Add(Message);
+
+                    SqlDataReader reader = mtd.comando.ExecuteReader();
+
+                    int codigo;
+                    string linea;
+                    string descrip;
+                    string preciopub;
+                    
+
+                    if (reader.Read())
+                    {
+                        codigo = Convert.ToInt32(reader["ID_PRODUCTS_DATA"]);
+                        linea = Convert.ToString(reader["PRD_CONCAT_MAT"]);
+                        descrip = Convert.ToString(reader["PRD_NAME"]);
+                        preciopub = Convert.ToString(reader["COM_PRECIO_PUB"]);
+                        
+                        table.Rows.Add(codigo, linea, descrip, preciopub, 0 ,Convert.ToString(0), (Convert.ToInt32(preciopub)*0));
+
+                    }
+                    dgv_data.DataSource = table;
+                    dgv_data.Columns[0].ReadOnly = true;
+                    dgv_data.Columns[1].ReadOnly = true;
+                    dgv_data.Columns[2].ReadOnly = true;
+                    dgv_data.Columns[3].ReadOnly = true;
+                    dgv_data.Columns[6].ReadOnly = true;
+
+                    CLEAR_FIELDS();
+
+                    txt_partidas.Text = this.dgv_data.RowCount.ToString();
+                    TXT_CODIGO_ARTI.Focus();
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                finally
+                {
+                    mtd.DesconectarBaseDatos();
+                }
+
+            }
+        }
+
+        public void fsumar()
+        {
+            double total = 0;
+            foreach (DataGridViewRow fila in dgv_data.Rows)
+            {
+                if (fila.Cells["IMPORTE"].Value == null)
+                {
+                    return;
+                }
+                else
+                {
+                    total += Convert.ToDouble(fila.Cells["IMPORTE"].Value);
+                }
+            }
+            txt_totales.Text = string.Format("{0:0,0}", total);
+            txt_t_subtotal.Text = string.Format("{0:0,0}", total);
+        }
+
+        public void sumer_piezas()
+        {
+            double total = 0;
+            foreach (DataGridViewRow fila in dgv_data.Rows)
+            {
+                if (fila.Cells["CANTIDAD"].Value == null)
+                {
+                    return;
+                }
+                else
+                {
+                    total += Convert.ToDouble(fila.Cells["CANTIDAD"].Value);
+                }
+            }
+
+            txt_piezas.Text = Convert.ToString(total);
+
+        }
+
+        private void dgv_data_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            fsumar();
+            sumer_piezas();
+            txt_partidas.Text = this.dgv_data.RowCount.ToString();
         }
     }
 }

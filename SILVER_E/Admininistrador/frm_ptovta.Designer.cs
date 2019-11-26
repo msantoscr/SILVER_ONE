@@ -29,23 +29,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barCheckItem1 = new DevExpress.XtraBars.BarCheckItem();
             this.BTN_SAVE = new DevExpress.XtraBars.BarButtonItem();
             this.BTN_DELETE_ROW_SELECT = new DevExpress.XtraBars.BarButtonItem();
             this.BTN_DELETE = new DevExpress.XtraBars.BarButtonItem();
             this.LBL_RESULT = new DevExpress.XtraBars.BarStaticItem();
+            this.LBL_RESULT_TIPO_VENTA = new DevExpress.XtraBars.BarStaticItem();
+            this.LBL_RESULT_ARTICULO = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.DGV_ARTI = new DevExpress.XtraGrid.GridControl();
+            this.GV_ARTI = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colID1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colACCESORIO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMATERIAL = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLINEA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDESCRIPCIONACCESORIO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDESCRIPCIONMATERIAL = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDESCRIPCION = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colULTIMOFOLIO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DGV_DATA_CLIENT = new DevExpress.XtraGrid.GridControl();
             this.GV_DATA_CLIENT = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -76,7 +83,6 @@
             this.colFECHADEREGISTRO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFOTOGRAFIA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SeparatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
-            this.BTN_FIND = new DevExpress.XtraEditors.SimpleButton();
             this.GroupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.txt_totales = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
@@ -89,29 +95,31 @@
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.TXT_CODIGO_ARTI = new System.Windows.Forms.TextBox();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.LabelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.pc_img = new DevExpress.XtraEditors.PictureEdit();
             this.TXT_FECHA_ACTUAL = new System.Windows.Forms.TextBox();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.TXT_CURP = new System.Windows.Forms.TextBox();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.LabelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.TXT_ID_CLIENT = new System.Windows.Forms.TextBox();
+            this.CMB_TIPO_VENTA = new System.Windows.Forms.ComboBox();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.TXT_ADDRESS_CLIENT = new System.Windows.Forms.TextBox();
             this.TXT_NAME_CLIENT = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.dgv_data = new System.Windows.Forms.DataGridView();
-            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.pc_img = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_ARTI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GV_ARTI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DATA_CLIENT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_DATA_CLIENT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
@@ -126,10 +134,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_piezas.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pc_img.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -141,16 +149,18 @@
             this.BTN_SAVE,
             this.BTN_DELETE_ROW_SELECT,
             this.BTN_DELETE,
-            this.LBL_RESULT});
+            this.LBL_RESULT,
+            this.LBL_RESULT_TIPO_VENTA,
+            this.LBL_RESULT_ARTICULO});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbon.MaxItemId = 6;
+            this.ribbon.MaxItemId = 8;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
             this.ribbon.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.True;
-            this.ribbon.Size = new System.Drawing.Size(1553, 179);
+            this.ribbon.Size = new System.Drawing.Size(1565, 179);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // barCheckItem1
@@ -188,6 +198,21 @@
             this.LBL_RESULT.ImageOptions.Image = global::SILVER_E.Properties.Resources.tableproperties_32x32;
             this.LBL_RESULT.Name = "LBL_RESULT";
             // 
+            // LBL_RESULT_TIPO_VENTA
+            // 
+            this.LBL_RESULT_TIPO_VENTA.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.LBL_RESULT_TIPO_VENTA.Caption = "...";
+            this.LBL_RESULT_TIPO_VENTA.Id = 6;
+            this.LBL_RESULT_TIPO_VENTA.ImageOptions.Image = global::SILVER_E.Properties.Resources.bosale_32x32;
+            this.LBL_RESULT_TIPO_VENTA.Name = "LBL_RESULT_TIPO_VENTA";
+            // 
+            // LBL_RESULT_ARTICULO
+            // 
+            this.LBL_RESULT_ARTICULO.Caption = "...";
+            this.LBL_RESULT_ARTICULO.Id = 7;
+            this.LBL_RESULT_ARTICULO.ImageOptions.Image = global::SILVER_E.Properties.Resources.tableproperties_32x32;
+            this.LBL_RESULT_ARTICULO.Name = "LBL_RESULT_ARTICULO";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -206,10 +231,12 @@
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.LBL_RESULT);
+            this.ribbonStatusBar.ItemLinks.Add(this.LBL_RESULT_TIPO_VENTA);
+            this.ribbonStatusBar.ItemLinks.Add(this.LBL_RESULT_ARTICULO);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 887);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1553, 40);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1565, 40);
             // 
             // dockManager1
             // 
@@ -244,9 +271,9 @@
             // 
             // dockPanel1_Container
             // 
+            this.dockPanel1_Container.Controls.Add(this.DGV_ARTI);
             this.dockPanel1_Container.Controls.Add(this.DGV_DATA_CLIENT);
             this.dockPanel1_Container.Controls.Add(this.SeparatorControl1);
-            this.dockPanel1_Container.Controls.Add(this.BTN_FIND);
             this.dockPanel1_Container.Controls.Add(this.GroupControl1);
             this.dockPanel1_Container.Controls.Add(this.GroupControl2);
             this.dockPanel1_Container.Controls.Add(this.TXT_CODIGO_ARTI);
@@ -255,6 +282,95 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(554, 676);
             this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // DGV_ARTI
+            // 
+            this.DGV_ARTI.Location = new System.Drawing.Point(3, 311);
+            this.DGV_ARTI.MainView = this.GV_ARTI;
+            this.DGV_ARTI.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DGV_ARTI.MenuManager = this.ribbon;
+            this.DGV_ARTI.Name = "DGV_ARTI";
+            this.DGV_ARTI.Size = new System.Drawing.Size(551, 234);
+            this.DGV_ARTI.TabIndex = 1034;
+            this.DGV_ARTI.UseEmbeddedNavigator = true;
+            this.DGV_ARTI.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.GV_ARTI});
+            this.DGV_ARTI.DoubleClick += new System.EventHandler(this.DGV_ARTI_DoubleClick);
+            // 
+            // GV_ARTI
+            // 
+            this.GV_ARTI.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colID1,
+            this.colACCESORIO,
+            this.colMATERIAL,
+            this.colLINEA,
+            this.colDESCRIPCIONACCESORIO,
+            this.colDESCRIPCIONMATERIAL,
+            this.colDESCRIPCION,
+            this.colULTIMOFOLIO});
+            this.GV_ARTI.GridControl = this.DGV_ARTI;
+            this.GV_ARTI.Name = "GV_ARTI";
+            this.GV_ARTI.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.GV_ARTI.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.GV_ARTI.OptionsBehavior.Editable = false;
+            this.GV_ARTI.OptionsView.ColumnAutoWidth = false;
+            this.GV_ARTI.OptionsView.ShowFooter = true;
+            // 
+            // colID1
+            // 
+            this.colID1.FieldName = "ID";
+            this.colID1.Name = "colID1";
+            this.colID1.Visible = true;
+            this.colID1.VisibleIndex = 0;
+            // 
+            // colACCESORIO
+            // 
+            this.colACCESORIO.FieldName = "ACCESORIO";
+            this.colACCESORIO.Name = "colACCESORIO";
+            this.colACCESORIO.Visible = true;
+            this.colACCESORIO.VisibleIndex = 1;
+            // 
+            // colMATERIAL
+            // 
+            this.colMATERIAL.FieldName = "MATERIAL";
+            this.colMATERIAL.Name = "colMATERIAL";
+            this.colMATERIAL.Visible = true;
+            this.colMATERIAL.VisibleIndex = 2;
+            // 
+            // colLINEA
+            // 
+            this.colLINEA.FieldName = "LINEA";
+            this.colLINEA.Name = "colLINEA";
+            this.colLINEA.Visible = true;
+            this.colLINEA.VisibleIndex = 3;
+            // 
+            // colDESCRIPCIONACCESORIO
+            // 
+            this.colDESCRIPCIONACCESORIO.FieldName = "DESCRIPCION ACCESORIO";
+            this.colDESCRIPCIONACCESORIO.Name = "colDESCRIPCIONACCESORIO";
+            this.colDESCRIPCIONACCESORIO.Visible = true;
+            this.colDESCRIPCIONACCESORIO.VisibleIndex = 4;
+            // 
+            // colDESCRIPCIONMATERIAL
+            // 
+            this.colDESCRIPCIONMATERIAL.FieldName = "DESCRIPCION MATERIAL";
+            this.colDESCRIPCIONMATERIAL.Name = "colDESCRIPCIONMATERIAL";
+            this.colDESCRIPCIONMATERIAL.Visible = true;
+            this.colDESCRIPCIONMATERIAL.VisibleIndex = 5;
+            // 
+            // colDESCRIPCION
+            // 
+            this.colDESCRIPCION.FieldName = "DESCRIPCION";
+            this.colDESCRIPCION.Name = "colDESCRIPCION";
+            this.colDESCRIPCION.Visible = true;
+            this.colDESCRIPCION.VisibleIndex = 6;
+            // 
+            // colULTIMOFOLIO
+            // 
+            this.colULTIMOFOLIO.FieldName = "ULTIMO FOLIO";
+            this.colULTIMOFOLIO.Name = "colULTIMOFOLIO";
+            this.colULTIMOFOLIO.Visible = true;
+            this.colULTIMOFOLIO.VisibleIndex = 7;
             // 
             // DGV_DATA_CLIENT
             // 
@@ -265,7 +381,7 @@
             this.DGV_DATA_CLIENT.Name = "DGV_DATA_CLIENT";
             this.DGV_DATA_CLIENT.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.DGV_DATA_CLIENT.Size = new System.Drawing.Size(534, 234);
+            this.DGV_DATA_CLIENT.Size = new System.Drawing.Size(551, 234);
             this.DGV_DATA_CLIENT.TabIndex = 1033;
             this.DGV_DATA_CLIENT.UseEmbeddedNavigator = true;
             this.DGV_DATA_CLIENT.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -510,27 +626,6 @@
             this.SeparatorControl1.Size = new System.Drawing.Size(548, 28);
             this.SeparatorControl1.TabIndex = 1017;
             // 
-            // BTN_FIND
-            // 
-            this.BTN_FIND.ImageOptions.Image = global::SILVER_E.Properties.Resources.search_16x16;
-            this.BTN_FIND.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.TopCenter;
-            this.BTN_FIND.Location = new System.Drawing.Point(298, 271);
-            this.BTN_FIND.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.BTN_FIND.Name = "BTN_FIND";
-            this.BTN_FIND.Size = new System.Drawing.Size(54, 23);
-            toolTipTitleItem7.Text = "INFORMACION";
-            toolTipItem4.LeftIndent = 6;
-            toolTipItem4.Text = "PRESIONE ESTE BOTON PARA BUSCAR EL CODIGO DEL ARTICULO";
-            toolTipTitleItem8.LeftIndent = 6;
-            toolTipTitleItem8.Text = "SILVER ONE ERP";
-            superToolTip4.Items.Add(toolTipTitleItem7);
-            superToolTip4.Items.Add(toolTipItem4);
-            superToolTip4.Items.Add(toolTipSeparatorItem4);
-            superToolTip4.Items.Add(toolTipTitleItem8);
-            this.BTN_FIND.SuperTip = superToolTip4;
-            this.BTN_FIND.TabIndex = 1032;
-            this.BTN_FIND.Click += new System.EventHandler(this.BTN_FIND_Click);
-            // 
             // GroupControl1
             // 
             this.GroupControl1.Controls.Add(this.txt_totales);
@@ -633,8 +728,9 @@
             // 
             this.TXT_CODIGO_ARTI.Location = new System.Drawing.Point(165, 271);
             this.TXT_CODIGO_ARTI.Name = "TXT_CODIGO_ARTI";
-            this.TXT_CODIGO_ARTI.Size = new System.Drawing.Size(118, 23);
+            this.TXT_CODIGO_ARTI.Size = new System.Drawing.Size(369, 23);
             this.TXT_CODIGO_ARTI.TabIndex = 1022;
+            this.TXT_CODIGO_ARTI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXT_CODIGO_ARTI_KeyPress);
             // 
             // labelControl7
             // 
@@ -644,23 +740,6 @@
             this.labelControl7.Size = new System.Drawing.Size(139, 16);
             this.labelControl7.TabIndex = 1021;
             this.labelControl7.Text = "CODIGO DEL ARTICULO:";
-            // 
-            // LabelControl9
-            // 
-            this.LabelControl9.Location = new System.Drawing.Point(4, 94);
-            this.LabelControl9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.LabelControl9.Name = "LabelControl9";
-            this.LabelControl9.Size = new System.Drawing.Size(80, 16);
-            this.LabelControl9.TabIndex = 1018;
-            this.LabelControl9.Text = "TIPO VENTA: ";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(103, 91);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(264, 24);
-            this.comboBox1.TabIndex = 1019;
             // 
             // dockPanel2
             // 
@@ -672,7 +751,7 @@
             this.dockPanel2.Name = "dockPanel2";
             this.dockPanel2.Options.ShowCloseButton = false;
             this.dockPanel2.OriginalSize = new System.Drawing.Size(200, 217);
-            this.dockPanel2.Size = new System.Drawing.Size(987, 217);
+            this.dockPanel2.Size = new System.Drawing.Size(999, 217);
             this.dockPanel2.Text = "DATOS DEL CLIENTE";
             // 
             // dockPanel2_Container
@@ -686,7 +765,7 @@
             this.dockPanel2_Container.Controls.Add(this.labelControl4);
             this.dockPanel2_Container.Controls.Add(this.LabelControl9);
             this.dockPanel2_Container.Controls.Add(this.TXT_ID_CLIENT);
-            this.dockPanel2_Container.Controls.Add(this.comboBox1);
+            this.dockPanel2_Container.Controls.Add(this.CMB_TIPO_VENTA);
             this.dockPanel2_Container.Controls.Add(this.labelControl3);
             this.dockPanel2_Container.Controls.Add(this.labelControl2);
             this.dockPanel2_Container.Controls.Add(this.TXT_ADDRESS_CLIENT);
@@ -694,8 +773,30 @@
             this.dockPanel2_Container.Controls.Add(this.labelControl1);
             this.dockPanel2_Container.Location = new System.Drawing.Point(5, 27);
             this.dockPanel2_Container.Name = "dockPanel2_Container";
-            this.dockPanel2_Container.Size = new System.Drawing.Size(977, 183);
+            this.dockPanel2_Container.Size = new System.Drawing.Size(989, 183);
             this.dockPanel2_Container.TabIndex = 0;
+            // 
+            // groupControl3
+            // 
+            this.groupControl3.Controls.Add(this.pc_img);
+            this.groupControl3.Location = new System.Drawing.Point(756, 4);
+            this.groupControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupControl3.Name = "groupControl3";
+            this.groupControl3.Size = new System.Drawing.Size(214, 175);
+            this.groupControl3.TabIndex = 1077;
+            this.groupControl3.Text = "FOTOGRAFIA";
+            // 
+            // pc_img
+            // 
+            this.pc_img.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pc_img.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pc_img.Location = new System.Drawing.Point(2, 25);
+            this.pc_img.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pc_img.Name = "pc_img";
+            this.pc_img.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pc_img.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pc_img.Size = new System.Drawing.Size(210, 148);
+            this.pc_img.TabIndex = 0;
             // 
             // TXT_FECHA_ACTUAL
             // 
@@ -746,12 +847,29 @@
             this.labelControl4.TabIndex = 1021;
             this.labelControl4.Text = "CURP:";
             // 
+            // LabelControl9
+            // 
+            this.LabelControl9.Location = new System.Drawing.Point(0, 98);
+            this.LabelControl9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.LabelControl9.Name = "LabelControl9";
+            this.LabelControl9.Size = new System.Drawing.Size(80, 16);
+            this.LabelControl9.TabIndex = 1018;
+            this.LabelControl9.Text = "TIPO VENTA: ";
+            // 
             // TXT_ID_CLIENT
             // 
             this.TXT_ID_CLIENT.Location = new System.Drawing.Point(599, 3);
             this.TXT_ID_CLIENT.Name = "TXT_ID_CLIENT";
             this.TXT_ID_CLIENT.Size = new System.Drawing.Size(151, 23);
             this.TXT_ID_CLIENT.TabIndex = 1021;
+            // 
+            // CMB_TIPO_VENTA
+            // 
+            this.CMB_TIPO_VENTA.FormattingEnabled = true;
+            this.CMB_TIPO_VENTA.Location = new System.Drawing.Point(79, 95);
+            this.CMB_TIPO_VENTA.Name = "CMB_TIPO_VENTA";
+            this.CMB_TIPO_VENTA.Size = new System.Drawing.Size(395, 24);
+            this.CMB_TIPO_VENTA.TabIndex = 1019;
             // 
             // labelControl3
             // 
@@ -780,14 +898,14 @@
             // 
             // TXT_NAME_CLIENT
             // 
-            this.TXT_NAME_CLIENT.Location = new System.Drawing.Point(64, 5);
+            this.TXT_NAME_CLIENT.Location = new System.Drawing.Point(79, 5);
             this.TXT_NAME_CLIENT.Name = "TXT_NAME_CLIENT";
-            this.TXT_NAME_CLIENT.Size = new System.Drawing.Size(410, 23);
+            this.TXT_NAME_CLIENT.Size = new System.Drawing.Size(395, 23);
             this.TXT_NAME_CLIENT.TabIndex = 1020;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(4, 8);
+            this.labelControl1.Location = new System.Drawing.Point(19, 10);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(54, 16);
@@ -805,37 +923,17 @@
             this.dgv_data.Location = new System.Drawing.Point(566, 396);
             this.dgv_data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgv_data.Name = "dgv_data";
-            this.dgv_data.Size = new System.Drawing.Size(987, 491);
+            this.dgv_data.Size = new System.Drawing.Size(999, 491);
             this.dgv_data.TabIndex = 1018;
-            // 
-            // groupControl3
-            // 
-            this.groupControl3.Controls.Add(this.pc_img);
-            this.groupControl3.Location = new System.Drawing.Point(756, 4);
-            this.groupControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(214, 175);
-            this.groupControl3.TabIndex = 1077;
-            this.groupControl3.Text = "FOTOGRAFIA";
-            // 
-            // pc_img
-            // 
-            this.pc_img.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pc_img.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pc_img.Location = new System.Drawing.Point(2, 25);
-            this.pc_img.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pc_img.Name = "pc_img";
-            this.pc_img.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pc_img.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pc_img.Size = new System.Drawing.Size(210, 148);
-            this.pc_img.TabIndex = 0;
+            this.dgv_data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_data_CellContentClick);
+            this.dgv_data.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_data_CellValueChanged);
             // 
             // frm_ptovta
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1553, 927);
+            this.ClientSize = new System.Drawing.Size(1565, 927);
             this.Controls.Add(this.dgv_data);
             this.Controls.Add(this.dockPanel2);
             this.Controls.Add(this.dockPanel1);
@@ -853,6 +951,8 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_ARTI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GV_ARTI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DATA_CLIENT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_DATA_CLIENT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
@@ -870,10 +970,10 @@
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             this.dockPanel2_Container.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pc_img.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -895,7 +995,7 @@
         private System.Windows.Forms.TextBox TXT_ADDRESS_CLIENT;
         private System.Windows.Forms.TextBox TXT_NAME_CLIENT;
         internal DevExpress.XtraEditors.LabelControl labelControl1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CMB_TIPO_VENTA;
         internal DevExpress.XtraEditors.LabelControl LabelControl9;
         private System.Windows.Forms.TextBox TXT_FECHA_ACTUAL;
         internal DevExpress.XtraEditors.LabelControl labelControl6;
@@ -920,7 +1020,6 @@
         internal DevExpress.XtraEditors.LabelControl labelControl12;
         internal System.Windows.Forms.DataGridView dgv_data;
         public DevExpress.XtraBars.Docking.DockPanel dockPanel2;
-        internal DevExpress.XtraEditors.SimpleButton BTN_FIND;
         private DevExpress.XtraGrid.GridControl DGV_DATA_CLIENT;
         private DevExpress.XtraGrid.Views.Grid.GridView GV_DATA_CLIENT;
         private DevExpress.XtraGrid.Columns.GridColumn colID;
@@ -954,5 +1053,17 @@
         public DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         internal DevExpress.XtraEditors.GroupControl groupControl3;
         internal DevExpress.XtraEditors.PictureEdit pc_img;
+        private DevExpress.XtraBars.BarStaticItem LBL_RESULT_TIPO_VENTA;
+        private DevExpress.XtraBars.BarStaticItem LBL_RESULT_ARTICULO;
+        private DevExpress.XtraGrid.Columns.GridColumn colID1;
+        private DevExpress.XtraGrid.Columns.GridColumn colACCESORIO;
+        private DevExpress.XtraGrid.Columns.GridColumn colMATERIAL;
+        private DevExpress.XtraGrid.Columns.GridColumn colLINEA;
+        private DevExpress.XtraGrid.Columns.GridColumn colDESCRIPCIONACCESORIO;
+        private DevExpress.XtraGrid.Columns.GridColumn colDESCRIPCIONMATERIAL;
+        private DevExpress.XtraGrid.Columns.GridColumn colDESCRIPCION;
+        private DevExpress.XtraGrid.Columns.GridColumn colULTIMOFOLIO;
+        public DevExpress.XtraGrid.GridControl DGV_ARTI;
+        public DevExpress.XtraGrid.Views.Grid.GridView GV_ARTI;
     }
 }

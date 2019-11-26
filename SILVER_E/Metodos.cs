@@ -282,6 +282,7 @@ namespace SILVER_E
             }
         }
 
+
         #endregion
 
         public string Generadores(string Tabla) {
