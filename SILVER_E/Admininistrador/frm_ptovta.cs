@@ -11,6 +11,7 @@ using DevExpress.XtraBars;
 using DevExpress.XtraScheduler.Native;
 using System.Data.SqlClient;
 using DevExpress.XtraEditors;
+using System.IO;
 
 namespace SILVER_E.Admininistrador
 {
@@ -231,7 +232,7 @@ namespace SILVER_E.Admininistrador
             try
             {
                 TXT_CODIGO_ARTI.Text = Convert.ToString(GV_ARTI.GetRowCellValue(GV_ARTI.FocusedRowHandle, "ID"));
-
+                TXT_CODIGO_ARTI.Focus();
             }
             catch (Exception ex)
             {
@@ -270,7 +271,8 @@ namespace SILVER_E.Admininistrador
                     string linea;
                     string descrip;
                     string preciopub;
-                    
+
+                    bool existe = false;
 
                     if (reader.Read())
                     {
@@ -278,8 +280,20 @@ namespace SILVER_E.Admininistrador
                         linea = Convert.ToString(reader["PRD_CONCAT_MAT"]);
                         descrip = Convert.ToString(reader["PRD_NAME"]);
                         preciopub = Convert.ToString(reader["COM_PRECIO_PUB"]);
-                        
-                        table.Rows.Add(codigo, linea, descrip, preciopub, 0 ,Convert.ToString(0), (Convert.ToInt32(preciopub)*0));
+
+                        if (dgv_data.RowCount > 0) {
+                            for(int i=0; i < dgv_data.RowCount; i++) {
+                                if (Convert.ToInt32(dgv_data.Rows[i].Cells["CODIGO"].Value) == codigo) {
+                                    XtraMessageBox.Show("EL ARTICULO YA SE ENCUENTRA INGRESADO");
+                                    existe = true;
+                                    break;//salir del ciclo al encontrar el registro, ya que no es necesario seguir barriendo los demas filas.
+                                }
+                            }
+                        }
+                        //fuera del ciclo, solo si no existe realizamos la insercion
+                        if (existe == false) {
+                            table.Rows.Add(codigo, linea, descrip, preciopub, 0, Convert.ToString(0), (Convert.ToInt32(preciopub) * 0));
+                        }
 
                     }
                     dgv_data.DataSource = table;
@@ -346,9 +360,198 @@ namespace SILVER_E.Admininistrador
 
         private void dgv_data_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.ColumnIndex == 4 || e.ColumnIndex==5) {
+                int importe;
+                int descuento = Convert.ToInt32(dgv_data.Rows[e.RowIndex].Cells["DESCUENTO"].Value.ToString());
+
+                if (Convert.ToInt32(dgv_data.Rows[e.RowIndex].Cells["CANTIDAD"].Value.ToString()) != 0)
+                {
+                    importe = Convert.ToInt32(dgv_data.Rows[e.RowIndex].Cells["CANTIDAD"].Value.ToString()) * Convert.ToInt32(dgv_data.Rows[e.RowIndex].Cells["PRECIO PUBLICO"].Value.ToString());
+                }
+                else {
+                     importe = Convert.ToInt32(dgv_data.Rows[e.RowIndex].Cells["PRECIO PUBLICO"].Value.ToString());
+                }
+
+                if (descuento != 0)
+                {
+                    dgv_data.Rows[e.RowIndex].Cells["IMPORTE"].Value = importe / descuento;
+                }
+                else {
+                    dgv_data.Rows[e.RowIndex].Cells["IMPORTE"].Value = importe;
+                }
+                
+            }
             fsumar();
             sumer_piezas();
             txt_partidas.Text = this.dgv_data.RowCount.ToString();
+        }
+
+        private void TXT_ID_CLIENT_TextChanged(object sender, EventArgs e)
+        {
+            if (TXT_ID_CLIENT.Text == "")
+            {
+                return;
+            }
+            else
+            {
+                search_img();
+            }
+        }
+
+        public void search_img()
+        {
+            try
+            {
+                //ESTABLECEMOS LA CONEXION A LA BASE DE DATOS
+                mtd.ConectarBaseDatos();
+                //SE EJECUTA UN NUEVO COMANDO SP_OBTAIN_IMAGE_CLIENT E INDICAMOS MEDIANTE With {.CommandType = CommandType.StoredProcedure} QUE SE TRATA DE UN PROCEDIMIENTO ALMACENADO
+                mtd.comando = new SqlCommand("SP_OBTAIN_IMAGE_CLIENT", mtd.conexion);
+                mtd.comando.CommandType = CommandType.StoredProcedure;
+                //INDICAMOS QUE ESTE COMANDO TENDRA PARAMETROS ADICIONALES PARA PODER EJECUTARSE Y DE SER POSIBLE RETORNAR UN VALOR
+
+                //SE ENVIA COMO PARAMETRO EL ID DEL CLIENTE PARA BUSCAR EL LA IMAGEN QUE CORRESPONDE AL REGISTRO
+                mtd.comando.Parameters.Add("@ID_CLIENT", SqlDbType.Int).Value = TXT_ID_CLIENT.Text;
+
+                //DECLARAMOS UNA VARIABLE DE TIPO SQLPARAMETER CON EL NOMBRE DEL @MENSAJE DE TIPO NVARCHAR Y LONGITUD 200, MISMO QUE SE DECLARO EN EL CUERPO DEL PROCEDIMIENTO ALMACENADO SP_OBTAIN_IMAGE_CLIENT
+                SqlParameter msgparam = new SqlParameter("@MENSAJE", SqlDbType.VarChar, 100);
+                //INDICAMOS QUE SE TRATA DE UN PARAMETRO DE TIPO OUTPUT
+                msgparam.Direction = ParameterDirection.Output;
+                //A NUESTRO COMANDO A EJCUTAR LE AÑADIMOS EL PARAMETRO NECESARIO PARA SU EJECUCION
+                mtd.comando.Parameters.Add(msgparam);
+
+                int rowsAffected = mtd.comando.ExecuteNonQuery();
+
+
+                if (rowsAffected > 0)
+                {
+                    //Convert.ToString(XtraMessageBox.Show(CType(COMANDO.Parameters("@MSG").Value, String), "SGI-TEBAEV", MessageBoxButtons.OK))
+                    LBL_PHOTO.Visibility = BarItemVisibility.Always;
+                    LBL_PHOTO.Caption = Convert.ToString(msgparam.Value);
+                }
+                else
+                {
+                    //Convert.ToString(XtraMessageBox.Show(CType(COMANDO.Parameters("@MSG").Value, String), "SGI-TEBAEV", MessageBoxButtons.OK))
+                    LBL_PHOTO.Visibility = BarItemVisibility.Always;
+                    LBL_PHOTO.Caption = Convert.ToString(msgparam.Value);
+                }
+                //DELARAMOS UNA VARIABLE TIPO LECTOR
+                SqlDataReader lectores;
+                //A LA VARIABLE LECTOR SE LE ASIGNA LA EJECUCION DEL COMANDO SP_OBTAIN_IMAGE_CLIENT
+                lectores = mtd.comando.ExecuteReader();
+                //REPETIR LA ACCION DE LEE HASTA QUE EL LECTOR LEA UN REGISTRO CON LA INFORMACION QUE SE NECESITA
+
+                while (lectores.Read())
+                {
+                    byte[] result = (byte[])lectores.GetValue(0);
+                    pc_img.Image = bytes_imagen(result);
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                //SE MUESTRA UN MENSAJE DE ERROR INDICANDO QUE ALGO DENTRO DEL CODIGO TRY ESTA MAL
+                XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally
+            {
+                mtd.DesconectarBaseDatos();
+            }
+        }
+        public static Image bytes_imagen(byte[] Imagen)
+        {
+            if (Imagen == null) return null;
+
+            MemoryStream ms = new MemoryStream(Imagen);
+            Bitmap bm = null;
+            try
+            {
+                bm = new Bitmap(ms);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
+            return bm;
+        }
+
+        private void BTN_DELETE_ROW_SELECT_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                dgv_data.Rows.Remove(dgv_data.CurrentRow);
+                CLEAR_FIELDS();
+                fsumar();
+                sumer_piezas();
+                txt_partidas.Text = this.dgv_data.RowCount.ToString();
+                TXT_CODIGO_ARTI.Focus();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void BTN_DELETE_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                if (dgv_data.DataSource is DataTable)
+                {
+                    ((DataTable)dgv_data.DataSource).Rows.Clear();
+                    dgv_data.Refresh();
+                }
+                CLEAR_FIELDS();
+                fsumar();
+                sumer_piezas();
+                txt_partidas.Text = this.dgv_data.RowCount.ToString();
+                TXT_CODIGO_ARTI.Focus();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void dgv_data_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (dgv_data.CurrentCell.ColumnIndex == 4)
+
+            {
+
+                TextBox txt = e.Control as TextBox;
+
+                if (txt != null)
+
+                {
+
+                    txt.KeyPress -= new KeyPressEventHandler(dgv_data_KeyPress);
+
+                    txt.KeyPress += new KeyPressEventHandler(dgv_data_KeyPress);
+
+                }
+
+            }
+        }
+
+        private void dgv_data_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (dgv_data.CurrentCell.ColumnIndex == 4)
+
+            {
+
+                if (e.KeyChar == (char)Keys.Back || char.IsNumber(e.KeyChar))
+
+                    e.Handled = false;
+
+                else
+
+                    e.Handled = true;
+
+            }
         }
     }
 }

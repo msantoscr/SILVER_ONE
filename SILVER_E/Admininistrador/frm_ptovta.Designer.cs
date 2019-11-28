@@ -37,6 +37,7 @@
             this.LBL_RESULT = new DevExpress.XtraBars.BarStaticItem();
             this.LBL_RESULT_TIPO_VENTA = new DevExpress.XtraBars.BarStaticItem();
             this.LBL_RESULT_ARTICULO = new DevExpress.XtraBars.BarStaticItem();
+            this.LBL_PHOTO = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
@@ -101,8 +102,6 @@
             this.pc_img = new DevExpress.XtraEditors.PictureEdit();
             this.TXT_FECHA_ACTUAL = new System.Windows.Forms.TextBox();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.TXT_CURP = new System.Windows.Forms.TextBox();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.LabelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -151,10 +150,11 @@
             this.BTN_DELETE,
             this.LBL_RESULT,
             this.LBL_RESULT_TIPO_VENTA,
-            this.LBL_RESULT_ARTICULO});
+            this.LBL_RESULT_ARTICULO,
+            this.LBL_PHOTO});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbon.MaxItemId = 8;
+            this.ribbon.MaxItemId = 9;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -183,6 +183,7 @@
             this.BTN_DELETE_ROW_SELECT.Id = 3;
             this.BTN_DELETE_ROW_SELECT.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.none_32x32;
             this.BTN_DELETE_ROW_SELECT.Name = "BTN_DELETE_ROW_SELECT";
+            this.BTN_DELETE_ROW_SELECT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_DELETE_ROW_SELECT_ItemClick);
             // 
             // BTN_DELETE
             // 
@@ -190,6 +191,7 @@
             this.BTN_DELETE.Id = 4;
             this.BTN_DELETE.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.deletetable_32x32;
             this.BTN_DELETE.Name = "BTN_DELETE";
+            this.BTN_DELETE.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_DELETE_ItemClick);
             // 
             // LBL_RESULT
             // 
@@ -213,6 +215,14 @@
             this.LBL_RESULT_ARTICULO.ImageOptions.Image = global::SILVER_E.Properties.Resources.tableproperties_32x32;
             this.LBL_RESULT_ARTICULO.Name = "LBL_RESULT_ARTICULO";
             // 
+            // LBL_PHOTO
+            // 
+            this.LBL_PHOTO.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.LBL_PHOTO.Caption = "...";
+            this.LBL_PHOTO.Id = 8;
+            this.LBL_PHOTO.ImageOptions.Image = global::SILVER_E.Properties.Resources.importimage_32x32;
+            this.LBL_PHOTO.Name = "LBL_PHOTO";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -233,6 +243,7 @@
             this.ribbonStatusBar.ItemLinks.Add(this.LBL_RESULT);
             this.ribbonStatusBar.ItemLinks.Add(this.LBL_RESULT_TIPO_VENTA);
             this.ribbonStatusBar.ItemLinks.Add(this.LBL_RESULT_ARTICULO);
+            this.ribbonStatusBar.ItemLinks.Add(this.LBL_PHOTO);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 887);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
@@ -759,8 +770,6 @@
             this.dockPanel2_Container.Controls.Add(this.groupControl3);
             this.dockPanel2_Container.Controls.Add(this.TXT_FECHA_ACTUAL);
             this.dockPanel2_Container.Controls.Add(this.labelControl6);
-            this.dockPanel2_Container.Controls.Add(this.textBox5);
-            this.dockPanel2_Container.Controls.Add(this.labelControl5);
             this.dockPanel2_Container.Controls.Add(this.TXT_CURP);
             this.dockPanel2_Container.Controls.Add(this.labelControl4);
             this.dockPanel2_Container.Controls.Add(this.LabelControl9);
@@ -782,7 +791,7 @@
             this.groupControl3.Location = new System.Drawing.Point(756, 4);
             this.groupControl3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(214, 175);
+            this.groupControl3.Size = new System.Drawing.Size(230, 175);
             this.groupControl3.TabIndex = 1077;
             this.groupControl3.Text = "FOTOGRAFIA";
             // 
@@ -795,7 +804,7 @@
             this.pc_img.Name = "pc_img";
             this.pc_img.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pc_img.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pc_img.Size = new System.Drawing.Size(210, 148);
+            this.pc_img.Size = new System.Drawing.Size(226, 148);
             this.pc_img.TabIndex = 0;
             // 
             // TXT_FECHA_ACTUAL
@@ -815,26 +824,11 @@
             this.labelControl6.TabIndex = 1023;
             this.labelControl6.Text = "FECHA:";
             // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(599, 62);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(151, 23);
-            this.textBox5.TabIndex = 1023;
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(517, 69);
-            this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(76, 16);
-            this.labelControl5.TabIndex = 1022;
-            this.labelControl5.Text = "DESCUENTO:";
-            // 
             // TXT_CURP
             // 
             this.TXT_CURP.Location = new System.Drawing.Point(599, 33);
             this.TXT_CURP.Name = "TXT_CURP";
+            this.TXT_CURP.ReadOnly = true;
             this.TXT_CURP.Size = new System.Drawing.Size(151, 23);
             this.TXT_CURP.TabIndex = 1022;
             // 
@@ -860,8 +854,10 @@
             // 
             this.TXT_ID_CLIENT.Location = new System.Drawing.Point(599, 3);
             this.TXT_ID_CLIENT.Name = "TXT_ID_CLIENT";
+            this.TXT_ID_CLIENT.ReadOnly = true;
             this.TXT_ID_CLIENT.Size = new System.Drawing.Size(151, 23);
             this.TXT_ID_CLIENT.TabIndex = 1021;
+            this.TXT_ID_CLIENT.TextChanged += new System.EventHandler(this.TXT_ID_CLIENT_TextChanged);
             // 
             // CMB_TIPO_VENTA
             // 
@@ -893,6 +889,7 @@
             // 
             this.TXT_ADDRESS_CLIENT.Location = new System.Drawing.Point(79, 39);
             this.TXT_ADDRESS_CLIENT.Name = "TXT_ADDRESS_CLIENT";
+            this.TXT_ADDRESS_CLIENT.ReadOnly = true;
             this.TXT_ADDRESS_CLIENT.Size = new System.Drawing.Size(395, 23);
             this.TXT_ADDRESS_CLIENT.TabIndex = 1021;
             // 
@@ -900,6 +897,7 @@
             // 
             this.TXT_NAME_CLIENT.Location = new System.Drawing.Point(79, 5);
             this.TXT_NAME_CLIENT.Name = "TXT_NAME_CLIENT";
+            this.TXT_NAME_CLIENT.ReadOnly = true;
             this.TXT_NAME_CLIENT.Size = new System.Drawing.Size(395, 23);
             this.TXT_NAME_CLIENT.TabIndex = 1020;
             // 
@@ -927,6 +925,8 @@
             this.dgv_data.TabIndex = 1018;
             this.dgv_data.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_data_CellContentClick);
             this.dgv_data.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_data_CellValueChanged);
+            this.dgv_data.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgv_data_EditingControlShowing);
+            this.dgv_data.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgv_data_KeyPress);
             // 
             // frm_ptovta
             // 
@@ -999,8 +999,6 @@
         internal DevExpress.XtraEditors.LabelControl LabelControl9;
         private System.Windows.Forms.TextBox TXT_FECHA_ACTUAL;
         internal DevExpress.XtraEditors.LabelControl labelControl6;
-        private System.Windows.Forms.TextBox textBox5;
-        internal DevExpress.XtraEditors.LabelControl labelControl5;
         private System.Windows.Forms.TextBox TXT_CURP;
         internal DevExpress.XtraEditors.LabelControl labelControl4;
         private System.Windows.Forms.TextBox TXT_ID_CLIENT;
@@ -1065,5 +1063,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colULTIMOFOLIO;
         public DevExpress.XtraGrid.GridControl DGV_ARTI;
         public DevExpress.XtraGrid.Views.Grid.GridView GV_ARTI;
+        private DevExpress.XtraBars.BarStaticItem LBL_PHOTO;
     }
 }
