@@ -610,6 +610,7 @@ namespace SILVER_E.Admininistrador
                         mtd.ConectarBaseDatos();
                         //SE EJECUTA UN NUEVO COMANDO SP_SILV_USERS_DELETE E INDICAMOS MEDIANTE With {.CommandType = CommandType.StoredProcedure} QUE SE TRATA DE UN PROCEDIMIENTO ALMACENADO
                         mtd.comando = new SqlCommand("SP_SILV_USERS_DELETE", mtd.conexion);
+                        mtd.comando.CommandType = CommandType.StoredProcedure;
                         //INDICAMOS QUE ESTE COMANDO TENDRA PARAMETROS ADICIONALES PARA PODER EJECUTARSE Y DE SER POSIBLE RETORNAR UN VALOR
 
                         mtd.comando.Parameters.Add("@ID_USER", SqlDbType.Int).Value = TXT_ID.Text; //SE ESPECIFICA EL VALOR DEL PARAMETRO ID_USER MEDIANTE LA CAJA DE TEXTO TXT_ID EN SU PROPIEDAD TEXT

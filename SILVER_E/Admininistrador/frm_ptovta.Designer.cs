@@ -113,6 +113,8 @@
             this.TXT_NAME_CLIENT = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.dgv_data = new System.Windows.Forms.DataGridView();
+            this.TXT_FOLIO_DOC = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -137,6 +139,7 @@
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pc_img.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TXT_FOLIO_DOC.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -767,6 +770,8 @@
             // 
             // dockPanel2_Container
             // 
+            this.dockPanel2_Container.Controls.Add(this.labelControl5);
+            this.dockPanel2_Container.Controls.Add(this.TXT_FOLIO_DOC);
             this.dockPanel2_Container.Controls.Add(this.groupControl3);
             this.dockPanel2_Container.Controls.Add(this.TXT_FECHA_ACTUAL);
             this.dockPanel2_Container.Controls.Add(this.labelControl6);
@@ -928,6 +933,26 @@
             this.dgv_data.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgv_data_EditingControlShowing);
             this.dgv_data.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgv_data_KeyPress);
             // 
+            // TXT_FOLIO_DOC
+            // 
+            this.TXT_FOLIO_DOC.Location = new System.Drawing.Point(79, 151);
+            this.TXT_FOLIO_DOC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TXT_FOLIO_DOC.Name = "TXT_FOLIO_DOC";
+            this.TXT_FOLIO_DOC.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TXT_FOLIO_DOC.Properties.Appearance.Options.UseFont = true;
+            this.TXT_FOLIO_DOC.Properties.ReadOnly = true;
+            this.TXT_FOLIO_DOC.Size = new System.Drawing.Size(211, 26);
+            this.TXT_FOLIO_DOC.TabIndex = 1023;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(29, 161);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(44, 16);
+            this.labelControl5.TabIndex = 1023;
+            this.labelControl5.Text = "FOLIO: ";
+            // 
             // frm_ptovta
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -974,6 +999,7 @@
             this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pc_img.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TXT_FOLIO_DOC.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1064,5 +1090,7 @@
         public DevExpress.XtraGrid.GridControl DGV_ARTI;
         public DevExpress.XtraGrid.Views.Grid.GridView GV_ARTI;
         private DevExpress.XtraBars.BarStaticItem LBL_PHOTO;
+        internal DevExpress.XtraEditors.LabelControl labelControl5;
+        internal DevExpress.XtraEditors.TextEdit TXT_FOLIO_DOC;
     }
 }

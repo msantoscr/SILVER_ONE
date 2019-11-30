@@ -278,6 +278,7 @@ namespace SILVER_E
             LBL_SERVER.Caption = mtd.conexion.DataSource.ToString();
             //ASIGNAMOS A LA ETIQUETA EL NOMBRE DE LA BASE DE DATOS (DATABASE) A LA CUAL ESTAMOS CONECTADOS
             LBL_DATABASE.Caption = mtd.conexion.Database.ToString();
+           
         }
 
         private void BTN_PUNTOVTA_ItemClick(object sender, ItemClickEventArgs e)

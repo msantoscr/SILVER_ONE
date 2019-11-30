@@ -291,7 +291,7 @@ namespace SILVER_E
             int ult = 0;
 
             //SIGUIENTE LINEA SE REEMPLAZA POR USO DE UN PARAMETRO ALMACENADO
-            SqlCommand cmd = new SqlCommand("SELECT GEN_ULTIMO FROM SILV_GENERADOR WHERE COM_PARAMETRO=" + Tabla + "", conexion);
+            SqlCommand cmd = new SqlCommand("SELECT GEN_ULTIMO FROM SILV_GENERADOR WHERE COM_PARAMETRO='"+Tabla+"'", conexion);
             try
             {
                 ConectarBaseDatos();
@@ -327,6 +327,32 @@ namespace SILVER_E
                 XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            return result;
+        }
+        public string GeneradorVenta(string idUser, string tipoVenta) {
+            string result = "";
+            SqlCommand CMD = new SqlCommand("SELECT INI_FOLIO FROM DBO.SILV_TIPO_VENTA WHERE ID_TIPO_VENTA='"+tipoVenta+"'", conexion);
+            try {
+                ConectarBaseDatos();
+                SqlDataReader dr1;
+                dr1 = CMD.ExecuteReader();
+
+                SqlCommand CMD2 = new SqlCommand("select ID_USER froM SILV_USERS WHERE US_NAME = '"+idUser+"'",conexion);
+                SqlDataReader dr2;
+                dr1 = CMD.ExecuteReader();
+
+                SqlCommand cmd3 = new SqlCommand("OBTENER_FOLIO_VTA", conexion);
+
+
+
+
+                return result;
+
+            }
+            catch (Exception ex) {
+                XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
             return result;
         }
     }

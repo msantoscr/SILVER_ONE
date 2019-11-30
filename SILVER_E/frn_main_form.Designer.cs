@@ -361,6 +361,7 @@
             this.LBL_USER_DB.ImageOptions.Image = global::SILVER_E.Properties.Resources.bouser_16x161;
             this.LBL_USER_DB.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.bouser_32x321;
             this.LBL_USER_DB.Name = "LBL_USER_DB";
+            this.LBL_USER_DB.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // LB_PASSWORD
             // 
@@ -370,6 +371,7 @@
             this.LB_PASSWORD.ImageOptions.Image = global::SILVER_E.Properties.Resources.dashboardtitle_16x16;
             this.LB_PASSWORD.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.dashboardtitle_32x32;
             this.LB_PASSWORD.Name = "LB_PASSWORD";
+            this.LB_PASSWORD.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // skinRibbonGalleryBarItem1
             // 

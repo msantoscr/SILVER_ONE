@@ -476,7 +476,7 @@ namespace SILVER_E.Admininistrador
 
         private void frm_compras_Load(object sender, EventArgs e)
         {
-            this.TXT_FOLIO_DOC.Text = mtd.Generadores("COM_PARAMETRO");
+            this.TXT_FOLIO_DOC.Text = mtd.Generadores("COMPRAS");
             TXT_CANTIDAD.Focus();
             table.Columns.Add("CANTIDAD", Type.GetType("System.Int32"));
             table.Columns.Add("ACCESORIO", Type.GetType("System.String"));

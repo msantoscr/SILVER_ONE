@@ -162,6 +162,8 @@ namespace SILVER_E.Admininistrador
         }
         private void frm_ptovta_Load(object sender, EventArgs e)
         {
+            
+            
             table.Columns.Add("CODIGO", Type.GetType("System.Int32"));
             table.Columns.Add("LINEA", Type.GetType("System.String"));
             table.Columns.Add("DESCRIPCION", Type.GetType("System.String"));
@@ -185,6 +187,9 @@ namespace SILVER_E.Admininistrador
                 CMB_TIPO_VENTA.Items.Add(row[0].ToString());
             }
             CMB_TIPO_VENTA.SelectedIndex = 0;
+            if (CMB_TIPO_VENTA.SelectedIndex == 0) {
+                this.TXT_FOLIO_DOC.Text = mtd.GeneradorVenta(usuario,Convert.ToString(CMB_TIPO_VENTA.Text.Split('*').GetValue(0).ToString().Trim()));
+            }
             
         }
 
