@@ -8266,6 +8266,8 @@ namespace SILVER_E {
             
             private global::System.Data.DataColumn columnDESCRIPCION;
             
+            private global::System.Data.DataColumn columnCANTIDAD;
+            
             private global::System.Data.DataColumn columnPRECIO_PUBLICO;
             
             private global::System.Data.DataColumn columnDESCUENTO;
@@ -8318,6 +8320,14 @@ namespace SILVER_E {
             public global::System.Data.DataColumn DESCRIPCIONColumn {
                 get {
                     return this.columnDESCRIPCION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CANTIDADColumn {
+                get {
+                    return this.columnCANTIDAD;
                 }
             }
             
@@ -8382,11 +8392,12 @@ namespace SILVER_E {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DsNotaVentaRow AddDsNotaVentaRow(string LINEA, string DESCRIPCION, string PRECIO_PUBLICO, string DESCUENTO, string IMPORTE) {
+            public DsNotaVentaRow AddDsNotaVentaRow(string LINEA, string DESCRIPCION, string CANTIDAD, string PRECIO_PUBLICO, string DESCUENTO, string IMPORTE) {
                 DsNotaVentaRow rowDsNotaVentaRow = ((DsNotaVentaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         LINEA,
                         DESCRIPCION,
+                        CANTIDAD,
                         PRECIO_PUBLICO,
                         DESCUENTO,
                         IMPORTE};
@@ -8414,6 +8425,7 @@ namespace SILVER_E {
             internal void InitVars() {
                 this.columnLINEA = base.Columns["LINEA"];
                 this.columnDESCRIPCION = base.Columns["DESCRIPCION"];
+                this.columnCANTIDAD = base.Columns["CANTIDAD"];
                 this.columnPRECIO_PUBLICO = base.Columns["PRECIO_PUBLICO"];
                 this.columnDESCUENTO = base.Columns["DESCUENTO"];
                 this.columnIMPORTE = base.Columns["IMPORTE"];
@@ -8426,6 +8438,8 @@ namespace SILVER_E {
                 base.Columns.Add(this.columnLINEA);
                 this.columnDESCRIPCION = new global::System.Data.DataColumn("DESCRIPCION", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDESCRIPCION);
+                this.columnCANTIDAD = new global::System.Data.DataColumn("CANTIDAD", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCANTIDAD);
                 this.columnPRECIO_PUBLICO = new global::System.Data.DataColumn("PRECIO_PUBLICO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPRECIO_PUBLICO);
                 this.columnDESCUENTO = new global::System.Data.DataColumn("DESCUENTO", typeof(string), null, global::System.Data.MappingType.Element);
@@ -13163,6 +13177,22 @@ namespace SILVER_E {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CANTIDAD {
+                get {
+                    try {
+                        return ((string)(this[this.tableDsNotaVenta.CANTIDADColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD\' de la tabla \'DsNotaVenta\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDsNotaVenta.CANTIDADColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string PRECIO_PUBLICO {
                 get {
                     try {
@@ -13231,6 +13261,18 @@ namespace SILVER_E {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDESCRIPCIONNull() {
                 this[this.tableDsNotaVenta.DESCRIPCIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCANTIDADNull() {
+                return this.IsNull(this.tableDsNotaVenta.CANTIDADColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCANTIDADNull() {
+                this[this.tableDsNotaVenta.CANTIDADColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

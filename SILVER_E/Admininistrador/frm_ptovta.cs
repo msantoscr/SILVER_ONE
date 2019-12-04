@@ -13,6 +13,7 @@ using System.Data.SqlClient;
 using DevExpress.XtraEditors;
 using System.IO;
 using CrystalDecisions.CrystalReports.Engine;
+using System.Drawing.Printing;
 
 namespace SILVER_E.Admininistrador
 {
@@ -599,6 +600,7 @@ namespace SILVER_E.Admininistrador
 
                 INSERTA_ENCABEZADO();
                 INSERTAR_DETALLE_VENTA();
+                IMPRIMIR_REPORTE();
 
             }
             catch (Exception ex)
@@ -667,23 +669,7 @@ namespace SILVER_E.Admininistrador
                     mtd.comando.ExecuteNonQuery();
                 }
 
-                
-                
 
-
-                XtraMessageBox.Show("SE GUARDO CORRECTAMENTE LA VENTA!!", "SISTEMA..", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                PrintDialog printDialog = new PrintDialog();
-                if (printDialog.ShowDialog()==DialogResult.OK) {
-                    DataSet ds_venta = new DataSet();
-                    mtd.comando = new SqlCommand("exec SP_OBTENER_NOTA_VENTA '" + TXT_FOLIO_DOC.Text + "','" + TXT_ID_CLIENT.Text + "'", mtd.conexion);
-                    mtd.adaptador = new SqlDataAdapter(mtd.comando);
-                    mtd.adaptador.Fill(ds_venta, "DsNotaVenta");
-                    ReportDocument reportDocument = new ReportDocument();
-                    reportDocument.Load(Application.StartupPath + "\\Administrador\\ReporteVenta.rpt");
-                    reportDocument.PrintOptions.PrinterName = printDialog.PrinterSettings.PrinterName;
-                    reportDocument.PrintToPrinter(printDialog.PrinterSettings.Copies,printDialog.PrinterSettings.Collate,printDialog.PrinterSettings.FromPage, printDialog.PrinterSettings.ToPage);
-                }
 
             }
             catch (Exception ex)
@@ -692,12 +678,66 @@ namespace SILVER_E.Admininistrador
             }
             finally {
                 mtd.DesconectarBaseDatos();
-                this.TXT_FOLIO_DOC.Text = mtd.GeneradorVenta(usuario, Convert.ToString(CMB_TIPO_VENTA.Text.Split('*').GetValue(0).ToString().Trim()));
-                BTN_DELETE_ItemClick(null,null);
-                
             }
-            
-            
+        }
+
+        public void IMPRIMIR_REPORTE() {
+            try
+            {
+
+                DataSet ds_venta = new DataSet();
+                //PrintDialog printDialog = new PrintDialog();
+
+                //if (printDialog.ShowDialog() == DialogResult.OK)
+                //{
+
+
+                    mtd.ConectarBaseDatos();
+                    mtd.comando = new SqlCommand("SP_OBTENER_NOTA_VENTA", mtd.conexion);
+                    mtd.comando.CommandType = CommandType.StoredProcedure;
+                    mtd.comando.Parameters.Add("@FOLIO_VENTA", SqlDbType.NVarChar, 200).Value = TXT_FOLIO_DOC.Text;
+                    mtd.comando.Parameters.Add("@ID_CLIENTE", SqlDbType.NVarChar, 200).Value = TXT_ID_CLIENT.Text;
+                    mtd.comando.ExecuteNonQuery();
+
+                    SqlDataAdapter adt = new SqlDataAdapter(mtd.comando);
+                    adt.Fill(ds_venta, "DsNotaVenta");
+
+                    ReportDocument reportDocument = new ReportDocument();
+                    PrinterSettings ps = new PrinterSettings();
+                    ps.Copies = 1;
+                    PageSettings pg = new PageSettings();
+                    pg.PrinterSettings = ps;
+                    reportDocument.Load(Application.StartupPath + "\\Admininistrador\\ReporteVenta.rpt");
+                    
+                    reportDocument.SetDataSource(ds_venta);
+
+                    reportDocument.SetParameterValue("textFecha",TXT_FECHA_ACTUAL.Text);
+                    reportDocument.SetParameterValue("FOLIO_VENTA", TXT_FOLIO_DOC.Text);
+                    reportDocument.SetParameterValue("Nombre",TXT_NAME_CLIENT.Text);
+                    reportDocument.SetParameterValue("direccion", TXT_ADDRESS_CLIENT.Text);
+                    reportDocument.SetParameterValue("Curp", TXT_CURP.Text);
+                    reportDocument.SetParameterValue("TipoVta", CMB_TIPO_VENTA.Text.Split('*').GetValue(1).ToString().Trim());
+                    reportDocument.SetParameterValue("PIEZAS", txt_piezas.Text);
+                    reportDocument.SetParameterValue("SUBTOTAL","$ "+txt_t_subtotal.Text);
+                    reportDocument.SetParameterValue("total", "$ " + txt_totales.Text);
+                    reportDocument.PrintToPrinter(ps,pg,false);
+
+                //}               
+
+                XtraMessageBox.Show("SE GUARDO CORRECTAMENTE LA VENTA!!", "SISTEMA..", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "SISTEMA..", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally {
+                mtd.DesconectarBaseDatos();
+                this.TXT_FOLIO_DOC.Text = mtd.GeneradorVenta(usuario, Convert.ToString(CMB_TIPO_VENTA.Text.Split('*').GetValue(0).ToString().Trim()));
+                BTN_DELETE_ItemClick(null, null);
+            }
         }
     }
 }
