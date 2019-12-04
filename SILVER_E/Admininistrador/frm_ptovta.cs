@@ -12,6 +12,7 @@ using DevExpress.XtraScheduler.Native;
 using System.Data.SqlClient;
 using DevExpress.XtraEditors;
 using System.IO;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace SILVER_E.Admininistrador
 {
@@ -557,6 +558,146 @@ namespace SILVER_E.Admininistrador
                     e.Handled = true;
 
             }
+        }
+
+        private void CMB_TIPO_VENTA_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.TXT_FOLIO_DOC.Text = mtd.GeneradorVenta(usuario, Convert.ToString(CMB_TIPO_VENTA.Text.Split('*').GetValue(0).ToString().Trim()));
+        }
+
+        private void BTN_SAVE_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                mtd.ConectarBaseDatos();
+
+                if (TXT_NAME_CLIENT.Text == null || TXT_NAME_CLIENT.Text == "")
+                {
+                    XtraMessageBox.Show("¡NO PUEDE DEJAR VACIO EL NOMBRE DEL CLIENTE!", "SISTEMA..", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (TXT_CURP.Text == null || TXT_CURP.Text == "")
+                {
+                    XtraMessageBox.Show("¡NO PUEDE DEJAR VACIO LA CURP DEL CLIENTE!", "SISTEMA..", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (TXT_FOLIO_DOC.Text == null || TXT_FOLIO_DOC.Text == "")
+                {
+                    XtraMessageBox.Show("¡NO PUEDE DEJAR VACIO EL FOLIO DE VENTA!", "SISTEMA..", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (TXT_ADDRESS_CLIENT.Text == null || TXT_ADDRESS_CLIENT.Text == "")
+                {
+                    XtraMessageBox.Show("¡NO PUEDE DEJAR VACIO LA DIRECCION DE CLIENTE!", "SISTEMA..", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (txt_totales.Text == "0" || txt_totales.Text == "" || txt_totales.Text == "00" || txt_totales.Text == "0.0" || txt_totales.Text == "0.00")
+                {
+                    XtraMessageBox.Show("¡NO SE PUEDE VENDER SI EL TOTAL DE VENTA ES CEROS!", "SISTEMA..", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                INSERTA_ENCABEZADO();
+                INSERTAR_DETALLE_VENTA();
+
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "SISTEMA..", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+        }
+
+        public void INSERTA_ENCABEZADO() {
+
+            try
+            {
+                mtd.ConectarBaseDatos();
+                mtd.comando = new SqlCommand("SP_SILV_VENTAS_INSERT", mtd.conexion);
+                mtd.comando.CommandType = CommandType.StoredProcedure;
+
+                mtd.comando.Parameters.Add("@FOLIO_VENTA", SqlDbType.NVarChar, 200).Value = TXT_FOLIO_DOC.Text;
+                mtd.comando.Parameters.Add("@ID_CLIENTE", SqlDbType.Int).Value = Convert.ToInt32(TXT_ID_CLIENT.Text);
+                mtd.comando.Parameters.Add("@TOTAL", SqlDbType.NVarChar, 200).Value = txt_totales.Text;
+                mtd.comando.Parameters.Add("@TIPO_VENTA", SqlDbType.NVarChar, 200).Value = CMB_TIPO_VENTA.Text.Split('*').GetValue(0).ToString();
+                mtd.comando.Parameters.Add("@SUBTOTAL", SqlDbType.NVarChar, 200).Value = txt_t_subtotal.Text;
+                mtd.comando.Parameters.Add("@PARTIDAS", SqlDbType.NVarChar, 200).Value = txt_partidas.Text;
+                //FECHA SE HARA CON GETDATE();
+                mtd.comando.Parameters.Add("USUARIO", SqlDbType.NVarChar, 200).Value = usuario;
+                //sucursal es dentro del stored
+                //ruta es dentro del stored
+                mtd.comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "SISTEMA..", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally {
+                mtd.DesconectarBaseDatos();
+            }
+        }
+
+        public void INSERTAR_DETALLE_VENTA() {
+            try
+            {
+                mtd.ConectarBaseDatos();
+                foreach (DataGridViewRow row in dgv_data.Rows)
+                {
+                    
+                    string CODIGOG = Convert.ToString(row.Cells["CODIGO"].Value);
+                    string LINEAG = Convert.ToString(row.Cells["LINEA"].Value);
+                    string DESCRIPCIONG = Convert.ToString(row.Cells["DESCRIPCION"].Value);
+                    string PRECIO_PUBLICOG = Convert.ToString(row.Cells["PRECIO PUBLICO"].Value);
+                    int CANTIDADG = Convert.ToInt32(row.Cells["CANTIDAD"].Value);
+                    string DESCUENTOG = Convert.ToString(row.Cells["DESCUENTO"].Value);
+                    string IMPORTEG = Convert.ToString(row.Cells["IMPORTE"].Value);
+
+                    mtd.comando = new SqlCommand("SP_SILV_VENTAS_DETALLE_INSERT", mtd.conexion);
+                    mtd.comando.CommandType = CommandType.StoredProcedure;
+
+                    mtd.comando.Parameters.Add("@FOLIO_VENTA", SqlDbType.NVarChar, 200).Value = TXT_FOLIO_DOC.Text;
+                    mtd.comando.Parameters.Add("@ID_ARTICULO", SqlDbType.NVarChar, 200).Value = CODIGOG;
+                    mtd.comando.Parameters.Add("@CANTIDAD", SqlDbType.Int).Value = CANTIDADG;
+                    mtd.comando.Parameters.Add("@LINEA", SqlDbType.NVarChar, 200).Value = LINEAG;
+                    mtd.comando.Parameters.Add("@DESCRIPCION", SqlDbType.NVarChar, 200).Value = DESCRIPCIONG;
+                    mtd.comando.Parameters.Add("@PRECIO_PUBLICO", SqlDbType.NVarChar, 200).Value = PRECIO_PUBLICOG;
+                    mtd.comando.Parameters.Add("@DESCUENTO", SqlDbType.NVarChar, 200).Value = DESCUENTOG;
+                    mtd.comando.Parameters.Add("@IMPORTE", SqlDbType.NVarChar, 200).Value = IMPORTEG;
+
+                    mtd.comando.ExecuteNonQuery();
+                }
+
+                
+                
+
+
+                XtraMessageBox.Show("SE GUARDO CORRECTAMENTE LA VENTA!!", "SISTEMA..", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                PrintDialog printDialog = new PrintDialog();
+                if (printDialog.ShowDialog()==DialogResult.OK) {
+                    DataSet ds_venta = new DataSet();
+                    mtd.comando = new SqlCommand("exec SP_OBTENER_NOTA_VENTA '" + TXT_FOLIO_DOC.Text + "','" + TXT_ID_CLIENT.Text + "'", mtd.conexion);
+                    mtd.adaptador = new SqlDataAdapter(mtd.comando);
+                    mtd.adaptador.Fill(ds_venta, "DsNotaVenta");
+                    ReportDocument reportDocument = new ReportDocument();
+                    reportDocument.Load(Application.StartupPath + "\\Administrador\\ReporteVenta.rpt");
+                    reportDocument.PrintOptions.PrinterName = printDialog.PrinterSettings.PrinterName;
+                    reportDocument.PrintToPrinter(printDialog.PrinterSettings.Copies,printDialog.PrinterSettings.Collate,printDialog.PrinterSettings.FromPage, printDialog.PrinterSettings.ToPage);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "SISTEMA..", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally {
+                mtd.DesconectarBaseDatos();
+                this.TXT_FOLIO_DOC.Text = mtd.GeneradorVenta(usuario, Convert.ToString(CMB_TIPO_VENTA.Text.Split('*').GetValue(0).ToString().Trim()));
+                BTN_DELETE_ItemClick(null,null);
+                
+            }
+            
+            
         }
     }
 }

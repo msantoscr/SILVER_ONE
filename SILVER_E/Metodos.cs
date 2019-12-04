@@ -331,23 +331,31 @@ namespace SILVER_E
         }
         public string GeneradorVenta(string idUser, string tipoVenta) {
             string result = "";
-            SqlCommand CMD = new SqlCommand("SELECT INI_FOLIO FROM DBO.SILV_TIPO_VENTA WHERE ID_TIPO_VENTA='"+tipoVenta+"'", conexion);
-            try {
+
+            //SIGUIENTE LINEA SE REEMPLAZA POR USO DE UN PARAMETRO ALMACENADO
+            comando = new SqlCommand("OBTENER_FOLIO_VTA", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+
+            comando.Parameters.Add("@NOMBRE_USER", SqlDbType.NVarChar, 200).Value = idUser;
+            comando.Parameters.Add("@TIPO_VENTA", SqlDbType.NVarChar, 200).Value = tipoVenta;
+
+            SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
+            //INDICAMOS QUE SE TRATA DE UN PARAMETRO DE TIPO OUTPUT
+            Message.Direction = ParameterDirection.Output;
+            //A NUESTRO COMANDO A EJCUTAR LE AÑADIMOS EL PARAMETRO NECESARIO PARA SU EJECUCION
+            comando.Parameters.Add(Message);
+            try
+            {
                 ConectarBaseDatos();
                 SqlDataReader dr1;
-                dr1 = CMD.ExecuteReader();
-
-                SqlCommand CMD2 = new SqlCommand("select ID_USER froM SILV_USERS WHERE US_NAME = '"+idUser+"'",conexion);
-                SqlDataReader dr2;
-                dr1 = CMD.ExecuteReader();
-
-                SqlCommand cmd3 = new SqlCommand("OBTENER_FOLIO_VTA", conexion);
-
-
-
+                dr1 = comando.ExecuteReader();
+                while (dr1.Read())
+                {
+                    result = Convert.ToString(dr1["FOLIO"]);
+                }
+                DesconectarBaseDatos();
 
                 return result;
-
             }
             catch (Exception ex) {
                 XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);

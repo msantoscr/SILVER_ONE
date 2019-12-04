@@ -98,6 +98,8 @@
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.TXT_FOLIO_DOC = new DevExpress.XtraEditors.TextEdit();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.pc_img = new DevExpress.XtraEditors.PictureEdit();
             this.TXT_FECHA_ACTUAL = new System.Windows.Forms.TextBox();
@@ -113,8 +115,6 @@
             this.TXT_NAME_CLIENT = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.dgv_data = new System.Windows.Forms.DataGridView();
-            this.TXT_FOLIO_DOC = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
@@ -135,11 +135,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_piezas.Properties)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TXT_FOLIO_DOC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pc_img.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TXT_FOLIO_DOC.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -179,6 +179,7 @@
             this.BTN_SAVE.ImageOptions.Image = global::SILVER_E.Properties.Resources.apply_16x16;
             this.BTN_SAVE.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.apply_32x32;
             this.BTN_SAVE.Name = "BTN_SAVE";
+            this.BTN_SAVE.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_SAVE_ItemClick);
             // 
             // BTN_DELETE_ROW_SELECT
             // 
@@ -790,6 +791,26 @@
             this.dockPanel2_Container.Size = new System.Drawing.Size(989, 183);
             this.dockPanel2_Container.TabIndex = 0;
             // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(29, 161);
+            this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(44, 16);
+            this.labelControl5.TabIndex = 1023;
+            this.labelControl5.Text = "FOLIO: ";
+            // 
+            // TXT_FOLIO_DOC
+            // 
+            this.TXT_FOLIO_DOC.Location = new System.Drawing.Point(79, 151);
+            this.TXT_FOLIO_DOC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TXT_FOLIO_DOC.Name = "TXT_FOLIO_DOC";
+            this.TXT_FOLIO_DOC.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TXT_FOLIO_DOC.Properties.Appearance.Options.UseFont = true;
+            this.TXT_FOLIO_DOC.Properties.ReadOnly = true;
+            this.TXT_FOLIO_DOC.Size = new System.Drawing.Size(211, 26);
+            this.TXT_FOLIO_DOC.TabIndex = 1023;
+            // 
             // groupControl3
             // 
             this.groupControl3.Controls.Add(this.pc_img);
@@ -871,6 +892,7 @@
             this.CMB_TIPO_VENTA.Name = "CMB_TIPO_VENTA";
             this.CMB_TIPO_VENTA.Size = new System.Drawing.Size(395, 24);
             this.CMB_TIPO_VENTA.TabIndex = 1019;
+            this.CMB_TIPO_VENTA.SelectedIndexChanged += new System.EventHandler(this.CMB_TIPO_VENTA_SelectedIndexChanged);
             // 
             // labelControl3
             // 
@@ -933,26 +955,6 @@
             this.dgv_data.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgv_data_EditingControlShowing);
             this.dgv_data.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgv_data_KeyPress);
             // 
-            // TXT_FOLIO_DOC
-            // 
-            this.TXT_FOLIO_DOC.Location = new System.Drawing.Point(79, 151);
-            this.TXT_FOLIO_DOC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.TXT_FOLIO_DOC.Name = "TXT_FOLIO_DOC";
-            this.TXT_FOLIO_DOC.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TXT_FOLIO_DOC.Properties.Appearance.Options.UseFont = true;
-            this.TXT_FOLIO_DOC.Properties.ReadOnly = true;
-            this.TXT_FOLIO_DOC.Size = new System.Drawing.Size(211, 26);
-            this.TXT_FOLIO_DOC.TabIndex = 1023;
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(29, 161);
-            this.labelControl5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(44, 16);
-            this.labelControl5.TabIndex = 1023;
-            this.labelControl5.Text = "FOLIO: ";
-            // 
             // frm_ptovta
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -995,11 +997,11 @@
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
             this.dockPanel2_Container.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TXT_FOLIO_DOC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pc_img.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TXT_FOLIO_DOC.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

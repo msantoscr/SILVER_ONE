@@ -1507,6 +1507,17 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="DsNotaVenta" msprop:Generator_TableClassName="DsNotaVentaDataTable" msprop:Generator_TableVarName="tableDsNotaVenta" msprop:Generator_RowChangedName="DsNotaVentaRowChanged" msprop:Generator_TablePropName="DsNotaVenta" msprop:Generator_RowDeletingName="DsNotaVentaRowDeleting" msprop:Generator_RowChangingName="DsNotaVentaRowChanging" msprop:Generator_RowEvHandlerName="DsNotaVentaRowChangeEventHandler" msprop:Generator_RowDeletedName="DsNotaVentaRowDeleted" msprop:Generator_RowClassName="DsNotaVentaRow" msprop:Generator_UserTableName="DsNotaVenta" msprop:Generator_RowEvArgName="DsNotaVentaRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LINEA" msprop:Generator_ColumnVarNameInTable="columnLINEA" msprop:Generator_ColumnPropNameInRow="LINEA" msprop:Generator_ColumnPropNameInTable="LINEAColumn" msprop:Generator_UserColumnName="LINEA" type="xs:string" minOccurs="0" />
+              <xs:element name="DESCRIPCION" msprop:Generator_ColumnVarNameInTable="columnDESCRIPCION" msprop:Generator_ColumnPropNameInRow="DESCRIPCION" msprop:Generator_ColumnPropNameInTable="DESCRIPCIONColumn" msprop:Generator_UserColumnName="DESCRIPCION" type="xs:string" minOccurs="0" />
+              <xs:element name="PRECIO_PUBLICO" msprop:Generator_ColumnVarNameInTable="columnPRECIO_PUBLICO" msprop:Generator_ColumnPropNameInRow="PRECIO_PUBLICO" msprop:Generator_ColumnPropNameInTable="PRECIO_PUBLICOColumn" msprop:Generator_UserColumnName="PRECIO_PUBLICO" type="xs:string" minOccurs="0" />
+              <xs:element name="DESCUENTO" msprop:Generator_ColumnVarNameInTable="columnDESCUENTO" msprop:Generator_ColumnPropNameInRow="DESCUENTO" msprop:Generator_ColumnPropNameInTable="DESCUENTOColumn" msprop:Generator_UserColumnName="DESCUENTO" type="xs:string" minOccurs="0" />
+              <xs:element name="IMPORTE" msprop:Generator_ColumnVarNameInTable="columnIMPORTE" msprop:Generator_ColumnPropNameInRow="IMPORTE" msprop:Generator_ColumnPropNameInTable="IMPORTEColumn" msprop:Generator_UserColumnName="IMPORTE" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
