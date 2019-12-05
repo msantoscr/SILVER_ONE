@@ -23,7 +23,10 @@ namespace SILVER_E.Admininistrador
         string usuario;
         DataSet objConsultaTV = new DataSet();
         DataTable table = new DataTable("Table");
-
+        string nombreUser;
+        string nombreSucursal="SILVER";
+        string direccionSucursal="CONOCIDO";
+        string rfcSucursal="XXXXXXX";
         public frm_ptovta(string usu)
         {
             usuario = usu;
@@ -177,6 +180,7 @@ namespace SILVER_E.Admininistrador
             dgv_data.DataSource = table;
             //INICIALIZAR LA TABLA CLIENTES PARA BUSQUEDAS
             FILL_DATA();
+            DATOS_COMPLEMENTA();
             GV_DATA_CLIENT.OptionsFind.AlwaysVisible = true;
             //INICIALIZAR LA TABLA ARTICULOS PARA BUSQUEDAS
             FILL_DATA_ARTI();
@@ -699,9 +703,12 @@ namespace SILVER_E.Admininistrador
                     mtd.comando.Parameters.Add("@ID_CLIENTE", SqlDbType.NVarChar, 200).Value = TXT_ID_CLIENT.Text;
                     mtd.comando.ExecuteNonQuery();
 
-                    SqlDataAdapter adt = new SqlDataAdapter(mtd.comando);
+                   
+
+                SqlDataAdapter adt = new SqlDataAdapter(mtd.comando);
                     adt.Fill(ds_venta, "DsNotaVenta");
 
+                     
                     ReportDocument reportDocument = new ReportDocument();
                     PrinterSettings ps = new PrinterSettings();
                     ps.Copies = 1;
@@ -711,6 +718,10 @@ namespace SILVER_E.Admininistrador
                     
                     reportDocument.SetDataSource(ds_venta);
 
+                    reportDocument.SetParameterValue("NOMBRE_USER", nombreUser);
+                    reportDocument.SetParameterValue("NOMBRE_EMP", nombreSucursal);
+                    reportDocument.SetParameterValue("DIRECCION_SUCURSAL", direccionSucursal);
+                    reportDocument.SetParameterValue("RFC_SUCURSAL", rfcSucursal);
                     reportDocument.SetParameterValue("textFecha",TXT_FECHA_ACTUAL.Text);
                     reportDocument.SetParameterValue("FOLIO_VENTA", TXT_FOLIO_DOC.Text);
                     reportDocument.SetParameterValue("Nombre",TXT_NAME_CLIENT.Text);
@@ -737,6 +748,32 @@ namespace SILVER_E.Admininistrador
                 mtd.DesconectarBaseDatos();
                 this.TXT_FOLIO_DOC.Text = mtd.GeneradorVenta(usuario, Convert.ToString(CMB_TIPO_VENTA.Text.Split('*').GetValue(0).ToString().Trim()));
                 BTN_DELETE_ItemClick(null, null);
+            }
+        }
+
+        public void DATOS_COMPLEMENTA() {
+            try
+            {
+                mtd.ConectarBaseDatos();
+                mtd.comando = new SqlCommand("SILV_VENTA_DATOS_COMPLEMENTARIOS", mtd.conexion);
+                mtd.comando.CommandType = CommandType.StoredProcedure;
+                mtd.comando.Parameters.Add("@USUARIO", SqlDbType.NVarChar, 200).Value = usuario;
+                mtd.lector = mtd.comando.ExecuteReader();
+                if (mtd.lector.Read())
+                {
+                    nombreUser = Convert.ToString(mtd.lector["AG_NAME_AGENT"]);
+                    nombreSucursal = Convert.ToString(mtd.lector["COM_NAME_COMPANY"]);
+                    direccionSucursal = Convert.ToString(mtd.lector["COM_ADDRESS"]);
+                    rfcSucursal = Convert.ToString(mtd.lector["COM_RFC"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "SISTEMA..", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            finally {
+                mtd.DesconectarBaseDatos();
             }
         }
     }
