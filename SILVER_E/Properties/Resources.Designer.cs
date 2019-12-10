@@ -333,6 +333,16 @@ namespace SILVER_E.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap currency_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("currency_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap currency2_16x16 {
             get {
                 object obj = ResourceManager.GetObject("currency2_16x16", resourceCulture);

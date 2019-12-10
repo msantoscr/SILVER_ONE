@@ -120,6 +120,12 @@
     <Compile Include="Admininistrador\frm_clients.Designer.cs">
       <DependentUpon>frm_clients.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admininistrador\frm_cobranza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admininistrador\frm_cobranza.Designer.cs">
+      <DependentUpon>frm_cobranza.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admininistrador\frm_company.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -271,6 +277,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admininistrador\frm_clients.resx">
       <DependentUpon>frm_clients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admininistrador\frm_cobranza.resx">
+      <DependentUpon>frm_cobranza.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admininistrador\frm_company.resx">
       <DependentUpon>frm_company.cs</DependentUpon>
@@ -691,6 +700,7 @@
     <None Include="Resources\search_16x16.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\currency_32x32.png" />
     <Content Include="silver.ico" />
   </ItemGroup>
   <ItemGroup>

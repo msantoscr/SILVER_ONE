@@ -60,6 +60,8 @@ namespace SILVER_E {
         
         private SP_SILV_WAREHOUSE_REPORTDataTable tableSP_SILV_WAREHOUSE_REPORT;
         
+        private SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable tableSP_SILV_OBTENER_PEDIDOS_COBRANZA;
+        
         private DsNotaVentaDataTable tableDsNotaVenta;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
@@ -143,6 +145,9 @@ namespace SILVER_E {
                 }
                 if ((ds.Tables["SP_SILV_WAREHOUSE_REPORT"] != null)) {
                     base.Tables.Add(new SP_SILV_WAREHOUSE_REPORTDataTable(ds.Tables["SP_SILV_WAREHOUSE_REPORT"]));
+                }
+                if ((ds.Tables["SP_SILV_OBTENER_PEDIDOS_COBRANZA"] != null)) {
+                    base.Tables.Add(new SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable(ds.Tables["SP_SILV_OBTENER_PEDIDOS_COBRANZA"]));
                 }
                 if ((ds.Tables["DsNotaVenta"] != null)) {
                     base.Tables.Add(new DsNotaVentaDataTable(ds.Tables["DsNotaVenta"]));
@@ -349,6 +354,16 @@ namespace SILVER_E {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable SP_SILV_OBTENER_PEDIDOS_COBRANZA {
+            get {
+                return this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public DsNotaVentaDataTable DsNotaVenta {
             get {
                 return this.tableDsNotaVenta;
@@ -475,6 +490,9 @@ namespace SILVER_E {
                 }
                 if ((ds.Tables["SP_SILV_WAREHOUSE_REPORT"] != null)) {
                     base.Tables.Add(new SP_SILV_WAREHOUSE_REPORTDataTable(ds.Tables["SP_SILV_WAREHOUSE_REPORT"]));
+                }
+                if ((ds.Tables["SP_SILV_OBTENER_PEDIDOS_COBRANZA"] != null)) {
+                    base.Tables.Add(new SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable(ds.Tables["SP_SILV_OBTENER_PEDIDOS_COBRANZA"]));
                 }
                 if ((ds.Tables["DsNotaVenta"] != null)) {
                     base.Tables.Add(new DsNotaVentaDataTable(ds.Tables["DsNotaVenta"]));
@@ -620,6 +638,12 @@ namespace SILVER_E {
                     this.tableSP_SILV_WAREHOUSE_REPORT.InitVars();
                 }
             }
+            this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA = ((SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable)(base.Tables["SP_SILV_OBTENER_PEDIDOS_COBRANZA"]));
+            if ((initTable == true)) {
+                if ((this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA != null)) {
+                    this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.InitVars();
+                }
+            }
             this.tableDsNotaVenta = ((DsNotaVentaDataTable)(base.Tables["DsNotaVenta"]));
             if ((initTable == true)) {
                 if ((this.tableDsNotaVenta != null)) {
@@ -672,6 +696,8 @@ namespace SILVER_E {
             base.Tables.Add(this.tableSP_SILV_USERS_REPORT);
             this.tableSP_SILV_WAREHOUSE_REPORT = new SP_SILV_WAREHOUSE_REPORTDataTable();
             base.Tables.Add(this.tableSP_SILV_WAREHOUSE_REPORT);
+            this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA = new SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable();
+            base.Tables.Add(this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA);
             this.tableDsNotaVenta = new DsNotaVentaDataTable();
             base.Tables.Add(this.tableDsNotaVenta);
         }
@@ -781,6 +807,12 @@ namespace SILVER_E {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeSP_SILV_WAREHOUSE_REPORT() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeSP_SILV_OBTENER_PEDIDOS_COBRANZA() {
             return false;
         }
         
@@ -898,6 +930,9 @@ namespace SILVER_E {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void SP_SILV_WAREHOUSE_REPORTRowChangeEventHandler(object sender, SP_SILV_WAREHOUSE_REPORTRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void SP_SILV_OBTENER_PEDIDOS_COBRANZARowChangeEventHandler(object sender, SP_SILV_OBTENER_PEDIDOS_COBRANZARowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void DsNotaVentaRowChangeEventHandler(object sender, DsNotaVentaRowChangeEvent e);
@@ -8260,6 +8295,362 @@ namespace SILVER_E {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable : global::System.Data.TypedTableBase<SP_SILV_OBTENER_PEDIDOS_COBRANZARow> {
+            
+            private global::System.Data.DataColumn columnFOLIO_VENTA;
+            
+            private global::System.Data.DataColumn columnID_CLIENTE;
+            
+            private global::System.Data.DataColumn columnCL_COMPLETE_NAME;
+            
+            private global::System.Data.DataColumn columnDIRECCION;
+            
+            private global::System.Data.DataColumn columnCL_CURP;
+            
+            private global::System.Data.DataColumn columnFECHA;
+            
+            private global::System.Data.DataColumn columnTOTAL_VENTA;
+            
+            private global::System.Data.DataColumn columnPARTIDAS;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable() {
+                this.TableName = "SP_SILV_OBTENER_PEDIDOS_COBRANZA";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FOLIO_VENTAColumn {
+                get {
+                    return this.columnFOLIO_VENTA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ID_CLIENTEColumn {
+                get {
+                    return this.columnID_CLIENTE;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CL_COMPLETE_NAMEColumn {
+                get {
+                    return this.columnCL_COMPLETE_NAME;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DIRECCIONColumn {
+                get {
+                    return this.columnDIRECCION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CL_CURPColumn {
+                get {
+                    return this.columnCL_CURP;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FECHAColumn {
+                get {
+                    return this.columnFECHA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TOTAL_VENTAColumn {
+                get {
+                    return this.columnTOTAL_VENTA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PARTIDASColumn {
+                get {
+                    return this.columnPARTIDAS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SP_SILV_OBTENER_PEDIDOS_COBRANZARow this[int index] {
+                get {
+                    return ((SP_SILV_OBTENER_PEDIDOS_COBRANZARow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event SP_SILV_OBTENER_PEDIDOS_COBRANZARowChangeEventHandler SP_SILV_OBTENER_PEDIDOS_COBRANZARowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event SP_SILV_OBTENER_PEDIDOS_COBRANZARowChangeEventHandler SP_SILV_OBTENER_PEDIDOS_COBRANZARowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event SP_SILV_OBTENER_PEDIDOS_COBRANZARowChangeEventHandler SP_SILV_OBTENER_PEDIDOS_COBRANZARowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event SP_SILV_OBTENER_PEDIDOS_COBRANZARowChangeEventHandler SP_SILV_OBTENER_PEDIDOS_COBRANZARowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddSP_SILV_OBTENER_PEDIDOS_COBRANZARow(SP_SILV_OBTENER_PEDIDOS_COBRANZARow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SP_SILV_OBTENER_PEDIDOS_COBRANZARow AddSP_SILV_OBTENER_PEDIDOS_COBRANZARow(string FOLIO_VENTA, int ID_CLIENTE, string CL_COMPLETE_NAME, string DIRECCION, string CL_CURP, System.DateTime FECHA, string TOTAL_VENTA, int PARTIDAS) {
+                SP_SILV_OBTENER_PEDIDOS_COBRANZARow rowSP_SILV_OBTENER_PEDIDOS_COBRANZARow = ((SP_SILV_OBTENER_PEDIDOS_COBRANZARow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        FOLIO_VENTA,
+                        ID_CLIENTE,
+                        CL_COMPLETE_NAME,
+                        DIRECCION,
+                        CL_CURP,
+                        FECHA,
+                        TOTAL_VENTA,
+                        PARTIDAS};
+                rowSP_SILV_OBTENER_PEDIDOS_COBRANZARow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSP_SILV_OBTENER_PEDIDOS_COBRANZARow);
+                return rowSP_SILV_OBTENER_PEDIDOS_COBRANZARow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable cln = ((SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnFOLIO_VENTA = base.Columns["FOLIO_VENTA"];
+                this.columnID_CLIENTE = base.Columns["ID_CLIENTE"];
+                this.columnCL_COMPLETE_NAME = base.Columns["CL_COMPLETE_NAME"];
+                this.columnDIRECCION = base.Columns["DIRECCION"];
+                this.columnCL_CURP = base.Columns["CL_CURP"];
+                this.columnFECHA = base.Columns["FECHA"];
+                this.columnTOTAL_VENTA = base.Columns["TOTAL_VENTA"];
+                this.columnPARTIDAS = base.Columns["PARTIDAS"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnFOLIO_VENTA = new global::System.Data.DataColumn("FOLIO_VENTA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFOLIO_VENTA);
+                this.columnID_CLIENTE = new global::System.Data.DataColumn("ID_CLIENTE", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_CLIENTE);
+                this.columnCL_COMPLETE_NAME = new global::System.Data.DataColumn("CL_COMPLETE_NAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCL_COMPLETE_NAME);
+                this.columnDIRECCION = new global::System.Data.DataColumn("DIRECCION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDIRECCION);
+                this.columnCL_CURP = new global::System.Data.DataColumn("CL_CURP", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCL_CURP);
+                this.columnFECHA = new global::System.Data.DataColumn("FECHA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFECHA);
+                this.columnTOTAL_VENTA = new global::System.Data.DataColumn("TOTAL_VENTA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTOTAL_VENTA);
+                this.columnPARTIDAS = new global::System.Data.DataColumn("PARTIDAS", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPARTIDAS);
+                this.columnFOLIO_VENTA.AllowDBNull = false;
+                this.columnFOLIO_VENTA.MaxLength = 2147483647;
+                this.columnID_CLIENTE.AllowDBNull = false;
+                this.columnCL_COMPLETE_NAME.ReadOnly = true;
+                this.columnCL_COMPLETE_NAME.MaxLength = 302;
+                this.columnDIRECCION.ReadOnly = true;
+                this.columnDIRECCION.MaxLength = 416;
+                this.columnCL_CURP.MaxLength = 200;
+                this.columnTOTAL_VENTA.AllowDBNull = false;
+                this.columnTOTAL_VENTA.MaxLength = 2147483647;
+                this.columnPARTIDAS.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SP_SILV_OBTENER_PEDIDOS_COBRANZARow NewSP_SILV_OBTENER_PEDIDOS_COBRANZARow() {
+                return ((SP_SILV_OBTENER_PEDIDOS_COBRANZARow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new SP_SILV_OBTENER_PEDIDOS_COBRANZARow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(SP_SILV_OBTENER_PEDIDOS_COBRANZARow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.SP_SILV_OBTENER_PEDIDOS_COBRANZARowChanged != null)) {
+                    this.SP_SILV_OBTENER_PEDIDOS_COBRANZARowChanged(this, new SP_SILV_OBTENER_PEDIDOS_COBRANZARowChangeEvent(((SP_SILV_OBTENER_PEDIDOS_COBRANZARow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.SP_SILV_OBTENER_PEDIDOS_COBRANZARowChanging != null)) {
+                    this.SP_SILV_OBTENER_PEDIDOS_COBRANZARowChanging(this, new SP_SILV_OBTENER_PEDIDOS_COBRANZARowChangeEvent(((SP_SILV_OBTENER_PEDIDOS_COBRANZARow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.SP_SILV_OBTENER_PEDIDOS_COBRANZARowDeleted != null)) {
+                    this.SP_SILV_OBTENER_PEDIDOS_COBRANZARowDeleted(this, new SP_SILV_OBTENER_PEDIDOS_COBRANZARowChangeEvent(((SP_SILV_OBTENER_PEDIDOS_COBRANZARow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.SP_SILV_OBTENER_PEDIDOS_COBRANZARowDeleting != null)) {
+                    this.SP_SILV_OBTENER_PEDIDOS_COBRANZARowDeleting(this, new SP_SILV_OBTENER_PEDIDOS_COBRANZARowChangeEvent(((SP_SILV_OBTENER_PEDIDOS_COBRANZARow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveSP_SILV_OBTENER_PEDIDOS_COBRANZARow(SP_SILV_OBTENER_PEDIDOS_COBRANZARow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                SILVER_ERPDataSet ds = new SILVER_ERPDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class DsNotaVentaDataTable : global::System.Data.TypedTableBase<DsNotaVentaRow> {
             
             private global::System.Data.DataColumn columnLINEA;
@@ -13132,6 +13523,181 @@ namespace SILVER_E {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+        public partial class SP_SILV_OBTENER_PEDIDOS_COBRANZARow : global::System.Data.DataRow {
+            
+            private SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable tableSP_SILV_OBTENER_PEDIDOS_COBRANZA;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal SP_SILV_OBTENER_PEDIDOS_COBRANZARow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA = ((SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FOLIO_VENTA {
+                get {
+                    return ((string)(this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.FOLIO_VENTAColumn]));
+                }
+                set {
+                    this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.FOLIO_VENTAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ID_CLIENTE {
+                get {
+                    return ((int)(this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.ID_CLIENTEColumn]));
+                }
+                set {
+                    this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.ID_CLIENTEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CL_COMPLETE_NAME {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.CL_COMPLETE_NAMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CL_COMPLETE_NAME\' de la tabla \'SP_SILV_OBTENER_PEDIDOS_CO" +
+                                "BRANZA\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.CL_COMPLETE_NAMEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string DIRECCION {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.DIRECCIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DIRECCION\' de la tabla \'SP_SILV_OBTENER_PEDIDOS_COBRANZA\'" +
+                                " es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.DIRECCIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CL_CURP {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.CL_CURPColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CL_CURP\' de la tabla \'SP_SILV_OBTENER_PEDIDOS_COBRANZA\' e" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.CL_CURPColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime FECHA {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.FECHAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHA\' de la tabla \'SP_SILV_OBTENER_PEDIDOS_COBRANZA\' es " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.FECHAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string TOTAL_VENTA {
+                get {
+                    return ((string)(this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.TOTAL_VENTAColumn]));
+                }
+                set {
+                    this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.TOTAL_VENTAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int PARTIDAS {
+                get {
+                    return ((int)(this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.PARTIDASColumn]));
+                }
+                set {
+                    this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.PARTIDASColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCL_COMPLETE_NAMENull() {
+                return this.IsNull(this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.CL_COMPLETE_NAMEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCL_COMPLETE_NAMENull() {
+                this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.CL_COMPLETE_NAMEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDIRECCIONNull() {
+                return this.IsNull(this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.DIRECCIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDIRECCIONNull() {
+                this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.DIRECCIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCL_CURPNull() {
+                return this.IsNull(this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.CL_CURPColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCL_CURPNull() {
+                this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.CL_CURPColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFECHANull() {
+                return this.IsNull(this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.FECHAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFECHANull() {
+                this[this.tableSP_SILV_OBTENER_PEDIDOS_COBRANZA.FECHAColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
         public partial class DsNotaVentaRow : global::System.Data.DataRow {
             
             private DsNotaVentaDataTable tableDsNotaVenta;
@@ -13910,6 +14476,40 @@ namespace SILVER_E {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public SP_SILV_WAREHOUSE_REPORTRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class SP_SILV_OBTENER_PEDIDOS_COBRANZARowChangeEvent : global::System.EventArgs {
+            
+            private SP_SILV_OBTENER_PEDIDOS_COBRANZARow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SP_SILV_OBTENER_PEDIDOS_COBRANZARowChangeEvent(SP_SILV_OBTENER_PEDIDOS_COBRANZARow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public SP_SILV_OBTENER_PEDIDOS_COBRANZARow Row {
                 get {
                     return this.eventRow;
                 }
@@ -17155,6 +17755,221 @@ namespace SILVER_E.SILVER_ERPDataSetTableAdapters {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             SILVER_ERPDataSet.SP_SILV_WAREHOUSE_REPORTDataTable dataTable = new SILVER_ERPDataSet.SP_SILV_WAREHOUSE_REPORTDataTable();
             this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class SP_SILV_OBTENER_PEDIDOS_COBRANZATableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public SP_SILV_OBTENER_PEDIDOS_COBRANZATableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "SP_SILV_OBTENER_PEDIDOS_COBRANZA";
+            tableMapping.ColumnMappings.Add("FOLIO_VENTA", "FOLIO_VENTA");
+            tableMapping.ColumnMappings.Add("ID_CLIENTE", "ID_CLIENTE");
+            tableMapping.ColumnMappings.Add("CL_COMPLETE_NAME", "CL_COMPLETE_NAME");
+            tableMapping.ColumnMappings.Add("DIRECCION", "DIRECCION");
+            tableMapping.ColumnMappings.Add("CL_CURP", "CL_CURP");
+            tableMapping.ColumnMappings.Add("FECHA", "FECHA");
+            tableMapping.ColumnMappings.Add("TOTAL_VENTA", "TOTAL_VENTA");
+            tableMapping.ColumnMappings.Add("PARTIDAS", "PARTIDAS");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::SILVER_E.Properties.Settings.Default.SILVER_ERPConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.SP_SILV_OBTENER_PEDIDOS_COBRANZA";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@USUARIO", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MENSAJE", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.InputOutput, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(SILVER_ERPDataSet.SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable dataTable, string USUARIO, ref string MENSAJE) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((USUARIO == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(USUARIO));
+            }
+            if ((MENSAJE == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(MENSAJE));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            if (((this.Adapter.SelectCommand.Parameters[2].Value == null) 
+                        || (this.Adapter.SelectCommand.Parameters[2].Value.GetType() == typeof(global::System.DBNull)))) {
+                MENSAJE = null;
+            }
+            else {
+                MENSAJE = ((string)(this.Adapter.SelectCommand.Parameters[2].Value));
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual SILVER_ERPDataSet.SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable GetData(string USUARIO, ref string MENSAJE) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((USUARIO == null)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(USUARIO));
+            }
+            if ((MENSAJE == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(MENSAJE));
+            }
+            SILVER_ERPDataSet.SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable dataTable = new SILVER_ERPDataSet.SP_SILV_OBTENER_PEDIDOS_COBRANZADataTable();
+            this.Adapter.Fill(dataTable);
+            if (((this.Adapter.SelectCommand.Parameters[2].Value == null) 
+                        || (this.Adapter.SelectCommand.Parameters[2].Value.GetType() == typeof(global::System.DBNull)))) {
+                MENSAJE = null;
+            }
+            else {
+                MENSAJE = ((string)(this.Adapter.SelectCommand.Parameters[2].Value));
+            }
             return dataTable;
         }
     }

@@ -290,5 +290,12 @@ namespace SILVER_E
             //MOSTRAMOS EL FORMULARIO
             FRMCOMP.Show();
         }
+
+        private void BT_COBRANZA_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Admininistrador.frm_cobranza frncobranza = new Admininistrador.frm_cobranza(usuario);
+            frncobranza.MdiParent = this;
+            frncobranza.Show();
+        }
     }
 }

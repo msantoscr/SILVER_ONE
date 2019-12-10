@@ -59,6 +59,7 @@
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.LBL_USERNAME = new DevExpress.XtraBars.BarStaticItem();
             this.BTN_PUNTOVTA = new DevExpress.XtraBars.BarButtonItem();
+            this.BTN_COBRANZA = new DevExpress.XtraBars.BarButtonItem();
             this.RPC_ARTICULOS = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.RP_ARTICULOS = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.RPG_MATERIALES = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -82,6 +83,7 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.BT_COBRANZA = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,10 +121,12 @@
             this.skinRibbonGalleryBarItem1,
             this.barButtonItem1,
             this.LBL_USERNAME,
-            this.BTN_PUNTOVTA});
+            this.BTN_PUNTOVTA,
+            this.BTN_COBRANZA,
+            this.BT_COBRANZA});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ribbon.MaxItemId = 34;
+            this.ribbon.MaxItemId = 36;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
             this.RPC_ARTICULOS,
@@ -401,6 +405,16 @@
             this.BTN_PUNTOVTA.Name = "BTN_PUNTOVTA";
             this.BTN_PUNTOVTA.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_PUNTOVTA_ItemClick);
             // 
+            // BTN_COBRANZA
+            // 
+            this.BTN_COBRANZA.ActAsDropDown = true;
+            this.BTN_COBRANZA.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
+            this.BTN_COBRANZA.Caption = "COBRANZA";
+            this.BTN_COBRANZA.Id = 34;
+            this.BTN_COBRANZA.ImageOptions.Image = global::SILVER_E.Properties.Resources.currency_32x32;
+            this.BTN_COBRANZA.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.currency_32x32;
+            this.BTN_COBRANZA.Name = "BTN_COBRANZA";
+            // 
             // RPC_ARTICULOS
             // 
             this.RPC_ARTICULOS.Name = "RPC_ARTICULOS";
@@ -467,6 +481,7 @@
             // ribbonPageGroup8
             // 
             this.ribbonPageGroup8.ItemLinks.Add(this.BTN_PUNTOVTA);
+            this.ribbonPageGroup8.ItemLinks.Add(this.BT_COBRANZA);
             this.ribbonPageGroup8.Name = "ribbonPageGroup8";
             this.ribbonPageGroup8.Text = "VENTAS";
             // 
@@ -573,6 +588,14 @@
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1513, 40);
             // 
+            // BT_COBRANZA
+            // 
+            this.BT_COBRANZA.Caption = "COBRANZA";
+            this.BT_COBRANZA.Id = 35;
+            this.BT_COBRANZA.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.currency_32x32;
+            this.BT_COBRANZA.Name = "BT_COBRANZA";
+            this.BT_COBRANZA.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BT_COBRANZA_ItemClick);
+            // 
             // frn_main_form
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -653,5 +676,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory1;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.BarButtonItem BTN_COBRANZA;
+        private DevExpress.XtraBars.BarButtonItem BT_COBRANZA;
     }
 }
