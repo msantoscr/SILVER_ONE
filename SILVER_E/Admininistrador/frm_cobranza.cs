@@ -21,7 +21,7 @@ namespace SILVER_E.Admininistrador
         string usuario;
         DataSet dPartidas = new DataSet();
         int result;
-        string folioRemision;
+        string folioRemision, folioDevo;
         string nombreUser;
         string nombreSucursal;
         string direccionSucursal;
@@ -386,7 +386,9 @@ namespace SILVER_E.Admininistrador
                     INSERTA_ENCABEZADO(time.ToString(format));
                     INSERTAR_DETALLE_COBRANZA(time.ToString(format));
                     FOLIO_REMISION();
+                    FOLIO_DEVOLUCION();
                     ReporteCobranza(time.ToString(format));
+                    ReporteCobranzaDevolucion(time.ToString(format));
 
                     XtraMessageBox.Show("SE GUARDO CORRECTAMENTE LA COBRANZA DEL PEDIDO " + TXT_PEDIDO.Text + " !!", "SISTEMA..", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     XtraMessageBox.Show("TOTAL A PAGAR ES: $" + string.Format("{0:0,0}", txtt_importeTotal.Text) + " ", "SISTEMA..", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -552,6 +554,7 @@ namespace SILVER_E.Admininistrador
                 rpt.SetParameterValue("SUBTOTAL", txt_total.Text);
                 rpt.SetParameterValue("DESCUENTO", TXT_TOTAL_DESCUENTO.Text);
                 rpt.SetParameterValue("TOTAL", txtt_importeTotal.Text);
+                rpt.PrintToPrinter(ps, pg, false);
 
             }
             catch (Exception ex)
@@ -563,8 +566,63 @@ namespace SILVER_E.Admininistrador
             }
         }
 
+        public void ReporteCobranzaDevolucion(string fecha)
+        {
+            try
+            {
+
+
+
+                DataSet Ds_Cobranza_Devolucion = new DataSet();
+                mtd.ConectarBaseDatos();
+
+                mtd.comando = new SqlCommand("SP_OBTENER_DEVOLUCION_COBRANZA", mtd.conexion);
+                mtd.comando.CommandType = CommandType.StoredProcedure;
+                mtd.comando.Parameters.Add("@FOLIO_PEDIDO", SqlDbType.NVarChar, 200).Value = TXT_PEDIDO.Text;
+                mtd.comando.ExecuteNonQuery();
+
+                SqlDataAdapter adt = new SqlDataAdapter(mtd.comando);
+                adt.Fill(Ds_Cobranza_Devolucion, "DsCobranzaDevolucion");
+
+                ReportDocument rpt = new ReportDocument();
+                PrinterSettings ps = new PrinterSettings();
+                ps.Copies = 1;
+                PageSettings pg = new PageSettings();
+                pg.PrinterSettings = ps;
+                rpt.Load(Application.StartupPath + "\\Admininistrador\\ReporteCobranzaDevolucion.rpt");
+
+                rpt.SetDataSource(Ds_Cobranza_Devolucion);
+
+                rpt.SetParameterValue("FOLIO_DEVOLUCION", folioDevo);
+                rpt.SetParameterValue("NOMBRE_CLIENTE", TXT_NAME_CLIENT.Text);
+                rpt.SetParameterValue("FECHA", fecha);
+                rpt.SetParameterValue("DIRECCION_CLIENTE", TXT_ADDRESS_CLIENT.Text);
+                rpt.SetParameterValue("CURP", TXT_CURP.Text);
+                rpt.SetParameterValue("EMPRESA", nombreSucursal);
+                rpt.SetParameterValue("SUCURSAL", direccionSucursal);
+                rpt.SetParameterValue("RFC_SUCURSAL", rfcSucursal);
+                rpt.SetParameterValue("USUARIO", nombreUser);
+                rpt.SetParameterValue("NOTA_ORIGINAL", txt_importe_nota.Text);
+                rpt.SetParameterValue("DEVOLUCION", txt_devolucion.Text);
+                rpt.PrintToPrinter(ps, pg, false);
+
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "SISTEMA..", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                mtd.DesconectarBaseDatos();
+            }
+        }
+
         public void FOLIO_REMISION() {
             folioRemision = mtd.GeneradorVenta(usuario,"2");
+        }
+        public void FOLIO_DEVOLUCION()
+        {
+            folioDevo = mtd.GeneradorVenta(usuario, "3");
         }
         public void DATOS_COMPLEMENTA()
         {
