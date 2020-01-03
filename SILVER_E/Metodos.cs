@@ -282,6 +282,21 @@ namespace SILVER_E
             }
         }
 
+        public void llenarDetalleFolio(DataGridView grid, string folio) {
+            comando = new SqlCommand("SP_OBTENER_DETALLE_PEDIDO", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Add("@FOLIO_VENTA", SqlDbType.NVarChar, 200).Value = folio;
+            SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
+            Message.Direction = ParameterDirection.Output;
+            comando.Parameters.Add(Message);
+
+            adaptador = new SqlDataAdapter(comando);
+            DataTable dt = new DataTable();
+            adaptador.Fill(dt);
+
+            grid.DataSource = dt;
+           
+        }
 
         #endregion
 
@@ -358,6 +373,35 @@ namespace SILVER_E
                 return result;
             }
             catch (Exception ex) {
+                XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            return result;
+        }
+
+        public string VALIDAR_COBRANZA(string pedido)
+        {
+            string result = "";
+
+            //SIGUIENTE LINEA SE REEMPLAZA POR USO DE UN PARAMETRO ALMACENADO
+            comando = new SqlCommand("VALIDA_COBRANZA", conexion);
+            comando.CommandType = CommandType.StoredProcedure;
+            comando.Parameters.Add("@PEDIDO", SqlDbType.NVarChar, 200).Value = pedido;
+            try
+            {
+                ConectarBaseDatos();
+                SqlDataReader dr1;
+                dr1 = comando.ExecuteReader();
+                while (dr1.Read())
+                {
+                    result = Convert.ToString(dr1["RESULT"]);
+                }
+                DesconectarBaseDatos();
+
+                return result;
+            }
+            catch (Exception ex)
+            {
                 XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }

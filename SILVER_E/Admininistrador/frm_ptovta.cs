@@ -93,7 +93,7 @@ namespace SILVER_E.Admininistrador
         public void FILL_DATA_ARTI() {
             try {
                 mtd.ConectarBaseDatos();
-                mtd.comando = new SqlCommand("SP_SILV_PRODUCTS_DATA_VIEW", mtd.conexion);
+                mtd.comando = new SqlCommand("SP_SILV_PRODUCTS_DATA_VIEW2", mtd.conexion);
                 mtd.comando.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
@@ -176,6 +176,7 @@ namespace SILVER_E.Admininistrador
             table.Columns.Add("CANTIDAD",Type.GetType("System.Int32"));
             table.Columns.Add("DESCUENTO", Type.GetType("System.String"));
             table.Columns.Add("IMPORTE", Type.GetType("System.String"));
+            table.Columns.Add("FOLIO ARTICULO", Type.GetType("System.String"));
 
             dgv_data.DataSource = table;
             //INICIALIZAR LA TABLA CLIENTES PARA BUSQUEDAS
@@ -242,7 +243,7 @@ namespace SILVER_E.Admininistrador
         {
             try
             {
-                TXT_CODIGO_ARTI.Text = Convert.ToString(GV_ARTI.GetRowCellValue(GV_ARTI.FocusedRowHandle, "ID"));
+                TXT_CODIGO_ARTI.Text = Convert.ToString(GV_ARTI.GetRowCellValue(GV_ARTI.FocusedRowHandle, "FOLIO ARTICULO"));
                 TXT_CODIGO_ARTI.Focus();
             }
             catch (Exception ex)
@@ -282,6 +283,7 @@ namespace SILVER_E.Admininistrador
                     string linea;
                     string descrip;
                     string preciopub;
+                    string folioArti;
 
                     bool existe = false;
 
@@ -291,10 +293,11 @@ namespace SILVER_E.Admininistrador
                         linea = Convert.ToString(reader["PRD_CONCAT_MAT"]);
                         descrip = Convert.ToString(reader["PRD_NAME"]);
                         preciopub = Convert.ToString(reader["COM_PRECIO_PUB"]);
+                        folioArti = Convert.ToString(reader["COM_FOLIO_ARTICULO"]);
 
                         if (dgv_data.RowCount > 0) {
                             for(int i=0; i < dgv_data.RowCount; i++) {
-                                if (Convert.ToInt32(dgv_data.Rows[i].Cells["CODIGO"].Value) == codigo) {
+                                if (Convert.ToString(dgv_data.Rows[i].Cells["FOLIO ARTICULO"].Value) == folioArti) {
                                     XtraMessageBox.Show("EL ARTICULO YA SE ENCUENTRA INGRESADO");
                                     existe = true;
                                     break;//salir del ciclo al encontrar el registro, ya que no es necesario seguir barriendo los demas filas.
@@ -303,7 +306,7 @@ namespace SILVER_E.Admininistrador
                         }
                         //fuera del ciclo, solo si no existe realizamos la insercion
                         if (existe == false) {
-                            table.Rows.Add(codigo, linea, descrip, preciopub, 0, Convert.ToString(0), (Convert.ToInt32(preciopub) * 0));
+                            table.Rows.Add(codigo, linea, descrip, preciopub, 0, Convert.ToString(0), (Convert.ToInt32(preciopub) * 0),folioArti);
                         }
 
                     }
@@ -313,6 +316,7 @@ namespace SILVER_E.Admininistrador
                     dgv_data.Columns[2].ReadOnly = true;
                     dgv_data.Columns[3].ReadOnly = true;
                     dgv_data.Columns[6].ReadOnly = true;
+                    dgv_data.Columns[7].ReadOnly = true;
 
                     CLEAR_FIELDS();
 
@@ -372,12 +376,12 @@ namespace SILVER_E.Admininistrador
         private void dgv_data_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 4 || e.ColumnIndex==5) {
-                int importe;
+                Double importe;
                 int descuento = Convert.ToInt32(dgv_data.Rows[e.RowIndex].Cells["DESCUENTO"].Value.ToString());
 
                 if (Convert.ToInt32(dgv_data.Rows[e.RowIndex].Cells["CANTIDAD"].Value.ToString()) != 0)
                 {
-                    importe = Convert.ToInt32(dgv_data.Rows[e.RowIndex].Cells["CANTIDAD"].Value.ToString()) * Convert.ToInt32(dgv_data.Rows[e.RowIndex].Cells["PRECIO PUBLICO"].Value.ToString());
+                    importe = Convert.ToInt32(dgv_data.Rows[e.RowIndex].Cells["CANTIDAD"].Value.ToString()) * Convert.ToDouble(dgv_data.Rows[e.RowIndex].Cells["PRECIO PUBLICO"].Value.ToString());
                 }
                 else {
                      importe = Convert.ToInt32(dgv_data.Rows[e.RowIndex].Cells["PRECIO PUBLICO"].Value.ToString());
@@ -657,6 +661,7 @@ namespace SILVER_E.Admininistrador
                     int CANTIDADG = Convert.ToInt32(row.Cells["CANTIDAD"].Value);
                     string DESCUENTOG = Convert.ToString(row.Cells["DESCUENTO"].Value);
                     string IMPORTEG = Convert.ToString(row.Cells["IMPORTE"].Value);
+                    string FOLIOARTIG = Convert.ToString(row.Cells["FOLIO ARTICULO"].Value);
 
                     mtd.comando = new SqlCommand("SP_SILV_VENTAS_DETALLE_INSERT", mtd.conexion);
                     mtd.comando.CommandType = CommandType.StoredProcedure;
@@ -669,6 +674,7 @@ namespace SILVER_E.Admininistrador
                     mtd.comando.Parameters.Add("@PRECIO_PUBLICO", SqlDbType.NVarChar, 200).Value = PRECIO_PUBLICOG;
                     mtd.comando.Parameters.Add("@DESCUENTO", SqlDbType.NVarChar, 200).Value = DESCUENTOG;
                     mtd.comando.Parameters.Add("@IMPORTE", SqlDbType.NVarChar, 200).Value = IMPORTEG;
+                    mtd.comando.Parameters.Add("@FOLIO_ARTICULO", SqlDbType.NVarChar, 200).Value = FOLIOARTIG;
 
                     mtd.comando.ExecuteNonQuery();
                 }

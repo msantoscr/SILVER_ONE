@@ -44,16 +44,6 @@
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
-            this.DGV_ARTI = new DevExpress.XtraGrid.GridControl();
-            this.GV_ARTI = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colID1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colACCESORIO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMATERIAL = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colLINEA = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDESCRIPCIONACCESORIO = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDESCRIPCIONMATERIAL = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDESCRIPCION = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colULTIMOFOLIO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DGV_DATA_CLIENT = new DevExpress.XtraGrid.GridControl();
             this.GV_DATA_CLIENT = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -115,12 +105,21 @@
             this.TXT_NAME_CLIENT = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.dgv_data = new System.Windows.Forms.DataGridView();
+            this.DGV_ARTI = new DevExpress.XtraGrid.GridControl();
+            this.GV_ARTI = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colID1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colACCESORIO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMATERIAL = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLINEA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDESCRIPCIONACCESORIO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDESCRIPCIONMATERIAL = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDESCRIPCION = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colULTIMOFOLIO = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colFOLIOARTICULO = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel1.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_ARTI)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GV_ARTI)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DATA_CLIENT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_DATA_CLIENT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
@@ -140,6 +139,8 @@
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pc_img.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_ARTI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GV_ARTI)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -297,95 +298,6 @@
             this.dockPanel1_Container.Name = "dockPanel1_Container";
             this.dockPanel1_Container.Size = new System.Drawing.Size(554, 676);
             this.dockPanel1_Container.TabIndex = 0;
-            // 
-            // DGV_ARTI
-            // 
-            this.DGV_ARTI.Location = new System.Drawing.Point(3, 311);
-            this.DGV_ARTI.MainView = this.GV_ARTI;
-            this.DGV_ARTI.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.DGV_ARTI.MenuManager = this.ribbon;
-            this.DGV_ARTI.Name = "DGV_ARTI";
-            this.DGV_ARTI.Size = new System.Drawing.Size(551, 234);
-            this.DGV_ARTI.TabIndex = 1034;
-            this.DGV_ARTI.UseEmbeddedNavigator = true;
-            this.DGV_ARTI.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.GV_ARTI});
-            this.DGV_ARTI.DoubleClick += new System.EventHandler(this.DGV_ARTI_DoubleClick);
-            // 
-            // GV_ARTI
-            // 
-            this.GV_ARTI.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colID1,
-            this.colACCESORIO,
-            this.colMATERIAL,
-            this.colLINEA,
-            this.colDESCRIPCIONACCESORIO,
-            this.colDESCRIPCIONMATERIAL,
-            this.colDESCRIPCION,
-            this.colULTIMOFOLIO});
-            this.GV_ARTI.GridControl = this.DGV_ARTI;
-            this.GV_ARTI.Name = "GV_ARTI";
-            this.GV_ARTI.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
-            this.GV_ARTI.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
-            this.GV_ARTI.OptionsBehavior.Editable = false;
-            this.GV_ARTI.OptionsView.ColumnAutoWidth = false;
-            this.GV_ARTI.OptionsView.ShowFooter = true;
-            // 
-            // colID1
-            // 
-            this.colID1.FieldName = "ID";
-            this.colID1.Name = "colID1";
-            this.colID1.Visible = true;
-            this.colID1.VisibleIndex = 0;
-            // 
-            // colACCESORIO
-            // 
-            this.colACCESORIO.FieldName = "ACCESORIO";
-            this.colACCESORIO.Name = "colACCESORIO";
-            this.colACCESORIO.Visible = true;
-            this.colACCESORIO.VisibleIndex = 1;
-            // 
-            // colMATERIAL
-            // 
-            this.colMATERIAL.FieldName = "MATERIAL";
-            this.colMATERIAL.Name = "colMATERIAL";
-            this.colMATERIAL.Visible = true;
-            this.colMATERIAL.VisibleIndex = 2;
-            // 
-            // colLINEA
-            // 
-            this.colLINEA.FieldName = "LINEA";
-            this.colLINEA.Name = "colLINEA";
-            this.colLINEA.Visible = true;
-            this.colLINEA.VisibleIndex = 3;
-            // 
-            // colDESCRIPCIONACCESORIO
-            // 
-            this.colDESCRIPCIONACCESORIO.FieldName = "DESCRIPCION ACCESORIO";
-            this.colDESCRIPCIONACCESORIO.Name = "colDESCRIPCIONACCESORIO";
-            this.colDESCRIPCIONACCESORIO.Visible = true;
-            this.colDESCRIPCIONACCESORIO.VisibleIndex = 4;
-            // 
-            // colDESCRIPCIONMATERIAL
-            // 
-            this.colDESCRIPCIONMATERIAL.FieldName = "DESCRIPCION MATERIAL";
-            this.colDESCRIPCIONMATERIAL.Name = "colDESCRIPCIONMATERIAL";
-            this.colDESCRIPCIONMATERIAL.Visible = true;
-            this.colDESCRIPCIONMATERIAL.VisibleIndex = 5;
-            // 
-            // colDESCRIPCION
-            // 
-            this.colDESCRIPCION.FieldName = "DESCRIPCION";
-            this.colDESCRIPCION.Name = "colDESCRIPCION";
-            this.colDESCRIPCION.Visible = true;
-            this.colDESCRIPCION.VisibleIndex = 6;
-            // 
-            // colULTIMOFOLIO
-            // 
-            this.colULTIMOFOLIO.FieldName = "ULTIMO FOLIO";
-            this.colULTIMOFOLIO.Name = "colULTIMOFOLIO";
-            this.colULTIMOFOLIO.Visible = true;
-            this.colULTIMOFOLIO.VisibleIndex = 7;
             // 
             // DGV_DATA_CLIENT
             // 
@@ -955,6 +867,103 @@
             this.dgv_data.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgv_data_EditingControlShowing);
             this.dgv_data.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgv_data_KeyPress);
             // 
+            // DGV_ARTI
+            // 
+            this.DGV_ARTI.Location = new System.Drawing.Point(4, 302);
+            this.DGV_ARTI.MainView = this.GV_ARTI;
+            this.DGV_ARTI.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DGV_ARTI.MenuManager = this.ribbon;
+            this.DGV_ARTI.Name = "DGV_ARTI";
+            this.DGV_ARTI.Size = new System.Drawing.Size(547, 246);
+            this.DGV_ARTI.TabIndex = 1034;
+            this.DGV_ARTI.UseEmbeddedNavigator = true;
+            this.DGV_ARTI.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.GV_ARTI});
+            this.DGV_ARTI.DoubleClick += new System.EventHandler(this.DGV_ARTI_DoubleClick);
+            // 
+            // GV_ARTI
+            // 
+            this.GV_ARTI.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colID1,
+            this.colACCESORIO,
+            this.colMATERIAL,
+            this.colLINEA,
+            this.colDESCRIPCIONACCESORIO,
+            this.colDESCRIPCIONMATERIAL,
+            this.colDESCRIPCION,
+            this.colULTIMOFOLIO,
+            this.colFOLIOARTICULO});
+            this.GV_ARTI.GridControl = this.DGV_ARTI;
+            this.GV_ARTI.Name = "GV_ARTI";
+            this.GV_ARTI.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.GV_ARTI.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.GV_ARTI.OptionsBehavior.Editable = false;
+            this.GV_ARTI.OptionsView.ColumnAutoWidth = false;
+            this.GV_ARTI.OptionsView.ShowFooter = true;
+            // 
+            // colID1
+            // 
+            this.colID1.FieldName = "ID";
+            this.colID1.Name = "colID1";
+            this.colID1.Visible = true;
+            this.colID1.VisibleIndex = 0;
+            // 
+            // colACCESORIO
+            // 
+            this.colACCESORIO.FieldName = "ACCESORIO";
+            this.colACCESORIO.Name = "colACCESORIO";
+            this.colACCESORIO.Visible = true;
+            this.colACCESORIO.VisibleIndex = 1;
+            // 
+            // colMATERIAL
+            // 
+            this.colMATERIAL.FieldName = "MATERIAL";
+            this.colMATERIAL.Name = "colMATERIAL";
+            this.colMATERIAL.Visible = true;
+            this.colMATERIAL.VisibleIndex = 2;
+            // 
+            // colLINEA
+            // 
+            this.colLINEA.FieldName = "LINEA";
+            this.colLINEA.Name = "colLINEA";
+            this.colLINEA.Visible = true;
+            this.colLINEA.VisibleIndex = 3;
+            // 
+            // colDESCRIPCIONACCESORIO
+            // 
+            this.colDESCRIPCIONACCESORIO.FieldName = "DESCRIPCION ACCESORIO";
+            this.colDESCRIPCIONACCESORIO.Name = "colDESCRIPCIONACCESORIO";
+            this.colDESCRIPCIONACCESORIO.Visible = true;
+            this.colDESCRIPCIONACCESORIO.VisibleIndex = 4;
+            // 
+            // colDESCRIPCIONMATERIAL
+            // 
+            this.colDESCRIPCIONMATERIAL.FieldName = "DESCRIPCION MATERIAL";
+            this.colDESCRIPCIONMATERIAL.Name = "colDESCRIPCIONMATERIAL";
+            this.colDESCRIPCIONMATERIAL.Visible = true;
+            this.colDESCRIPCIONMATERIAL.VisibleIndex = 5;
+            // 
+            // colDESCRIPCION
+            // 
+            this.colDESCRIPCION.FieldName = "DESCRIPCION";
+            this.colDESCRIPCION.Name = "colDESCRIPCION";
+            this.colDESCRIPCION.Visible = true;
+            this.colDESCRIPCION.VisibleIndex = 6;
+            // 
+            // colULTIMOFOLIO
+            // 
+            this.colULTIMOFOLIO.FieldName = "ULTIMO FOLIO";
+            this.colULTIMOFOLIO.Name = "colULTIMOFOLIO";
+            this.colULTIMOFOLIO.Visible = true;
+            this.colULTIMOFOLIO.VisibleIndex = 7;
+            // 
+            // colFOLIOARTICULO
+            // 
+            this.colFOLIOARTICULO.FieldName = "FOLIO ARTICULO";
+            this.colFOLIOARTICULO.Name = "colFOLIOARTICULO";
+            this.colFOLIOARTICULO.Visible = true;
+            this.colFOLIOARTICULO.VisibleIndex = 8;
+            // 
             // frm_ptovta
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -978,8 +987,6 @@
             this.dockPanel1.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
             this.dockPanel1_Container.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV_ARTI)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GV_ARTI)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_DATA_CLIENT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GV_DATA_CLIENT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
@@ -1002,6 +1009,8 @@
             this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pc_img.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV_ARTI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GV_ARTI)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1081,6 +1090,10 @@
         internal DevExpress.XtraEditors.PictureEdit pc_img;
         private DevExpress.XtraBars.BarStaticItem LBL_RESULT_TIPO_VENTA;
         private DevExpress.XtraBars.BarStaticItem LBL_RESULT_ARTICULO;
+        private DevExpress.XtraBars.BarStaticItem LBL_PHOTO;
+        internal DevExpress.XtraEditors.LabelControl labelControl5;
+        internal DevExpress.XtraEditors.TextEdit TXT_FOLIO_DOC;
+        private DevExpress.XtraGrid.Views.Grid.GridView GV_ARTI;
         private DevExpress.XtraGrid.Columns.GridColumn colID1;
         private DevExpress.XtraGrid.Columns.GridColumn colACCESORIO;
         private DevExpress.XtraGrid.Columns.GridColumn colMATERIAL;
@@ -1089,10 +1102,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDESCRIPCIONMATERIAL;
         private DevExpress.XtraGrid.Columns.GridColumn colDESCRIPCION;
         private DevExpress.XtraGrid.Columns.GridColumn colULTIMOFOLIO;
+        private DevExpress.XtraGrid.Columns.GridColumn colFOLIOARTICULO;
         public DevExpress.XtraGrid.GridControl DGV_ARTI;
-        public DevExpress.XtraGrid.Views.Grid.GridView GV_ARTI;
-        private DevExpress.XtraBars.BarStaticItem LBL_PHOTO;
-        internal DevExpress.XtraEditors.LabelControl labelControl5;
-        internal DevExpress.XtraEditors.TextEdit TXT_FOLIO_DOC;
     }
 }

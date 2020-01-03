@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using System.Data.SqlClient;
 using DevExpress.XtraEditors;
+using System.Text.RegularExpressions;
 
 namespace SILVER_E.Admininistrador
 {
@@ -273,6 +274,32 @@ namespace SILVER_E.Admininistrador
             }
         }
 
+        public void obtenerUltimoFolio() {
+
+            try
+            {
+                mtd.ConectarBaseDatos();
+                mtd.comando = new SqlCommand("OBTENER_FOLIO_CONSEC", mtd.conexion);
+                mtd.comando.CommandType = CommandType.StoredProcedure;
+                mtd.comando.Parameters.Add("@ACCESORIO", SqlDbType.NVarChar, 200).Value = CB_ACCESORIO.Text;
+                mtd.comando.Parameters.Add("@MATERIAL", SqlDbType.NVarChar, 200).Value = CB_MATERIAL.Text;
+
+                mtd.lector = mtd.comando.ExecuteReader();
+                if (mtd.lector.Read())
+                {
+                    TXT_CLAVE_PRODUCTO.Text = CB_ACCESORIO.Text.ToString().Trim()+ Convert.ToString(mtd.lector["FOLIO"])+CB_MATERIAL.Text.ToString().Trim();
+                    TXT_ID.Text = Convert.ToString(mtd.lector["id"]);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally {
+                mtd.DesconectarBaseDatos();
+            }
+        }
         public void fsumar()
         {
             double total = 0;
@@ -417,6 +444,15 @@ namespace SILVER_E.Admininistrador
                     string Costo_Unit = Convert.ToString(row.Cells["COSTO UNITARIO"].Value);
                     string Precio_Pub = Convert.ToString(row.Cells["PRECIO PUBLICO"].Value);
                     string Importe = Convert.ToString(row.Cells["IMPORTE"].Value);
+                    string codigoArticulo = Convert.ToString(row.Cells["FOLIO ARTICULO"].Value);
+
+                    
+                    string phrase = codigoArticulo.Replace("0","");
+                    Match m = Regex.Match(phrase,"(\\d+)");
+                    string numFolio = string.Empty;
+                    if (m.Success) {
+                        numFolio = m.Value;
+                    }
 
                     mtd.comando = new SqlCommand("SP_SILV_COMPRAS_INSERT", mtd.conexion);
                     mtd.comando.CommandType = CommandType.StoredProcedure;
@@ -437,7 +473,8 @@ namespace SILVER_E.Admininistrador
                     mtd.comando.Parameters.Add("@COM_PRECIO_PUB", SqlDbType.Float).Value = Precio_Pub;
                     mtd.comando.Parameters.Add("@COM_IMPORTE", SqlDbType.Float).Value = Importe;
                     mtd.comando.Parameters.Add("@COM_USER_CREATOR", SqlDbType.NVarChar, 100).Value = usuario;
-
+                    mtd.comando.Parameters.Add("@COM_ID_FOLIO_ARTICULO", SqlDbType.NVarChar,200).Value = numFolio;
+                    mtd.comando.Parameters.Add("@COM_FOLIO_ARTICULO", SqlDbType.NVarChar, 200).Value = codigoArticulo;
                     //DECLARAMOS UNA VARIABLE DE TIPO SQLPARAMETER CON EL NOMBRE DEL @MENSAJE DE TIPO NVARCHAR Y LONGITUD 200, MISMO QUE SE DECLARO EN EL CUERPO DEL PROCEDIMIENTO ALMACENADO SP_SILV_COUNTRIES_INSERT
                     SqlParameter Message = new SqlParameter("@MENSAJE", SqlDbType.NVarChar, 200);
                     //INDICAMOS QUE SE TRATA DE UN PARAMETRO DE TIPO OUTPUT
@@ -470,13 +507,15 @@ namespace SILVER_E.Admininistrador
                 CLEAR_FIELDS();
                 //  dgv_data.DataSource = Nothing
                 UPDATE_GENERATOR();
-                this.TXT_FOLIO_DOC.Text = mtd.Generadores("COM_PARAMETRO");
+                this.TXT_FOLIO_DOC.Text = mtd.Generadores("COMPRAS");
+                //obtenerUltimoFolio();
             }
         }
 
         private void frm_compras_Load(object sender, EventArgs e)
         {
             this.TXT_FOLIO_DOC.Text = mtd.Generadores("COMPRAS");
+            
             TXT_CANTIDAD.Focus();
             table.Columns.Add("CANTIDAD", Type.GetType("System.Int32"));
             table.Columns.Add("ACCESORIO", Type.GetType("System.String"));
@@ -486,6 +525,7 @@ namespace SILVER_E.Admininistrador
             table.Columns.Add("COSTO UNITARIO", Type.GetType("System.String"));
             table.Columns.Add("PRECIO PUBLICO", Type.GetType("System.String"));
             table.Columns.Add("IMPORTE", Type.GetType("System.String"));
+            table.Columns.Add("FOLIO ARTICULO", Type.GetType("System.String"));
 
             dgv_data.DataSource = table;
 
@@ -499,13 +539,20 @@ namespace SILVER_E.Admininistrador
             //listados adicionales
             LIST_ACCESSORIES();
             LIST_MATERIAL();
+
             TXT_LINEA.Text = CB_ACCESORIO.Text + CB_MATERIAL.Text;
+            if (TXT_CLAVE_PRODUCTO.Text =="" || TXT_CLAVE_PRODUCTO == null)
+            {
+                TXT_CLAVE_PRODUCTO.Text = "00000" + TXT_CLAVE_PRODUCTO.Text;
+            }
+            //obtenerUltimoFolio();
             LIST_DESCRIPTION();
         }
 
         private void CB_MATERIAL_TextChanged(object sender, EventArgs e)
         {
             TXT_LINEA.Text = CB_ACCESORIO.Text + CB_MATERIAL.Text;
+            //obtenerUltimoFolio();
         }
 
         private void TXT_COSTO_UNIT_TextChanged(object sender, EventArgs e)
@@ -584,12 +631,13 @@ namespace SILVER_E.Admininistrador
                 return;
             }
 
-            table.Rows.Add(TXT_CANTIDAD.Text, CB_ACCESORIO.Text, CB_MATERIAL.Text, TXT_LINEA.Text, CB_DESCRIPCION.Text, TXT_COSTO_UNIT.Text, TXT_PRECION_PUB.Text, TXT_IMPORTE.Text);
+            table.Rows.Add(TXT_CANTIDAD.Text, CB_ACCESORIO.Text, CB_MATERIAL.Text, TXT_LINEA.Text, CB_DESCRIPCION.Text, TXT_COSTO_UNIT.Text, TXT_PRECION_PUB.Text, TXT_IMPORTE.Text,CB_ACCESORIO.Text+TXT_CLAVE_PRODUCTO.Text+CB_MATERIAL.Text);
             dgv_data.DataSource = table;
             CLEAR_FIELDS();
             fsumar();
             sumer_piezas();
             txt_partidas.Text = this.dgv_data.RowCount.ToString();
+            //obtenerUltimoFolio();
         }
 
         private void BTN_DELETE_ItemClick(object sender, ItemClickEventArgs e)

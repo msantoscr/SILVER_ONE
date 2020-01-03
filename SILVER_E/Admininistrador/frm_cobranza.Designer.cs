@@ -36,7 +36,6 @@
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
-            this.dgv_data = new System.Windows.Forms.DataGridView();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel2 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel2_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -69,11 +68,13 @@
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.GroupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.TXT_TOTAL_DESCUENTO = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
+            this.txtt_importeTotal = new DevExpress.XtraEditors.TextEdit();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.txt_total = new DevExpress.XtraEditors.TextEdit();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtVentaOriginal = new DevExpress.XtraEditors.TextEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.txt_descuento = new DevExpress.XtraEditors.TextEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
@@ -86,8 +87,9 @@
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.txt_importe_nota = new DevExpress.XtraEditors.TextEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.dgv_data = new System.Windows.Forms.DataGridView();
+            this.BTN_LIMPIAR = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
             this.dockPanel2.SuspendLayout();
             this.dockPanel2_Container.SuspendLayout();
@@ -102,9 +104,10 @@
             this.dockPanel1_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GroupControl1)).BeginInit();
             this.GroupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TXT_TOTAL_DESCUENTO.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtt_importeTotal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_total.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVentaOriginal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_descuento.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_t_subtotal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GroupControl2)).BeginInit();
@@ -112,6 +115,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_diferencia_pagar.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_devolucion.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_importe_nota.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -121,10 +125,11 @@
             this.ribbon.ExpandCollapseItem,
             this.BTN_SAVE,
             this.barButtonItem1,
-            this.LBL_PEDIDO});
+            this.LBL_PEDIDO,
+            this.BTN_LIMPIAR});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbon.MaxItemId = 4;
+            this.ribbon.MaxItemId = 5;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -139,6 +144,7 @@
             this.BTN_SAVE.Id = 1;
             this.BTN_SAVE.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.save_32x32;
             this.BTN_SAVE.Name = "BTN_SAVE";
+            this.BTN_SAVE.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_SAVE_ItemClick);
             // 
             // barButtonItem1
             // 
@@ -163,6 +169,7 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.BTN_SAVE);
+            this.ribbonPageGroup1.ItemLinks.Add(this.BTN_LIMPIAR);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "OPCIONES";
             // 
@@ -173,20 +180,6 @@
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
             this.ribbonStatusBar.Size = new System.Drawing.Size(1565, 40);
-            // 
-            // dgv_data
-            // 
-            this.dgv_data.AllowUserToAddRows = false;
-            this.dgv_data.AllowUserToDeleteRows = false;
-            this.dgv_data.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgv_data.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgv_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_data.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_data.Location = new System.Drawing.Point(511, 350);
-            this.dgv_data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dgv_data.Name = "dgv_data";
-            this.dgv_data.Size = new System.Drawing.Size(1054, 537);
-            this.dgv_data.TabIndex = 1019;
             // 
             // dockManager1
             // 
@@ -249,6 +242,7 @@
             this.TXT_PEDIDO.Name = "TXT_PEDIDO";
             this.TXT_PEDIDO.Size = new System.Drawing.Size(159, 22);
             this.TXT_PEDIDO.TabIndex = 0;
+            this.TXT_PEDIDO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXT_PEDIDO_KeyPress);
             // 
             // TXT_FECHA_ACTUAL
             // 
@@ -445,6 +439,7 @@
             this.TXT_ARTICULO.Name = "TXT_ARTICULO";
             this.TXT_ARTICULO.Size = new System.Drawing.Size(159, 22);
             this.TXT_ARTICULO.TabIndex = 1021;
+            this.TXT_ARTICULO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TXT_ARTICULO_KeyPress);
             // 
             // TXT_ADDRESS_CLIENT
             // 
@@ -494,11 +489,13 @@
             // 
             // GroupControl1
             // 
-            this.GroupControl1.Controls.Add(this.textEdit2);
+            this.GroupControl1.Controls.Add(this.TXT_TOTAL_DESCUENTO);
+            this.GroupControl1.Controls.Add(this.labelControl16);
+            this.GroupControl1.Controls.Add(this.txtt_importeTotal);
             this.GroupControl1.Controls.Add(this.labelControl15);
             this.GroupControl1.Controls.Add(this.txt_total);
             this.GroupControl1.Controls.Add(this.labelControl14);
-            this.GroupControl1.Controls.Add(this.textEdit1);
+            this.GroupControl1.Controls.Add(this.txtVentaOriginal);
             this.GroupControl1.Controls.Add(this.labelControl13);
             this.GroupControl1.Controls.Add(this.txt_descuento);
             this.GroupControl1.Controls.Add(this.labelControl8);
@@ -511,18 +508,36 @@
             this.GroupControl1.TabIndex = 1021;
             this.GroupControl1.Text = "TOTALES";
             // 
-            // textEdit2
+            // TXT_TOTAL_DESCUENTO
             // 
-            this.textEdit2.Location = new System.Drawing.Point(395, 70);
-            this.textEdit2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.ReadOnly = true;
-            this.textEdit2.Size = new System.Drawing.Size(124, 22);
-            this.textEdit2.TabIndex = 15;
+            this.TXT_TOTAL_DESCUENTO.Location = new System.Drawing.Point(395, 66);
+            this.TXT_TOTAL_DESCUENTO.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TXT_TOTAL_DESCUENTO.Name = "TXT_TOTAL_DESCUENTO";
+            this.TXT_TOTAL_DESCUENTO.Properties.ReadOnly = true;
+            this.TXT_TOTAL_DESCUENTO.Size = new System.Drawing.Size(124, 22);
+            this.TXT_TOTAL_DESCUENTO.TabIndex = 17;
+            // 
+            // labelControl16
+            // 
+            this.labelControl16.Location = new System.Drawing.Point(307, 72);
+            this.labelControl16.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.labelControl16.Name = "labelControl16";
+            this.labelControl16.Size = new System.Drawing.Size(76, 16);
+            this.labelControl16.TabIndex = 16;
+            this.labelControl16.Text = "DESCUENTO:";
+            // 
+            // txtt_importeTotal
+            // 
+            this.txtt_importeTotal.Location = new System.Drawing.Point(395, 99);
+            this.txtt_importeTotal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtt_importeTotal.Name = "txtt_importeTotal";
+            this.txtt_importeTotal.Properties.ReadOnly = true;
+            this.txtt_importeTotal.Size = new System.Drawing.Size(124, 22);
+            this.txtt_importeTotal.TabIndex = 15;
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(288, 76);
+            this.labelControl15.Location = new System.Drawing.Point(288, 105);
             this.labelControl15.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(101, 16);
@@ -547,14 +562,14 @@
             this.labelControl14.TabIndex = 12;
             this.labelControl14.Text = "TOTAL:";
             // 
-            // textEdit1
+            // txtVentaOriginal
             // 
-            this.textEdit1.Location = new System.Drawing.Point(121, 66);
-            this.textEdit1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.ReadOnly = true;
-            this.textEdit1.Size = new System.Drawing.Size(124, 22);
-            this.textEdit1.TabIndex = 11;
+            this.txtVentaOriginal.Location = new System.Drawing.Point(121, 66);
+            this.txtVentaOriginal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtVentaOriginal.Name = "txtVentaOriginal";
+            this.txtVentaOriginal.Properties.ReadOnly = true;
+            this.txtVentaOriginal.Size = new System.Drawing.Size(124, 22);
+            this.txtVentaOriginal.TabIndex = 11;
             // 
             // labelControl13
             // 
@@ -670,6 +685,31 @@
             this.labelControl12.TabIndex = 6;
             this.labelControl12.Text = "IMPORTE NOTA:";
             // 
+            // dgv_data
+            // 
+            this.dgv_data.AllowUserToAddRows = false;
+            this.dgv_data.AllowUserToDeleteRows = false;
+            this.dgv_data.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgv_data.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgv_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_data.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_data.Location = new System.Drawing.Point(511, 350);
+            this.dgv_data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dgv_data.Name = "dgv_data";
+            this.dgv_data.ReadOnly = true;
+            this.dgv_data.RowTemplate.Height = 24;
+            this.dgv_data.Size = new System.Drawing.Size(1054, 537);
+            this.dgv_data.TabIndex = 1018;
+            this.dgv_data.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_data_CellValueChanged);
+            // 
+            // BTN_LIMPIAR
+            // 
+            this.BTN_LIMPIAR.Caption = "LIMPIAR";
+            this.BTN_LIMPIAR.Id = 4;
+            this.BTN_LIMPIAR.ImageOptions.LargeImage = global::SILVER_E.Properties.Resources.none_32x32;
+            this.BTN_LIMPIAR.Name = "BTN_LIMPIAR";
+            this.BTN_LIMPIAR.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BTN_LIMPIAR_ItemClick);
+            // 
             // frm_cobranza
             // 
             this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
@@ -688,7 +728,6 @@
             this.Text = "COBRANZA";
             this.Load += new System.EventHandler(this.frm_cobranza_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
             this.dockPanel2.ResumeLayout(false);
             this.dockPanel2_Container.ResumeLayout(false);
@@ -705,9 +744,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.GroupControl1)).EndInit();
             this.GroupControl1.ResumeLayout(false);
             this.GroupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TXT_TOTAL_DESCUENTO.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtt_importeTotal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_total.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtVentaOriginal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_descuento.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_t_subtotal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GroupControl2)).EndInit();
@@ -716,6 +756,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_diferencia_pagar.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_devolucion.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_importe_nota.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_data)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -727,7 +768,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
         private DevExpress.XtraBars.BarButtonItem BTN_SAVE;
         public DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
-        internal System.Windows.Forms.DataGridView dgv_data;
         private DevExpress.XtraBars.Docking.DockManager dockManager1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit TXT_PEDIDO;
@@ -755,11 +795,11 @@
         internal DevExpress.XtraEditors.LabelControl labelControl10;
         internal DevExpress.XtraEditors.TextEdit txt_total;
         internal DevExpress.XtraEditors.LabelControl labelControl14;
-        internal DevExpress.XtraEditors.TextEdit textEdit1;
+        internal DevExpress.XtraEditors.TextEdit txtVentaOriginal;
         internal DevExpress.XtraEditors.LabelControl labelControl13;
         internal DevExpress.XtraEditors.TextEdit txt_diferencia_pagar;
         internal DevExpress.XtraEditors.LabelControl labelControl9;
-        internal DevExpress.XtraEditors.TextEdit textEdit2;
+        internal DevExpress.XtraEditors.TextEdit txtt_importeTotal;
         internal DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraGrid.Views.Grid.GridView G_PEDIDO;
         internal DevExpress.XtraEditors.GroupControl groupControl3;
@@ -779,5 +819,9 @@
         public DevExpress.XtraBars.Docking.DockPanel dockPanel2;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         public DevExpress.XtraBars.Docking.DockPanel dockPanel1;
+        public System.Windows.Forms.DataGridView dgv_data;
+        internal DevExpress.XtraEditors.LabelControl labelControl16;
+        internal DevExpress.XtraEditors.TextEdit TXT_TOTAL_DESCUENTO;
+        private DevExpress.XtraBars.BarButtonItem BTN_LIMPIAR;
     }
 }

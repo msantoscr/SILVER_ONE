@@ -210,6 +210,12 @@
     <Compile Include="Admininistrador\frm_warehouse.Designer.cs">
       <DependentUpon>frm_warehouse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admininistrador\ReporteCobranzaRemision.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteCobranzaRemision.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Admininistrador\ReporteVenta.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -322,6 +328,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admininistrador\frm_warehouse.resx">
       <DependentUpon>frm_warehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admininistrador\ReporteCobranzaRemision.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteCobranzaRemision.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Admininistrador\ReporteVenta.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
